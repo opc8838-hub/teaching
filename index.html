@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f4ed" />
+  <meta name="description" content="一堂给普通人的 90 分钟 AI 智能体入门课：听懂 Agent、Skill，亲手完成一个可复用的办公小帮手。" />
+  <title>把 AI 用起来 · 智能体入门课</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="reading-line" aria-hidden="true"><span id="reading-progress"></span></div>
+  <a class="skip-link" href="#main">跳到课程内容</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页"><span class="brand-symbol">A<span>·</span>S</span><span class="brand-name">把 AI 用起来<br><small>AGENT / SKILL 课堂</small></span></a>
+    <nav class="desktop-nav" aria-label="课程导航">
+      <a href="#concepts">认识概念</a><a href="#compare">看清区别</a><a href="#agenda">90 分钟</a><a href="#workshop">跟着做</a><a href="#quiz">验收学习</a>
+    </nav>
+    <div class="header-actions"><button class="text-button" id="present-mode" type="button" aria-pressed="false">投影模式 <span aria-hidden="true">↗</span></button><a class="header-cta" href="#workshop">开始实操 <span aria-hidden="true">↗</span></a></div>
+    <button class="mobile-menu-button" id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="打开导航">☰</button>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="手机课程导航" hidden><a href="#concepts">认识概念</a><a href="#compare">看清区别</a><a href="#agenda">90 分钟</a><a href="#workshop">跟着做</a><a href="#quiz">验收学习</a></nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-kicker"><span class="live-dot"></span> 给普通人的 AI 实用课 <span class="hero-kicker-divider"></span> 90 MIN / 30 PEOPLE</div>
+      <div class="hero-title t-stagger is-shown"><h1 class="t-stagger-line t-stagger-line--1">把 AI<br><em>用起来</em><span class="hero-period">.</span></h1><p class="t-stagger-line t-stagger-line--2">看懂智能体和技能。<br>带走一个真正能复用的办公小帮手。</p></div>
+      <div class="hero-bottom"><div class="hero-note"><span class="note-index">01 / START HERE</span><span>从一次真实的工作任务开始：<br>把零散会议记录变成纪要与待办。</span></div><a class="round-link" href="#concepts" aria-label="向下认识概念"><span>向下<br>探索</span><span aria-hidden="true">↓</span></a></div>
+      <div class="hero-watermark" aria-hidden="true">AGENT</div>
+    </section>
+
+    <section class="intro section-pad" id="concepts">
+      <div class="section-label"><span>01</span><span>先把三件事讲明白</span></div>
+      <div class="intro-layout"><div><h2>它们分别<br>在做什么<span class="orange">？</span></h2><p class="section-lead">先别背术语。想象你刚开完一场活动筹备会，手里只有一份零散记录。</p></div><div class="concept-list">
+        <article class="concept-row"><span class="concept-number">01</span><div><div class="concept-heading"><h3>聊天机器人</h3><span>CHATBOT</span></div><p>你把记录发给它，它在对话里回答：“这是整理好的纪要。”</p></div><span class="concept-mark" aria-hidden="true">↗</span></article>
+        <article class="concept-row"><span class="concept-number">02</span><div><div class="concept-heading"><h3>智能体</h3><span>AGENT</span></div><p>你交代目标，它在授权范围内拆步骤、用工具、处理材料，交付可检查的结果。</p></div><span class="concept-mark" aria-hidden="true">↗</span></article>
+        <article class="concept-row"><span class="concept-number">03</span><div><div class="concept-heading"><h3>技能</h3><span>SKILL</span></div><p>把“纪要怎样整理、缺失信息怎样标记”等工作方法保存起来，下次继续用。</p></div><span class="concept-mark" aria-hidden="true">↗</span></article>
+      </div></div>
+      <div class="memory-line"><span>记住这一句</span><strong>聊天是交流方式，Agent 是办事机制，Skill 是可复用的工作方法。</strong></div>
+    </section>
+
+    <section class="compare-section section-pad" id="compare">
+      <div class="section-label light"><span>02</span><span>同一件事，看出差别</span></div>
+      <div class="compare-heading"><h2>一句需求，<br><em>三种用法。</em></h2><p>点击切换，看看“请整理这份会议记录”在三种方式下意味着什么。</p></div>
+      <div class="compare-console">
+        <div class="compare-topline"><span>场景 / 活动筹备会</span><span class="console-leds" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="compare-tabs t-tabs" role="tablist" aria-label="选择 AI 使用方式"><span class="t-tabs-pill" aria-hidden="true"></span><button class="t-tab" type="button" role="tab" aria-selected="true" aria-controls="compare-panel" data-tab="chat">聊天机器人</button><button class="t-tab" type="button" role="tab" aria-selected="false" aria-controls="compare-panel" data-tab="agent">智能体 Agent</button><button class="t-tab" type="button" role="tab" aria-selected="false" aria-controls="compare-panel" data-tab="skill">技能 Skill</button></div>
+        <div class="compare-content" id="compare-panel" role="tabpanel" tabindex="0"><div class="compare-output"><span class="output-eyebrow" id="compare-eyebrow">01 / 对话</span><h3 id="compare-title">问一句，答一句。</h3><p id="compare-description">你给它记录，它在聊天窗口生成一段纪要文字。后续保存、整理成文件，通常还需要你继续操作或提出要求。</p><div class="output-steps" id="compare-steps"><span>给材料</span><span>获得文字回复</span></div></div><div class="compare-stamp" id="compare-stamp" aria-hidden="true">聊</div></div>
+      </div>
+      <p class="compare-caption">豆包、元宝是产品名称。一个产品可以同时提供聊天、搜索、文件处理或智能体能力；这里比较的是做事方式。</p>
+    </section>
+
+    <section class="agenda section-pad" id="agenda">
+      <div class="section-label"><span>03</span><span>一节课的路线</span></div><div class="agenda-head"><h2>90 分钟，<br><em>每一步都有收获。</em></h2><p>概念讲短一点，动手留足时间。全班两人一组，第二轮交换操作。</p></div>
+      <div class="timeline" aria-label="课程时间表">
+        <div class="timeline-row"><time>00—08′</time><div><strong>从工作烦恼进入</strong><span>看看杂乱记录如何变成可用成果</span></div><b>开场</b></div>
+        <div class="timeline-row"><time>08—23′</time><div><strong>听懂三个概念</strong><span>聊天机器人、Agent、Skill</span></div><b>理解</b></div>
+        <div class="timeline-row"><time>23—40′</time><div><strong>老师演示一次</strong><span>看任务表达、执行与人工验收</span></div><b>示范</b></div>
+        <div class="timeline-row timeline-feature"><time>40—65′</time><div><strong>跟做一个 Skill</strong><span>用会议记录练习，保存工作方法</span></div><b>实操</b></div>
+        <div class="timeline-row"><time>65—77′</time><div><strong>换材料，再用一次</strong><span>验证 Skill 真的可以复用</span></div><b>复用</b></div>
+        <div class="timeline-row"><time>77—90′</time><div><strong>找错、测验、带回去</strong><span>知道结果怎样检查，明天怎样用</span></div><b>验收</b></div>
+      </div>
+    </section>
+
+    <section class="workshop section-pad" id="workshop">
+      <div class="section-label"><span>04</span><span>现在轮到你动手</span></div><div class="workshop-heading"><div><h2>做一个<br><em>会议整理小助手。</em></h2><p>选用 WorkBuddy 跟做。先完成任务，再保存为 Skill，最后换一份材料重新调用。</p></div><div class="workshop-progress"><span id="step-count">01 / 04</span><small>完成一个能重复使用的技能</small></div></div>
+      <div class="workshop-shell"><aside class="step-nav" aria-label="实操步骤"><button type="button" class="step-button active" data-step="0"><span>01</span><strong>拿到材料</strong><small>认识输入</small></button><button type="button" class="step-button" data-step="1"><span>02</span><strong>交代任务</strong><small>复制任务说明</small></button><button type="button" class="step-button" data-step="2"><span>03</span><strong>保存技能</strong><small>复制创建说明</small></button><button type="button" class="step-button" data-step="3"><span>04</span><strong>换材料验证</strong><small>检查能否复用</small></button></aside><div class="workshop-stage" id="workshop-stage" tabindex="-1"></div></div>
+      <div class="workshop-note"><span>课堂提醒</span><p>练习材料均为虚构。单位资料请遵守本单位的使用规定；提交前先去除敏感信息。</p></div>
+    </section>
+
+    <section class="verify section-pad" id="verify">
+      <div class="section-label light"><span>05</span><span>AI 结果也需要验收</span></div><div class="verify-layout"><div><h2>写得顺，<br><em>也要查得准。</em></h2><p>下面是一段“AI 整理后的待办”。对照原始记录，点击你认为有问题的内容。</p><button class="outline-light" type="button" id="verify-reset">重新检查 ↺</button></div><div class="verify-paper"><div class="verify-paper-head"><span>活动筹备会 · 待办摘录</span><span>查错练习</span></div><p>活动定于 <button class="verify-token" data-issue="date" type="button">11 月 15 日</button> 举办。物料清单由 <button class="verify-token" data-issue="owner" type="button">李老师负责</button>，场地候选方案由王老师下周带来。宣传文案在周五前提交初稿。</p><div class="verify-feedback" id="verify-feedback" role="status">找出两处被 AI 擅自补上的信息。</div><div class="verify-score"><span id="verify-count">0 / 2 找到</span><span>依据：原始记录</span></div></div></div>
+    </section>
+
+    <section class="quiz section-pad" id="quiz"><div class="section-label"><span>06</span><span>用三个判断带走知识</span></div><div class="quiz-layout"><div><h2>最后，<br><em>测测自己。</em></h2><p>答完这三题，就能分清概念、判断下一步动作。</p><div class="quiz-progress"><span id="quiz-progress-text">问题 01 / 03</span><span class="quiz-dots" id="quiz-dots" aria-hidden="true"><i class="current"></i><i></i><i></i></span></div></div><div class="quiz-card" id="quiz-card" aria-live="polite"></div></div></section>
+
+    <section class="takeaway section-pad"><span class="takeaway-small">课后真正带走的东西</span><h2>一个技能，<br><em>一种检查结果的方法，</em><br>明天就能用的一件事。</h2><div class="takeaway-links"><a href="#workshop">再做一次练习 <span>↗</span></a><a href="#top">回到开头 <span>↑</span></a></div></section>
+  </main>
+  <footer class="footer"><div><strong>A<span>·</span>S</strong><span>把 AI 用起来 / 90 分钟互动课</span></div><div class="footer-links"><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market" target="_blank" rel="noopener noreferrer">WorkBuddy 技能说明 ↗</a><a href="https://github.com/Jakubantalik/transitions.dev" target="_blank" rel="noopener noreferrer">动效来源：Transitions.dev ↗</a></div></footer>
+</body>
+</html>
