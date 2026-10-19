@@ -1,34 +1,33 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fafaf8">
-  <meta name="description" content="31 屏、90 分钟的 AI 智能体与技能互动入门课。">
-  <title>AI 会聊天，也能办事 · Agent / Skill 入门课</title>
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="90 分钟 WorkBuddy 封面图 Skill 实操课">
+  <title>亲手做一个封面图 Skill · WorkBuddy 实操课</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./swiss.css">
   <script src="./content.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#deck">跳到课件</a>
-  <header class="chrome">
-    <a class="logo" href="#slide-1" aria-label="回到第一页"><span class="logo-mark">A<span>·</span>S</span><span class="logo-copy">AI 会聊天，也能办事<small>AGENT / SKILL 入门课</small></span></a>
-    <div class="chrome-center"><span class="chapter-name" id="chapter-name">开场</span><span class="chrome-dash"></span><span id="slide-title">把 AI 用起来</span></div>
-    <div class="chrome-actions"><button class="chrome-button" id="notes-button" type="button" aria-expanded="false" aria-controls="notes-panel">讲师备注 <kbd>N</kbd></button><button class="chrome-button" id="menu-button" type="button" aria-expanded="false" aria-controls="menu-panel">全部页面 <span class="menu-icon" aria-hidden="true">☷</span></button></div>
+  <header class="topbar">
+    <a class="brand" href="#slide-1" id="home-link"><span class="brand-mark">A<span>↗</span>S</span><span class="brand-sub">WORKBUDDY<br>现场实操课</span></a>
+    <div class="top-context"><span id="chapter-name">开场</span><i></i><span id="slide-title">亲手做一个封面图 Skill</span></div>
+    <div class="top-actions"><button id="notes-button" aria-expanded="false" aria-controls="notes-panel" type="button">讲师备注 <kbd>N</kbd></button><button id="menu-button" aria-expanded="false" aria-controls="menu-panel" type="button">课程目录 <span aria-hidden="true">☷</span></button></div>
   </header>
-  <main id="deck" class="deck" aria-label="课程页面"></main>
-  <footer class="deck-controls">
-    <div class="deck-position"><span id="current-number">01</span><span class="position-slash">/</span><span id="total-number">31</span><span class="position-label" id="position-label">把 AI 用起来</span></div>
-    <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
-    <div class="deck-arrows"><span class="control-hint">滚动 / 上下键切换</span><button type="button" id="prev-button" aria-label="上一页">↑</button><button type="button" id="next-button" aria-label="下一页">↓</button></div>
+  <main class="deck" id="deck" aria-label="课程页面"></main>
+  <footer class="bottombar">
+    <div class="page-count"><b id="current-number">01</b><span>/</span><span id="total-number">16</span><small id="position-label">亲手做一个封面图 Skill</small></div>
+    <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+    <div class="nav-actions"><span>滚轮 / 方向键 / 上下滑</span><button id="prev-button" type="button" aria-label="上一屏">↑</button><button id="next-button" type="button" aria-label="下一屏">↓</button></div>
   </footer>
-  <aside id="notes-panel" class="notes-panel" hidden aria-label="当前页讲师备注"><div class="panel-head"><strong>讲师备注</strong><button type="button" id="close-notes" aria-label="关闭备注">×</button></div><div id="notes-content"></div></aside>
-  <aside id="menu-panel" class="menu-panel" hidden aria-label="课件目录"><div class="panel-head"><strong>跳到任意一页</strong><button type="button" id="close-menu" aria-label="关闭目录">×</button></div><div id="menu-list" class="menu-list"></div></aside>
-  <div id="announcement" class="announcement" role="status" aria-live="polite"></div>
+  <aside class="panel notes-panel" id="notes-panel" hidden aria-label="讲师备注"><div class="panel-head"><strong>讲师备注</strong><button id="close-notes" type="button" aria-label="关闭讲师备注">×</button></div><div id="notes-content"></div></aside>
+  <aside class="panel menu-panel" id="menu-panel" hidden aria-label="课程目录"><div class="panel-head"><strong>课程目录</strong><button id="close-menu" type="button" aria-label="关闭课程目录">×</button></div><div class="menu-list" id="menu-list"></div></aside>
+  <div class="toast" id="announcement" role="status" aria-live="polite"></div>
 </body>
 </html>

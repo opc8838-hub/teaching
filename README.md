@@ -1,33 +1,39 @@
-# AI 会聊天，也能办事
+# 亲手做一个封面图 Skill
 
-给约 30 位零基础职场学员准备的 90 分钟互动课。网站是一个文档中的 31 个全屏章节；滚轮、触摸上滑、方向键或底部按钮每次切换一屏。
+给约 30 位零基础职场学员准备的 90 分钟 WorkBuddy 现场实操课
 
-## 课程内容
+[打开在线课件](https://opc8838-hub.github.io/teaching/)
 
-- 解释聊天机器人、Agent、Skill，以及豆包、元宝、WorkBuddy 这些产品与能力名称的关系。
-- 用对比表、情境选择和任务说明四要素，练习判断何时聊天、何时交代任务、何时保存方法。
-- 两人一组在 WorkBuddy 中处理材料 A，核对事实、创建“会议纪要与待办整理”Skill，再用材料 B 在新任务中调用和验收。
-- 找出 AI 擅自补写的两处信息，完成三道判断题。练习记录均为虚构。
+## 课程路线
 
-每屏都有讲师备注、建议用时和课堂动作，合计 90 分钟。按 **N** 或点右上角“讲师备注”查看。讲师可通过“全部页面”直达任一屏。
+网站只有一个文档，包含 16 屏，滚轮或方向键一次切换一屏，手机可用底部箭头切换，长内容可在当前屏内继续阅读
 
-## 课堂准备
+1. 打开 WorkBuddy 并认识新任务、Agent 模式、产物区
+2. 用公共练习题生成第一张封面图，下载并检查
+3. 把自己的主题、标题、受众、场景、画幅和风格填入网页，生成可复制指令
+4. 按官方入口创建封面图 Skill，检查生成的规则并保存
+5. 在「已安装」找到 Skill，从新任务调用，换主题复测
+6. 对照两次结果验收文字、画幅、事实和可下载文件
 
-提前确认投影、网络、WorkBuddy 账号和 Skill 创建入口可用。建议 15 组，每组两人：一人操作，一人按原始材料验收，中途交换。产品入口或名称若有变化，以当时界面为准。网站提供练习材料和指令，Skill 需在学员自己的 WorkBuddy 账号中创建。
+每屏有讲师备注和课堂动作，建议时间合计 90 分钟，按 N 可查看讲师备注，课程目录可直达任意屏
 
-## 使用与发布
+## 课堂组织
 
-[在线打开课件](https://opc8838-hub.github.io/teaching/)。键盘支持 ↑ / ↓、PageUp / PageDown、空格、Home / End；手机可上滑或点击底部箭头。URL 锚点随当前屏更新。
+建议 15 组两人互助，讲师提前检查投影、网络、WorkBuddy 账号与图片生成能力，个人账号暂时无法登录的学员可先和同桌共用一台电脑并保留自己的指令
 
-零依赖静态网站。直接打开 `index.html` 即可阅读；复制按钮建议通过 localhost 或 HTTPS 使用。推送到 `main` 后，GitHub Actions 发布 `index.html`、`styles.css`、`swiss.css`、`content.js`、`app.js` 到 GitHub Pages。
+网站只负责组织教学与复制指令，实际图片和 Skill 由学员在自己的 WorkBuddy 账号中创建，产品入口和可用能力以现场版本与账号为准
 
-## 视觉与动效
+## 官方参考
 
-视觉采用 [guizang-ppt-skill 的瑞士国际主义 Style B](https://github.com/op7418/guizang-ppt-skill) 作为设计方法：16 列网格思路、Inter / Noto Sans SC、暖白与黑灰、克莱因蓝单一强调色、直角纯色块、发丝线和强烈的字号对比。为了适合这堂实操培训，保留原站的纵向逐屏交互、31 屏内容和练习功能，以独立的 `swiss.css` 实现风格；未直接拷贝该 Skill 的横向演讲模板或运行时代码。
+- [WorkBuddy 首次任务](https://www.workbuddy.cn/docs/workbuddy/FirstTask)
+- [WorkBuddy 技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+- [WorkBuddy 新建任务栏](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Task-Bar)
+- [WorkBuddy 设计创意](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Design-Idea)
 
-标题逐字入场与逐屏过渡延续 [Transitions.dev](https://github.com/Jakubantalik/transitions.dev) 的动效思路，并支持系统“减少动态效果”设置。Transitions.dev © Jakub Antalik，见其 [许可证](https://github.com/Jakubantalik/transitions.dev/blob/main/LICENSE)。
+## 设计与运行
 
-## 资料
+纯静态网页，打开 index.html 即可预览，部署到 GitHub Pages 后可以直接复制指令
 
-- [WorkBuddy 简介](https://www.workbuddy.cn/docs/workbuddy/Overview)
-- [WorkBuddy 技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+页面采用国际瑞士风格的网格、硬边界与高对比字体层级，参考用户指定的 [归藏 PPT Skill](https://github.com/op7418/guizang-ppt-skill) 与 [oil-ui-pro](https://github.com/oil-oil/oil-ui-pro)，逐字入场与逐屏过渡借鉴 [Transitions.dev](https://github.com/Jakubantalik/transitions.dev) 的运动方式，并支持系统减少动态效果设置
+
+网站正文不使用中文句号
