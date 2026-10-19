@@ -1,33 +1,31 @@
-# 把 AI 用起来
+# AI 会聊天，也能办事
 
-给约 30 位零基础职场学员使用的 90 分钟互动课网站。内容围绕聊天机器人、Agent、Skill 的区别，以及在 WorkBuddy 中创建和复用“会议纪要与待办整理”技能。
+给约 30 位零基础职场学员准备的 90 分钟互动课。全站是一张网页，包含 31 个全屏章节；滚轮、触摸上滑、方向键或页面底部按钮每次切换一屏。视觉参考用户提供的薄荷绿/深海军蓝界面。
 
-## 课堂使用
+## 课程内容
 
-1. 用首页开场，介绍课程成果。
-2. 在“认识概念”和“看清区别”中讲解三个概念，并让学员点击切换观察。
-3. 按时间表进入实操。学员两人一组，先用练习材料 A 完成任务，再保存 Skill，最后用材料 B 在新任务中验证。
-4. 用“AI 结果也需要验收”和三题测验收尾。
+- 从真实的会议记录引入，解释聊天机器人、Agent、Skill，以及豆包、元宝、WorkBuddy 这些产品与能力名称的关系。
+- 用对比表、情境选择和任务说明四要素，帮助学员判断何时聊天、何时交代任务、何时保存方法。
+- 两人一组在 WorkBuddy 中处理材料 A，核对事实、创建“会议纪要与待办整理”Skill，再用材料 B 在新任务中调用和验收。
+- 找出 AI 擅自补写的两处信息，完成三道判断题。练习记录为虚构材料。
 
-课堂需要提前确认 WorkBuddy 账号、网络与创建 Skill 的入口可用。练习材料均为虚构。网页负责教学引导、复制指令与练习反馈；真正的 Skill 在学员的 WorkBuddy 账号中创建。
+全站每屏都有讲师备注、建议用时和课堂动作，合计 90 分钟。按 **N** 键或点右上角“讲师备注”查看。讲师可用右上角“全部页面”直达任一屏；远距离跳页立即定位，日常翻页带逐屏过渡。标题有逐字入场、模糊消散与位移动效，封面曲线有描绘动效；尊重系统的“减少动态效果”设置。
 
-## 本地运行
+## 课堂准备
 
-这是零依赖静态网站。直接打开 `index.html` 可以阅读；为使用剪贴板复制按钮，建议通过本地服务器打开：
+提前确认投影、网络、WorkBuddy 账号和 Skill 创建入口可用。建议 15 组，每组两人：一人操作，一人按原始材料验收，中途交换。若产品入口或名称变化，以当时界面为准；网站中的复制按钮提供完整练习材料和指令，真正的 Skill 需在学员自己的 WorkBuddy 账号里创建。
 
-```bash
-python -m http.server 8765
-```
+## 使用与发布
 
-然后访问 `http://localhost:8765/`。推送到 `main` 后，GitHub Actions 会发布到 GitHub Pages。
+直接打开 [在线课件](https://opc8838-hub.github.io/teaching/)。键盘支持 ↑ / ↓、PageUp / PageDown、空格、Home / End；手机可上滑或点击底部箭头。页面只有一个文档，进度与 URL 锚点随当前屏更新。
 
-## 设计与动效
+这是零依赖静态网站。可直接打开 `index.html`；复制按钮建议通过 localhost 或 HTTPS 使用。推送到 `main` 后，GitHub Actions 自动发布 `index.html`、`styles.css`、`content.js` 和 `app.js` 到 GitHub Pages。
 
-设计遵循 `oil-ui-pro 0.10.0` 的方法：以课堂学习路径为主角，用大字、清楚的对比和可见的操作结果组织页面。桌面投影和手机跟做均可使用。
+## 设计与动效来源
 
-交互采用 [Transitions.dev](https://github.com/Jakubantalik/transitions.dev) 的免费过渡方案并按本站调整：概念切换使用 sliding tabs，完成反馈使用 success check。相关 CSS 保留 `t-*` 类名，并提供 `prefers-reduced-motion` 支持。Transitions.dev 版权所有 © 2026 Jakub Antalik，使用受其[许可条款](https://github.com/Jakubantalik/transitions.dev/blob/main/LICENSE)约束。
+界面按 `oil-ui-pro 0.10.0` 的视觉与交互方法设计。文字逐字揭示、层级过渡和曲线描绘参考 [Transitions.dev](https://github.com/Jakubantalik/transitions.dev) 的动效思路，使用本站的 CSS 与 JavaScript 实现，并提供减少动态效果支持。Transitions.dev © Jakub Antalik，见其 [LICENSE](https://github.com/Jakubantalik/transitions.dev/blob/main/LICENSE)。
 
-## 资料来源
+## 资料
 
 - [WorkBuddy 简介](https://www.workbuddy.cn/docs/workbuddy/Overview)
 - [WorkBuddy 技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
