@@ -46,7 +46,7 @@ window.lessonSlides = [
   },
   {
     chapter:'认识概念', title:'Agent 的工作循环', theme:'paper', layout:'flow-layout', footer:'任务越长，越要设置检查点。',
-    html:'<div class="slide-intro"><span class="eyebrow">AGENT 的四步循环</span><h2 class="kinetic">看起来像“会办事”，<br><em>其实有章可循。</em></h2></div><div class="process-flow"><div><b>01</b><strong>理解目标</strong><p>你到底要交付什么？</p></div><i>→</i><div><b>02</b><strong>规划步骤</strong><p>先做什么，后做什么？</p></div><i>→</i><div><b>03</b><strong>使用工具</strong><p>处理文件、查找、整理。</p></div><i>→</i><div><b>04</b><strong>检查交付</strong><p>结果是否符合要求？</p></div></div>',
+    html:'<div class="slide-intro"><span class="eyebrow">AGENT 的四步循环</span><h2 class="kinetic">Agent 办事，<br><em>有四个步骤。</em></h2></div><div class="process-flow"><div><b>01</b><strong>理解目标</strong><p>你到底要交付什么？</p></div><i>→</i><div><b>02</b><strong>规划步骤</strong><p>先做什么，后做什么？</p></div><i>→</i><div><b>03</b><strong>使用工具</strong><p>处理文件、查找、整理。</p></div><i>→</i><div><b>04</b><strong>检查交付</strong><p>结果是否符合要求？</p></div></div>',
     notes:'请学员用自己的工作任务替换“整理会议”：例如把每周问题整理成报告。每一步都要能说出人工检查什么。'
   },
   {
@@ -160,8 +160,8 @@ window.lessonSlides = [
     notes:'正确答案是核实后标注待确认。把核查做成工作习惯：日期、人名、数字、结论都要回到来源。'
   },
   {
-    chapter:'复盘', title:'明天就用一次', theme:'dark', layout:'closing', footer:'内容参考 WorkBuddy 官方技能说明；动效参考 transitions.dev。',
-    html:'<div class="closing-label">课程结束 / 从明天开始</div><h2 class="kinetic">一个任务。<br>一个方法。<br><em>一次认真验收。</em></h2><p class="reveal">选一件你下周还会重复做的工作，<br>用今天的四要素重新交代给 AI。</p><div class="closing-links"><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market" target="_blank" rel="noopener noreferrer">WorkBuddy 技能说明 ↗</a><a href="https://github.com/Jakubantalik/transitions.dev" target="_blank" rel="noopener noreferrer">动效来源 ↗</a></div>',
+    chapter:'复盘', title:'明天就用一次', theme:'dark', layout:'closing', footer:'今天带走一个任务、一套方法，以及核实结果的习惯。',
+    html:'<div class="closing-label">课程结束 / 从明天开始</div><h2 class="kinetic">一个任务。<br>一个方法。<br><em>一次认真验收。</em></h2><p class="reveal">选一件你下周还会重复做的工作，<br>用今天的四要素重新交代给 AI。</p><div class="closing-links"><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market" target="_blank" rel="noopener noreferrer">WorkBuddy 技能说明 ↗</a></div>',
     notes:'请每个人写下明天要试的一个任务，不要求复杂。课程收束到三个动作：明确任务、复用方法、核实结果。'
   }
 ];
