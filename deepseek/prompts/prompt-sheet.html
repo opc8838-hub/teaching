@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>璇剧▼鎻愮ず璇嶆墜鍐?路 璁插笀澶嶅埗鐗?/title>
+<title>课程提示词手册 · 讲师复制版</title>
 <style>
 :root{--paper:#f5f4ef;--card:#fffef9;--ink:#11130f;--ink2:#3b3d36;--muted:#77796f;--line:#d8d6cc;--blue:#143bb5;--yellow:#f5ee36;--mono:Consolas,"Cascadia Mono","Courier New",monospace}
 *{box-sizing:border-box}
@@ -56,187 +56,252 @@ td b{color:var(--blue)}
 
 <header class="hero">
   <div class="wrap">
-    <div class="kicker">DeepSeek 瀹堕暱瀹炴搷璇?路 璁插笀澶嶅埗鐗?/div>
-    <h1>璇剧▼鎻愮ず璇嶆墜鍐?/h1>
-    <p class="lead">鎸変笂璇鹃『搴忔帓濂戒簡銆傛瘡涓唬鐮佸潡鍙充笂瑙掑彲浠ュ崟鐙鍒讹紱鍏堝仛鐜鑷锛屽啀鍋氭父鎴忥紝鍐嶅仛鏃ユ姤銆?/p>
+    <div class="kicker">DeepSeek 家长实操课 · 讲师复制版</div>
+    <h1>课程提示词手册</h1>
+    <p class="lead">按上课顺序排好了。每个代码块右上角可以单独复制；先做环境自检，再做游戏，再做日报。</p>
     <div class="hero-actions">
-      <a class="btn primary" href="../course/index.html">鈫?鍥炲埌璇句欢</a>
-      <button class="btn" type="button" onclick="window.print()">鎵撳嵃 / 瀛?PDF</button>
-      <a class="btn" href="game-v2/README.md">娓告垙鎻愮ず璇嶅寘</a>
-      <a class="btn" href="daily/README.md">鏃ユ姤鎵嬪唽</a>
+      <a class="btn primary" href="../course/index.html">← 回到课件</a>
+      <button class="btn" type="button" onclick="window.print()">打印 / 存 PDF</button>
+      <a class="btn" href="game-v2/README.md">游戏提示词包</a>
+      <a class="btn" href="daily/README.md">日报手册</a>
     </div>
   </div>
 </header>
 
 <nav><div class="wrap">
-  <a href="#env">00 鐜鑷</a>
-  <a href="#game">01 娓告垙</a>
-  <a href="#daily">02 鏃ユ姤</a>
-  <a href="#flow">03 璇惧爞椤哄簭</a>
+  <a href="#env">00 环境自检</a>
+  <a href="#game">01 游戏</a>
+  <a href="#daily">02 日报</a>
+  <a href="#flow">03 课堂顺序</a>
 </div></nav>
 
 <main>
 
 <section id="env">
-  <h2>00 路 鍏堝仛鐜鑷锛?em>鍐嶅啓鎻愮ず璇?/em></h2>
-  <p class="sub">澶у鐢ㄧ殑閮芥槸 DeepSeek 妗岄潰鐗堬紝浣嗙綉缁滅幆澧冧笉涓€鏍枫€傚厛纭涓変欢浜嬶細妯″瀷銆佽仈缃戙€佹潵婧愩€?/p>
+  <h2>00 · 先做环境自检，<em>再写提示词</em></h2>
+  <p class="sub">大家用的都是 DeepSeek 桌面版，但网络环境不一样。先确认三件事：模型、联网、来源。</p>
 
-  <div class="note"><b>涓変欢浜?/b>銆€鈶?妯″瀷閫夋渶鏂板彲鐢紱鈶?妗岄潰鐗堣嚜甯﹁仈缃戞悳绱紝涓嶉渶瑕侀澶栨彃浠讹紱鈶?鍥藉缃戠珯鎵撲笉寮€涓嶅奖鍝嶆棩鎶ワ紝榛樿鐢ㄥ浗鍐呮潵婧愩€?/div>
+  <div class="note"><b>三件事</b>　① 模型选最新可用；② 桌面版自带联网搜索，不需要额外插件；③ 国外网站打不开不影响日报，默认用国内来源。</div>
 
   <div class="block">
-    <div class="block-head"><b>鑷 1 路 鑱旂綉鑳戒笉鑳界敤</b><button class="copy" type="button" data-copy="env-check">澶嶅埗</button></div>
-    <pre id="env-check">璇风敤鑱旂綉鎼滅储鏌ヤ竴鏉′粖澶╃殑鍥藉唴 AI 鏂伴椈锛岀粰鎴戞爣棰樸€侀摼鎺ャ€佹棩鏈熴€?濡傛灉鎵撲笉寮€鎴栦笉鑳借仈缃戯紝鐩存帴璇粹€滄棤娉曡仈缃戔€濓紝涓嶈缂栥€?/pre>
+    <div class="block-head"><b>自检 1 · 联网能不能用</b><button class="copy" type="button" data-copy="env-check">复制</button></div>
+    <pre id="env-check">请用联网搜索查一条今天的国内 AI 新闻，给我标题、链接、日期。
+如果打不开或不能联网，直接说“无法联网”，不要编。</pre>
   </div>
 
   <table>
-    <tr><th>鑷缁撴灉</th><th>璇存槑</th><th>鎬庝箞鍔?/th></tr>
-    <tr><td><b>缁欏嚭鏍囬 + 閾炬帴 + 鏃ユ湡</b></td><td>鑱旂綉鍙敤</td><td>姝ｅ父鍋氭棩鎶?/td></tr>
-    <tr><td><b>璇粹€滄棤娉曡仈缃戔€?/b></td><td>鎼滅储琚鐢?/ 鏂綉</td><td>鍒団€滆祫鏂欏寘妯″紡鈥?/td></tr>
-    <tr><td><b>缁欓摼鎺ヤ絾鎵撲笉寮€</b></td><td>琚 / 鐧诲綍澧?/td><td>鎹㈠浗鍐呮潵婧愶紝鎴栬祫鏂欏寘</td></tr>
+    <tr><th>自检结果</th><th>说明</th><th>怎么办</th></tr>
+    <tr><td><b>给出标题 + 链接 + 日期</b></td><td>联网可用</td><td>正常做日报</td></tr>
+    <tr><td><b>说“无法联网”</b></td><td>搜索被禁用 / 断网</td><td>切“资料包模式”</td></tr>
+    <tr><td><b>给链接但打不开</b></td><td>被墙 / 登录墙</td><td>换国内来源，或资料包</td></tr>
   </table>
 
   <div class="block">
-    <div class="block-head"><b>鑷 2 路 涓嶈兘鑱旂綉鏃剁殑璧勬枡鍖呮ā寮?/b><button class="copy" type="button" data-copy="env-pack">澶嶅埗</button></div>
-    <pre id="env-pack">鎴戜笉鑳借仈缃戙€備笅闈㈡槸浠婂ぉ鐨?3 鏉℃潗鏂欙細
-1. 銆愭爣棰樸€戔€︹€︺€愰摼鎺ャ€戔€︹€︺€愬師鏂?鎽樿銆戔€︹€?2. 銆愭爣棰樸€戔€︹€︺€愰摼鎺ャ€戔€︹€︺€愬師鏂?鎽樿銆戔€︹€?3. 銆愭爣棰樸€戔€︹€︺€愰摼鎺ャ€戔€︹€︺€愬師鏂?鎽樿銆戔€︹€?璇峰彧鍩轰簬杩?3 鏉″啓浠婂ぉ鐨勬棩鎶ワ紱涓嶈琛ュ厖澶栭儴浜嬪疄锛涙病鏈夌殑淇℃伅鍐欌€滄潗鏂欐湭鎻愬強鈥濄€?/pre>
+    <div class="block-head"><b>自检 2 · 不能联网时的资料包模式</b><button class="copy" type="button" data-copy="env-pack">复制</button></div>
+    <pre id="env-pack">我不能联网。下面是今天的 3 条材料：
+1. 【标题】……【链接】……【原文/摘要】……
+2. 【标题】……【链接】……【原文/摘要】……
+3. 【标题】……【链接】……【原文/摘要】……
+请只基于这 3 条写今天的日报；不要补充外部事实；没有的信息写“材料未提及”。</pre>
   </div>
 
-  <div class="note"><b>鍥藉唴浼樺厛鏉ユ簮</b>銆€AI锛氭満鍣ㄤ箣蹇冦€侀噺瀛愪綅銆?6Kr銆両nfoQ 涓枃銆佸畼鏂逛腑鏂囧崥瀹紱鏁欒偛锛氭暀鑲查儴/鏁欒偛灞€/瀛︽牎/涓浗鏁欒偛鎶ワ紱閲戣瀺锛氬ぎ琛?缁熻灞€/浜ゆ槗鎵€/宸ㄦ疆/绗竴璐㈢粡锛涙湰鍦帮細鏀垮簻/鏀垮姟鍏紑/骞冲彴瑙勫垯涓績銆侴itHub銆乤rXiv銆丱penAI/Google 瀹樻柟鍗氬锛氳兘鎵撳紑鎵嶇敤锛屼笉浣滀负蹇呴』銆?/div>
+  <div class="note"><b>国内优先来源</b>　AI：机器之心、量子位、36Kr、InfoQ 中文、官方中文博客；教育：教育部/教育局/学校/中国教育报；金融：央行/统计局/交易所/巨潮/第一财经；本地：政府/政务公开/平台规则中心。GitHub、arXiv、OpenAI/Google 官方博客：能打开才用，不作为必须。</div>
 </section>
 
 <section id="game">
-  <h2>01 路 娓告垙锛?em>涓夋 + 鎹㈢礌鏉?/em></h2>
-  <p class="sub">鍏堥鏋讹紝鍐嶇帺娉曪紝鍐?Boss + 鐨偆锛涙渶鍚庢墠鎹㈡湰鍦板浘鐗囥€傛瘡涓€姝ュ仛瀹岋紝鍏堣嚜宸辩偣涓€閬嶃€?/p>
+  <h2>01 · 游戏：<em>三步 + 换素材</em></h2>
+  <p class="sub">先骨架，再玩法，再 Boss + 皮肤；最后才换本地图片。每一步做完，先自己点一遍。</p>
 
-  <h3>绗?1 姝?路 楠ㄦ灦锛堝彧鍋氣€滆兘璺戣兘璺斥€濓級</h3>
+  <h3>第 1 步 · 骨架（只做“能跑能跳”）</h3>
   <div class="block">
-    <div class="block-head"><b>娓告垙 路 楠ㄦ灦鎻愮ず璇?/b><button class="copy" type="button" data-copy="g1">澶嶅埗</button></div>
-    <pre id="g1">璇峰仛涓€涓崟鏂囦欢 HTML 妯増闂叧娓告垙锛屽厛鍙仛鈥滆兘璺戣兘璺斥€濄€?
-銆愮敾椋庛€戝儚绱犺鏈猴細16 浣嶈壊銆佹柟鍧椼€佷寒缁垮拰鍦熼粍锛涚郴缁熼粦浣撱€?銆愪富棰樸€戞亹榫欎笡鏋?銆愪富瑙掋€戝皬鎭愰緳锛堝瀛愭樀绉帮細鏈垫湹锛?銆愰鏋躲€戝乏鍙宠窇銆佺┖鏍艰烦銆侀噸鍔涖€佺煶鍙般€侀暅澶磋窡闅忥紱鍏堜笉瑕佹晫浜恒€佽泲銆丅oss銆?銆愭搷浣溿€戦敭鐩?鈫?鈫?璺戙€佺┖鏍艰烦锛涙墜鏈哄乏涓嬭宸﹀彸閿€佸彸涓嬭璺抽敭銆?銆愭妧鏈€戝崟涓?HTML 鏂囦欢锛屾棤澶栭儴鍥剧墖/瀛椾綋/缃戠粶锛涙墦寮€鍗崇帺锛?0fps銆?銆愰獙鏀躲€戣兘宸﹀彸璺戯紱鑳借烦涓?100px 楂樼殑鍙板瓙锛涙帀杩涘潙閲岃兘閲嶆潵锛涙墜鏈烘寜閽兘鐢ㄣ€?/pre>
+    <div class="block-head"><b>游戏 · 骨架提示词</b><button class="copy" type="button" data-copy="g1">复制</button></div>
+    <pre id="g1">请做一个单文件 HTML 横版闯关游戏，先只做“能跑能跳”。
+
+【画风】像素街机：16 位色、方块、亮绿和土黄；系统黑体。
+【主题】恐龙丛林
+【主角】小恐龙（孩子昵称：朵朵）
+【骨架】左右跑、空格跳、重力、石台、镜头跟随；先不要敌人、蛋、Boss。
+【操作】键盘 ← → 跑、空格跳；手机左下角左右键、右下角跳键。
+【技术】单个 HTML 文件，无外部图片/字体/网络；打开即玩；60fps。
+【验收】能左右跑；能跳上 100px 高的台子；掉进坑里能重来；手机按钮能用。</pre>
   </div>
 
-  <h3>绗?2 姝?路 鐜╂硶锛堜笉閲嶅啓楠ㄦ灦锛?/h3>
+  <h3>第 2 步 · 玩法（不重写骨架）</h3>
   <div class="block">
-    <div class="block-head"><b>娓告垙 路 鐜╂硶鎻愮ず璇?/b><button class="copy" type="button" data-copy="g2">澶嶅埗</button></div>
-    <pre id="g2">鍦ㄧ幇鍦ㄧ殑娓告垙鏂囦欢涓婏紝鍔犵帺娉曪紝涓嶈閲嶅啓楠ㄦ灦銆?
-銆愬伔铔嬭醇銆戝湴闈㈠贰閫伙紱纰板埌渚ч潰鎵?1 棰楀績锛涜俯澶存秷鐏紝韪╁畬寮逛竴涓嬨€?銆愭敹闆嗐€? 棰楄泲銆侀噾甯侊紱鎹¤泲鍔犲垎锛岄噾甯佸姞鍒嗐€?銆愭鏌ョ偣銆戞瘡杩囦竴娈垫斁涓€涓鏌ョ偣锛涙帀鍧戝洖妫€鏌ョ偣锛屾墸 1 棰楀績銆?銆愮粓鐐广€戣蛋鍒板发杈硅繃鍏筹紱3 棰楀績鐢ㄥ畬澶辫触銆?銆愰獙鏀躲€戣俯澶磋兘姝伙紱纰颁晶鎺夊績锛? 棰楄泲閮借兘鎹★紱鑳借蛋鍒扮粓鐐广€?/pre>
+    <div class="block-head"><b>游戏 · 玩法提示词</b><button class="copy" type="button" data-copy="g2">复制</button></div>
+    <pre id="g2">在现在的游戏文件上，加玩法，不要重写骨架。
+
+【偷蛋贼】地面巡逻；碰到侧面扣 1 颗心；踩头消灭，踩完弹一下。
+【收集】3 颗蛋、金币；捡蛋加分，金币加分。
+【检查点】每过一段放一个检查点；掉坑回检查点，扣 1 颗心。
+【终点】走到巢边过关；3 颗心用完失败。
+【验收】踩头能死；碰侧掉心；3 颗蛋都能捡；能走到终点。</pre>
   </div>
 
-  <h3>绗?3 姝?路 Boss + 鐨偆</h3>
+  <h3>第 3 步 · Boss + 皮肤</h3>
   <div class="block">
-    <div class="block-head"><b>娓告垙 路 Boss + 鐨偆鎻愮ず璇?/b><button class="copy" type="button" data-copy="g3">澶嶅埗</button></div>
-    <pre id="g3">鍦ㄧ幇鍦ㄧ殑娓告垙鏂囦欢涓婏紝鍔?Boss 鍜岀毊鑲わ紱涓嶈閲嶅啓鍓嶄袱鍏炽€?
-銆愬伔铔嬬帇銆? 鏍艰锛屽湪缁堢偣鍓嶅贰閫伙紱韪?3 涓嬫墦姝伙紱纰板埌渚ч潰鎵ｅ績锛涙鍚庡洖宸㈣繃鍏炽€?銆怋oss 琛€鏉°€戠敾鍦?Boss 澶翠笂锛涜俯涓椂闂櫧銆佹帀涓€鏍笺€?銆愮毊鑲ゃ€戜繚鎸佺帺娉曘€佸叧鍗°€佹暟鍊间笉鍙橈紝鍙崲瑙嗚锛氫富瑙掓崲鎴愩€岀孩閾堕厤鑹层€佸彂鍏夌溂鐫涖€佽兏鍙ｈ鏃跺櫒銆佸厜涔嬪法浜烘劅瑙夈€嶏紱鏁屼汉鎹㈡垚绱壊灏忓伔锛涜儗鏅崲鎴愬鏅氬煄甯傘€?銆愰檺鍒躲€戜笉瑕佷娇鐢ㄤ换浣曞畼鏂瑰浘鐗?/ logo锛涘叏閮ㄧ敤 CSS/SVG 鐢汇€?銆愰獙鏀躲€態oss 鑳芥墦姝伙紱姝ｅソ 3 涓嬶紱鍥炲发缁撶畻锛涙墜鏈鸿兘鐜┿€?/pre>
+    <div class="block-head"><b>游戏 · Boss + 皮肤提示词</b><button class="copy" type="button" data-copy="g3">复制</button></div>
+    <pre id="g3">在现在的游戏文件上，加 Boss 和皮肤；不要重写前两关。
+
+【偷蛋王】3 格血，在终点前巡逻；踩 3 下打死；碰到侧面扣心；死后回巢过关。
+【Boss 血条】画在 Boss 头上；踩中时闪白、掉一格。
+【皮肤】保持玩法、关卡、数值不变，只换视觉：主角换成「红银配色、发光眼睛、胸口计时器、光之巨人感觉」；敌人换成紫色小偷；背景换成夜晚城市。
+【限制】不要使用任何官方图片 / logo；全部用 CSS/SVG 画。
+【验收】Boss 能打死；正好 3 下；回巢结算；手机能玩。</pre>
   </div>
 
-  <h3>绗?4 姝?路 鎶婅嚜宸辩殑鍥炬斁杩涘幓锛圛P 绱犳潗锛?/h3>
-  <div class="note"><b>鍏堟妸鍥炬斁杩涙枃浠跺す</b>銆€<code>assets/hero.png</code>锛堜富瑙掞紝512脳512 閫忔槑 PNG锛夈€?code>assets/enemy.png</code>銆?code>assets/bg.jpg</code>锛?920脳1080锛夈€傛枃浠跺悕鑻辨枃銆佷笉瑕佺┖鏍笺€備氦浠樺彉鎴愨€淗TML + assets 鏂囦欢澶光€濄€?/div>
+  <h3>第 4 步 · 把自己的图放进去（IP 素材）</h3>
+  <div class="note"><b>先把图放进文件夹</b>　<code>assets/hero.png</code>（主角，512×512 透明 PNG）、<code>assets/enemy.png</code>、<code>assets/bg.jpg</code>（1920×1080）。文件名英文、不要空格。交付变成“HTML + assets 文件夹”。</div>
   <div class="block">
-    <div class="block-head"><b>娓告垙 路 鐢ㄨ嚜宸辩殑鍥炬彁绀鸿瘝</b><button class="copy" type="button" data-copy="g4">澶嶅埗</button></div>
-    <pre id="g4">鍦ㄧ幇鏈夋父鎴忎笂锛岀敤鏈湴鍥剧墖鏇挎崲 CSS 瑙掕壊锛屼笉瑕侀噸鍐欑帺娉曘€?
-銆愮礌鏉愩€慳ssets/hero.png 涓昏锛沘ssets/enemy.png 鏁屼汉锛沘ssets/bg.jpg 鑳屾櫙銆?銆愯鍒欍€戜笉瑕侀噸鐢昏鑹诧紱涓嶈鎷変几锛涗富瑙掕剼搴曞榻愬湴闈紱纰版挒鐩掍繚鎸佸師鏉ョ殑澶у皬锛涘浘鐗囩己澶辨椂鐢?CSS 鐢诲崰浣嶏紱鎵嬫満鑳界帺銆?銆愰檺鍒躲€戜笉瑕佽仈缃戯紱涓嶈瀹樻柟 logo锛涘浘鐗囧彧鏀惧湪鏈湴銆?銆愰獙鏀躲€戝浘鐗囨甯告樉绀猴紱瑙掕壊韪╁湪骞冲彴涓婏紱韪╁ご鍒ゅ畾涓嶅彉銆?/pre>
+    <div class="block-head"><b>游戏 · 用自己的图提示词</b><button class="copy" type="button" data-copy="g4">复制</button></div>
+    <pre id="g4">在现有游戏上，用本地图片替换 CSS 角色，不要重写玩法。
+
+【素材】assets/hero.png 主角；assets/enemy.png 敌人；assets/bg.jpg 背景。
+【规则】不要重画角色；不要拉伸；主角脚底对齐地面；碰撞盒保持原来的大小；图片缺失时用 CSS 画占位；手机能玩。
+【限制】不要联网；不要官方 logo；图片只放在本地。
+【验收】图片正常显示；角色踩在平台上；踩头判定不变。</pre>
   </div>
 
-  <h3>鍙傝€冩柟鍚?A 路 璺戦叿锛堜竴鏉℃彁绀鸿瘝锛?/h3>
+  <h3>参考方向 A · 跑酷（一条提示词）</h3>
   <div class="block">
-    <div class="block-head"><b>璺戦叿 路 涓€鏉℃彁绀鸿瘝</b><button class="copy" type="button" data-copy="r1">澶嶅埗</button></div>
-    <pre id="r1">鍋氫竴涓崟鏂囦欢 HTML 璺戦叿娓告垙銆?
-銆愮帺娉曘€戝皬鎭愰緳鑷姩寰€鍓嶈窇锛涚┖鏍?/ 鐐瑰睆骞曡烦锛涜翰鐭冲ご銆佹爲妗┿€佸伔铔嬭醇锛涙崱铔嬪拰閲戝竵鍔犲垎锛?0 绉掞紱3 棰楀績锛涚粨鏉熺畻鍒嗐€?銆愮敾椋庛€戝儚绱犺鏈猴細16 浣嶈壊銆佹柟鍧椼€佷寒缁垮拰鍦熼粍銆?銆愪富棰樸€戞亹榫欎笡鏋?銆愭妧鏈€戝崟涓?HTML 鏂囦欢锛屾棤澶栭儴鍥剧墖/瀛椾綋/缃戠粶锛涙墜鏈鸿兘鐜┿€?銆愰獙鏀躲€戣兘璺炽€佽兘鍔犲垎銆?0 绉掔粨鏉熴€佹墜鏈鸿兘鐜┿€?/pre>
+    <div class="block-head"><b>跑酷 · 一条提示词</b><button class="copy" type="button" data-copy="r1">复制</button></div>
+    <pre id="r1">做一个单文件 HTML 跑酷游戏。
+
+【玩法】小恐龙自动往前跑；空格 / 点屏幕跳；躲石头、树桩、偷蛋贼；捡蛋和金币加分；60 秒；3 颗心；结束算分。
+【画风】像素街机：16 位色、方块、亮绿和土黄。
+【主题】恐龙丛林
+【技术】单个 HTML 文件，无外部图片/字体/网络；手机能玩。
+【验收】能跳、能加分、60 秒结束、手机能玩。</pre>
   </div>
 
-  <h3>鍙傝€冩柟鍚?B 路 鐩婃櫤鎺ㄧ瀛愶紙涓€鏉℃彁绀鸿瘝锛?/h3>
+  <h3>参考方向 B · 益智推箱子（一条提示词）</h3>
   <div class="block">
-    <div class="block-head"><b>鎺ㄧ瀛?路 涓€鏉℃彁绀鸿瘝</b><button class="copy" type="button" data-copy="z1">澶嶅埗</button></div>
-    <pre id="z1">鍋氫竴涓崟鏂囦欢 HTML 鎺ㄧ瀛愭父鎴忋€?
-銆愮帺娉曘€?脳7 缃戞牸锛涘皬鎭愰緳鎺ㄨ泲鍒拌崏绐濓紱鍙兘鎺ㄤ笉鑳芥媺锛? 鍏筹紱鏂瑰悜閿?/ WASD锛沍 鎾ら攢锛汻 閲嶆潵锛涘叏閮ㄥ綊浣嶈繃鍏炽€?銆愮敾椋庛€戝儚绱犺鏈猴細娣辩豢搴曘€佷寒缁胯鑹层€佺背鐧借泲銆?銆愪富棰樸€戞亹榫欎笡鏋?銆愭妧鏈€戝崟涓?HTML 鏂囦欢锛屾棤澶栭儴鍥剧墖/瀛椾綋/缃戠粶锛涙墜鏈烘湁鏂瑰悜閿€?銆愰獙鏀躲€? 鍏抽兘鑳借繃锛涙挙閿€鑳界敤锛涙墜鏈鸿兘鐜┿€?/pre>
+    <div class="block-head"><b>推箱子 · 一条提示词</b><button class="copy" type="button" data-copy="z1">复制</button></div>
+    <pre id="z1">做一个单文件 HTML 推箱子游戏。
+
+【玩法】7×7 网格；小恐龙推蛋到草窝；只能推不能拉；3 关；方向键 / WASD；Z 撤销；R 重来；全部归位过关。
+【画风】像素街机：深绿底、亮绿角色、米白蛋。
+【主题】恐龙丛林
+【技术】单个 HTML 文件，无外部图片/字体/网络；手机有方向键。
+【验收】3 关都能过；撤销能用；手机能玩。</pre>
   </div>
 
-  <h3>鍗′綇鏃?路 涓€鏉′竴鏉″鍒?/h3>
+  <h3>卡住时 · 一条一条复制</h3>
   <div class="fix-grid">
-    <div class="fix"><b>璺充笉涓婂幓</b><pre id="f1">杞荤偣銆佹寜浣忛兘璺充笉涓婂幓锛涙妸璺宠穬鏀规垚鍥哄畾楂樺害锛岃兘涓?100px 鍙板瓙锛涗笉瑕佺煭璺炽€?/pre><button class="copy" type="button" data-copy="f1">澶嶅埗</button></div>
-    <div class="fix"><b>绌胯繃骞冲彴</b><pre id="f2">瑙掕壊浼氱┛杩囩煶鍙帮紱妫€鏌ョ鎾烇紝钀戒笅鏉ヨ韪╁湪鍙板瓙涓婏紝涓嶈兘绌胯繃鍘汇€?/pre><button class="copy" type="button" data-copy="f2">澶嶅埗</button></div>
-    <div class="fix"><b>韪╀笉姝昏醇</b><pre id="f3">韪╁ご娌″弽搴旓紱妫€鏌ヨ俯澶村垽瀹氾細浠庝笂鏂硅惤涓嬫墠娑堢伃锛岀渚ч潰鎵嶆墸蹇冦€?/pre><button class="copy" type="button" data-copy="f3">澶嶅埗</button></div>
-    <div class="fix"><b>Boss 鎵撲笉姝?/b><pre id="f4">Boss 韪?3 涓嬫病姝伙紱妫€鏌?3 鏍艰鍜屽綊闆跺垽瀹氾紝姝诲悗瑕佽兘鍥炲发缁撶畻銆?/pre><button class="copy" type="button" data-copy="f4">澶嶅埗</button></div>
-    <div class="fix"><b>IP 涓嶅儚 / 澶笐</b><pre id="f5">淇濇寔鐜╂硶涓嶅彉锛屽彧鎹㈣瑙夛細绾㈤摱閰嶈壊銆佸彂鍏夌溂銆佽兏鍙ｈ鏃跺櫒锛涗笉瑕佺敤瀹樻柟鍥剧墖鎴?logo銆?/pre><button class="copy" type="button" data-copy="f5">澶嶅埗</button></div>
-    <div class="fix"><b>鎵嬫満涓嶈兘鐜?/b><pre id="f6">鍔犲乏涓嬭宸﹀彸閿€佸彸涓嬭璺抽敭锛涙寜閽嚦灏?44 鍍忕礌锛屽埆鎸¤鑹层€?/pre><button class="copy" type="button" data-copy="f6">澶嶅埗</button></div>
+    <div class="fix"><b>跳不上去</b><pre id="f1">轻点、按住都跳不上去；把跳跃改成固定高度，能上 100px 台子；不要短跳。</pre><button class="copy" type="button" data-copy="f1">复制</button></div>
+    <div class="fix"><b>穿过平台</b><pre id="f2">角色会穿过石台；检查碰撞，落下来要踩在台子上，不能穿过去。</pre><button class="copy" type="button" data-copy="f2">复制</button></div>
+    <div class="fix"><b>踩不死贼</b><pre id="f3">踩头没反应；检查踩头判定：从上方落下才消灭，碰侧面才扣心。</pre><button class="copy" type="button" data-copy="f3">复制</button></div>
+    <div class="fix"><b>Boss 打不死</b><pre id="f4">Boss 踩 3 下没死；检查 3 格血和归零判定，死后要能回巢结算。</pre><button class="copy" type="button" data-copy="f4">复制</button></div>
+    <div class="fix"><b>IP 不像 / 太丑</b><pre id="f5">保持玩法不变，只换视觉：红银配色、发光眼、胸口计时器；不要用官方图片或 logo。</pre><button class="copy" type="button" data-copy="f5">复制</button></div>
+    <div class="fix"><b>手机不能玩</b><pre id="f6">加左下角左右键、右下角跳键；按钮至少 44 像素，别挡角色。</pre><button class="copy" type="button" data-copy="f6">复制</button></div>
   </div>
 </section>
 
 <section id="daily">
-  <h2>02 路 鏃ユ姤锛?em>鍏堟墜璺戯紝鍐嶆瘡澶?/em></h2>
-  <p class="sub">DC 蹇呴』寮€鐫€锛涘埌鐐规槸鎶婃彁閱掓姇杩涘師浼氳瘽锛孉I 鍐嶅幓鍋氥€傚厛鎵嬭窇涓€鏈燂紝鍐嶅缓姣忓ぉ 07:30銆?/p>
+  <h2>02 · 日报：<em>先手跑，再每天</em></h2>
+  <p class="sub">DC 必须开着；到点是把提醒投进原会话，AI 再去做。先手跑一期，再建每天 07:30。</p>
 
-  <h3>绗?1 姝?路 鎵嬭窇涓€鏈燂紙鍙敼涓夊锛?/h3>
+  <h3>第 1 步 · 手跑一期（只改三处）</h3>
   <div class="block">
-    <div class="block-head"><b>鏃ユ姤 路 鎵嬭窇鎻愮ず璇嶏紙鍥藉唴鏉ユ簮鐗堬級</b><button class="copy" type="button" data-copy="d1">澶嶅埗</button></div>
-    <pre id="d1">浣犳槸鎴戞瘡澶?07:30 鐨勭畝鎶ュ姪鎵嬨€傝鐢熸垚浠婂ぉ鐨勩€夾I 琛屼笟鏃ユ姤銆嬨€?
-銆愯鑰呫€戞垜锛?5 宀侊紝浜у搧缁忕悊锛涙棭涓婂彧鏈?5 鍒嗛挓锛涙垜瑕佸垽鏂粖澶╄涓嶈璋冩暣浜у搧鏂瑰悜銆?銆愭椂闂寸獥銆戣繃鍘?24 灏忔椂锛堝寳浜椂闂达級锛涘彧鍐欒繖涓獥鍙ｅ唴鐨勬柊淇℃伅銆?銆愭潵婧愩€戜紭鍏堝浗鍐呭彲璁块棶锛氭満鍣ㄤ箣蹇冦€侀噺瀛愪綅銆?6Kr銆両nfoQ 涓枃銆佸畼鏂逛腑鏂囧崥瀹紱GitHub / arXiv 鑳芥墦寮€鎵嶇敤锛涜嚦灏?3 涓潵婧愶紝姣忎釜甯︽爣棰樸€侀摼鎺ャ€佹棩鏈熴€?銆愬彲璁块棶鎬с€戝彧鍐欒兘鎵撳紑鐨勯〉闈紱鎵撲笉寮€灏辨崲鍥藉唴鏉ユ簮锛涘畬鍏ㄦ棤娉曡仈缃戝氨鍐欌€滀粖澶╂棤娉曡仈缃戔€濓紝涓嶈缂栥€?銆愬浐瀹氭爮鐩€?1. 浠婂ぉ鏈€閲嶈鐨?3 鏉★細姣忔潯 1 鍙ヤ簨瀹?+ 1 鍙モ€滃鎴戞剰鍛崇潃浠€涔堚€濓紙姣忔潯涓嶈秴杩?80 瀛楋級銆?2. 浠婂ぉ鍙互璇曠殑 1 涓皬鍔ㄤ綔锛?0 鍒嗛挓鍐呰兘鍋氬畬銆?3. 鏉ユ簮鍒楄〃锛氭爣棰?+ 閾炬帴 + 鏃ユ湡銆?銆愯鍒欍€?- 鍏堟悳绱㈠啀鍐欙紱娌℃湁鍙潬鏉ユ簮灏卞啓鈥滀粖澶╂病鏈夊€煎緱鎶ョ殑鈥濓紝涓嶈缂栥€?- 涓嶉噸澶嶈繃鍘?7 澶╁凡缁忓啓杩囩殑鍐呭锛涘繀椤婚噸澶嶆椂鏍囨敞鈥滃欢缁€濄€?- 涓枃锛?00鈥?00 瀛楋紱涓嶅爢褰㈠璇嶏紱涓嶅啓鈥滈渿鎾尖€濃€滅偢瑁傗€濄€?- 鏈€鍚庝竴鍙ワ細浠婂ぉ瑕佷笉瑕佽窡杩涳紙瑕?/ 涓嶈 / 瑙傚療锛夈€?銆愯緭鍑恒€戠洿鎺ョ粰鏃ユ姤锛屼笉瑕佽В閲婅繃绋嬨€?/pre>
+    <div class="block-head"><b>日报 · 手跑提示词（国内来源版）</b><button class="copy" type="button" data-copy="d1">复制</button></div>
+    <pre id="d1">你是我每天 07:30 的简报助手。请生成今天的《AI 行业日报》。
+
+【读者】我，35 岁，产品经理；早上只有 5 分钟；我要判断今天要不要调整产品方向。
+【时间窗】过去 24 小时（北京时间）；只写这个窗口内的新信息。
+【来源】优先国内可访问：机器之心、量子位、36Kr、InfoQ 中文、官方中文博客；GitHub / arXiv 能打开才用；至少 3 个来源，每个带标题、链接、日期。
+【可访问性】只写能打开的页面；打不开就换国内来源；完全无法联网就写“今天无法联网”，不要编。
+【固定栏目】
+1. 今天最重要的 3 条：每条 1 句事实 + 1 句“对我意味着什么”（每条不超过 80 字）。
+2. 今天可以试的 1 个小动作：30 分钟内能做完。
+3. 来源列表：标题 + 链接 + 日期。
+【规则】
+- 先搜索再写；没有可靠来源就写“今天没有值得报的”，不要编。
+- 不重复过去 7 天已经写过的内容；必须重复时标注“延续”。
+- 中文，300–500 字；不堆形容词；不写“震撼”“炸裂”。
+- 最后一句：今天要不要跟进（要 / 不要 / 观察）。
+【输出】直接给日报，不要解释过程。</pre>
   </div>
 
-  <h3>绗?2 姝?路 鍙樻垚姣忓ぉ 07:30</h3>
+  <h3>第 2 步 · 变成每天 07:30</h3>
   <div class="block">
-    <div class="block-head"><b>鏃ユ姤 路 寤烘瘡鏃ヤ换鍔★紙鏁存澶嶅埗锛?/b><button class="copy" type="button" data-copy="d2">澶嶅埗</button></div>
-    <pre id="d2">璇峰湪褰撳墠浼氳瘽鍒涘缓涓€涓瘡鏃ュ畾鏃朵换鍔★細
+    <div class="block-head"><b>日报 · 建每日任务（整段复制）</b><button class="copy" type="button" data-copy="d2">复制</button></div>
+    <pre id="d2">请在当前会话创建一个每日定时任务：
 
-- 鏍囬锛欰I 琛屼笟鏃ユ姤
-- 鏃堕棿锛氭瘡澶?07:30锛孉sia/Shanghai
-- 鎻愰啋鍐呭锛氫笅闈㈣繖娈靛畬鏁存棩鎶ユ寚浠わ紝鍒版湡鏃舵寜瀹冩墽琛岋細
+- 标题：AI 行业日报
+- 时间：每天 07:30，Asia/Shanghai
+- 提醒内容：下面这段完整日报指令，到期时按它执行：
 
-浣犳槸鎴戞瘡澶?07:30 鐨勭畝鎶ュ姪鎵嬨€傝鐢熸垚浠婂ぉ鐨勩€夾I 琛屼笟鏃ユ姤銆嬨€?銆愯鑰呫€戞垜锛?5 宀侊紝浜у搧缁忕悊锛涙棭涓婂彧鏈?5 鍒嗛挓锛涙垜瑕佸垽鏂粖澶╄涓嶈璋冩暣浜у搧鏂瑰悜銆?銆愭椂闂寸獥銆戣繃鍘?24 灏忔椂锛堝寳浜椂闂达級锛涘彧鍐欒繖涓獥鍙ｅ唴鐨勬柊淇℃伅銆?銆愭潵婧愩€戜紭鍏堝浗鍐呭彲璁块棶锛氭満鍣ㄤ箣蹇冦€侀噺瀛愪綅銆?6Kr銆両nfoQ 涓枃銆佸畼鏂逛腑鏂囧崥瀹紱GitHub / arXiv 鑳芥墦寮€鎵嶇敤锛涜嚦灏?3 涓潵婧愶紝姣忎釜甯︽爣棰樸€侀摼鎺ャ€佹棩鏈熴€?銆愬彲璁块棶鎬с€戝彧鍐欒兘鎵撳紑鐨勯〉闈紱鎵撲笉寮€灏辨崲鍥藉唴鏉ユ簮锛涘畬鍏ㄦ棤娉曡仈缃戝氨鍐欌€滀粖澶╂棤娉曡仈缃戔€濓紝涓嶈缂栥€?銆愬浐瀹氭爮鐩€?1. 浠婂ぉ鏈€閲嶈鐨?3 鏉★細姣忔潯 1 鍙ヤ簨瀹?+ 1 鍙モ€滃鎴戞剰鍛崇潃浠€涔堚€濓紙姣忔潯涓嶈秴杩?80 瀛楋級銆?2. 浠婂ぉ鍙互璇曠殑 1 涓皬鍔ㄤ綔锛?0 鍒嗛挓鍐呰兘鍋氬畬銆?3. 鏉ユ簮鍒楄〃锛氭爣棰?+ 閾炬帴 + 鏃ユ湡銆?銆愯鍒欍€?- 鍏堟悳绱㈠啀鍐欙紱娌℃湁鍙潬鏉ユ簮灏卞啓鈥滀粖澶╂病鏈夊€煎緱鎶ョ殑鈥濓紝涓嶈缂栥€?- 涓嶉噸澶嶈繃鍘?7 澶╁凡缁忓啓杩囩殑鍐呭锛涘繀椤婚噸澶嶆椂鏍囨敞鈥滃欢缁€濄€?- 涓枃锛?00鈥?00 瀛楋紱涓嶅爢褰㈠璇嶏紱涓嶅啓鈥滈渿鎾尖€濃€滅偢瑁傗€濄€?- 鏈€鍚庝竴鍙ワ細浠婂ぉ瑕佷笉瑕佽窡杩涳紙瑕?/ 涓嶈 / 瑙傚療锛夈€?銆愯緭鍑恒€戠洿鎺ョ粰鏃ユ姤锛屼笉瑕佽В閲婅繃绋嬨€?
-璇疯皟鐢?schedule_create 鍒涘缓锛屽垱寤哄悗鎶婁换鍔″崱缁欐垜鐪嬨€?/pre>
+你是我每天 07:30 的简报助手。请生成今天的《AI 行业日报》。
+【读者】我，35 岁，产品经理；早上只有 5 分钟；我要判断今天要不要调整产品方向。
+【时间窗】过去 24 小时（北京时间）；只写这个窗口内的新信息。
+【来源】优先国内可访问：机器之心、量子位、36Kr、InfoQ 中文、官方中文博客；GitHub / arXiv 能打开才用；至少 3 个来源，每个带标题、链接、日期。
+【可访问性】只写能打开的页面；打不开就换国内来源；完全无法联网就写“今天无法联网”，不要编。
+【固定栏目】
+1. 今天最重要的 3 条：每条 1 句事实 + 1 句“对我意味着什么”（每条不超过 80 字）。
+2. 今天可以试的 1 个小动作：30 分钟内能做完。
+3. 来源列表：标题 + 链接 + 日期。
+【规则】
+- 先搜索再写；没有可靠来源就写“今天没有值得报的”，不要编。
+- 不重复过去 7 天已经写过的内容；必须重复时标注“延续”。
+- 中文，300–500 字；不堆形容词；不写“震撼”“炸裂”。
+- 最后一句：今天要不要跟进（要 / 不要 / 观察）。
+【输出】直接给日报，不要解释过程。
+
+请调用 schedule_create 创建，创建后把任务卡给我看。</pre>
   </div>
 
-  <h3>绗?3 姝?路 鍏堝仛 2 鍒嗛挓娴嬭瘯</h3>
+  <h3>第 3 步 · 先做 2 分钟测试</h3>
   <div class="block">
-    <div class="block-head"><b>鏃ユ姤 路 2 鍒嗛挓娴嬭瘯</b><button class="copy" type="button" data-copy="d3">澶嶅埗</button></div>
-    <pre id="d3">璇峰垱寤轰竴涓?2 鍒嗛挓鍚庤Е鍙戠殑涓€娆℃€т换鍔★紝鏍囬銆屾棩鎶ユ祴璇曘€嶏紝
-鎻愰啋鍐呭锛氳繖鏄祴璇曪紝璇峰洖澶嶁€滄祴璇曞凡瑙﹀彂鈥濄€傚埌鐐瑰悗鍛婅瘔鎴戙€?鍒涘缓鍚庢妸浠诲姟鍗＄粰鎴戠湅锛涙祴璇曞畬鎴戜細鍒犻櫎銆?/pre>
+    <div class="block-head"><b>日报 · 2 分钟测试</b><button class="copy" type="button" data-copy="d3">复制</button></div>
+    <pre id="d3">请创建一个 2 分钟后触发的一次性任务，标题「日报测试」，
+提醒内容：这是测试，请回复“测试已触发”。到点后告诉我。
+创建后把任务卡给我看；测试完我会删除。</pre>
   </div>
 
-  <div class="note"><b>DC 蹇呴』寮€鐫€</b>銆€鍙互鏈€灏忓寲锛屼笉鑳介€€鍑猴紱鐢佃剳涓嶈兘鐫＄湢锛涚綉缁滆閫氥€傚叧鎺?鐫＄湢鏃朵笉浼氭姇閫掞紱閲嶅紑鍚庨噸澶嶄换鍔″彧琛ユ渶杩戜竴娆￠敊杩囩殑鏃剁偣銆備换鍔＄粦瀹氬師浼氳瘽锛屼笉瑕佸垹/褰掓。銆?/div>
+  <div class="note"><b>DC 必须开着</b>　可以最小化，不能退出；电脑不能睡眠；网络要通。关掉/睡眠时不会投递；重开后重复任务只补最近一次错过的时点。任务绑定原会话，不要删/归档。</div>
 
-  <h3>涓嶅悓瀹堕暱 路 鍙敼涓夊</h3>
+  <h3>不同家长 · 只改三处</h3>
   <table>
-    <tr><th>绫诲瀷</th><th>璇昏€?/ 鏃堕棿</th><th>鏉ユ簮</th><th>鏍忕洰</th></tr>
-    <tr><td><b>鎶€鏈?/ 浜у搧</b></td><td>浜у搧缁忕悊锛?7:30</td><td>鏈哄櫒涔嬪績 / 閲忓瓙浣?/ 36Kr / 瀹樻柟涓枃鍗氬</td><td>3 鏉?AI + 1 涓彲璇?/td></tr>
-    <tr><td><b>鎶曡祫 / 鍟嗕笟</b></td><td>鎶曡祫鑰咃紝08:00</td><td>澶 / 缁熻灞€ / 浜ゆ槗鎵€ / 宸ㄦ疆</td><td>3 鏉″畯瑙?+ 1 涓闄?/td></tr>
-    <tr><td><b>鏁欒偛 / 浜插瓙</b></td><td>瀹堕暱锛?6:50</td><td>鏁欒偛閮?/ 鏁欒偛灞€ / 瀛︽牎 / 涓浗鏁欒偛鎶?/td><td>3 鏉℃斂绛?鏂规硶 + 1 涓翰瀛愬姩浣?/td></tr>
-    <tr><td><b>鏈湴 / 灏忕敓鎰?/b></td><td>搴椾富锛?8:30</td><td>鏈湴鏀垮簻 / 骞冲彴瑙勫垯涓績 / 琛屼笟鍗忎細</td><td>3 鏉℃湰鍦?骞冲彴 + 1 涓窡杩?/td></tr>
+    <tr><th>类型</th><th>读者 / 时间</th><th>来源</th><th>栏目</th></tr>
+    <tr><td><b>技术 / 产品</b></td><td>产品经理，07:30</td><td>机器之心 / 量子位 / 36Kr / 官方中文博客</td><td>3 条 AI + 1 个可试</td></tr>
+    <tr><td><b>投资 / 商业</b></td><td>投资者，08:00</td><td>央行 / 统计局 / 交易所 / 巨潮</td><td>3 条宏观 + 1 个风险</td></tr>
+    <tr><td><b>教育 / 亲子</b></td><td>家长，06:50</td><td>教育部 / 教育局 / 学校 / 中国教育报</td><td>3 条政策/方法 + 1 个亲子动作</td></tr>
+    <tr><td><b>本地 / 小生意</b></td><td>店主，08:30</td><td>本地政府 / 平台规则中心 / 行业协会</td><td>3 条本地/平台 + 1 个跟进</td></tr>
   </table>
 
-  <h3>娌℃敹鍒?/ 鎶ュ憡涓嶅 路 涓€鏉′竴鏉″鍒?/h3>
+  <h3>没收到 / 报告不对 · 一条一条复制</h3>
   <div class="fix-grid">
-    <div class="fix"><b>鏈夊洖鎵э紝娌℃姤鍛?/b><pre id="d4">鎵撳紑鍏宠仈浼氳瘽锛屾墜鍔ㄨ锛氳ˉ涓€浠戒粖澶╃殑鏃ユ姤锛屾寜鍘熸牸寮忥紱涓嶈绛変笅涓€娆°€?/pre><button class="copy" type="button" data-copy="d4">澶嶅埗</button></div>
-    <div class="fix"><b>鏉ユ簮鎵撲笉寮€</b><pre id="d5">杩欎簺閾炬帴鎵撲笉寮€锛涜鎹㈠浗鍐呭彲璁块棶鐨勬潵婧愶紝閲嶆柊缁?3 鏉★紝蹇呴』甯︽爣棰樸€侀摼鎺ャ€佹棩鏈燂紱涓嶈缂栥€?/pre><button class="copy" type="button" data-copy="d5">澶嶅埗</button></div>
-    <div class="fix"><b>鍐呭澶硾</b><pre id="d6">姣忔潯鍔犱竴鍙モ€滃鎴戞剰鍛崇潃浠€涔堚€濓紱鏈€鍚庣粰鈥滆 / 涓嶈 / 瑙傚療鈥濓紱涓嶈鍐欐柊闂绘憳瑕併€?/pre><button class="copy" type="button" data-copy="d6">澶嶅埗</button></div>
-    <div class="fix"><b>姣忓ぉ閲嶅</b><pre id="d7">涓嶉噸澶嶈繃鍘?7 澶╁凡缁忓啓杩囩殑鍐呭锛涘繀椤婚噸澶嶆椂鏍囨敞鈥滃欢缁€濄€?/pre><button class="copy" type="button" data-copy="d7">澶嶅埗</button></div>
-    <div class="fix"><b>鏃堕棿涓嶅</b><pre id="d8">妫€鏌ユ椂鍖烘槸涓嶆槸 Asia/Shanghai锛涙敼瀹屽厛寤轰竴涓?2 鍒嗛挓娴嬭瘯锛岀‘璁ゅ洖鎵с€?/pre><button class="copy" type="button" data-copy="d8">澶嶅埗</button></div>
-    <div class="fix"><b>浠诲姟涓嶈浜?/b><pre id="d9">閲嶆柊寤轰竴涓紝鏍囬鍜屾彁閱掑唴瀹圭収鏃э紱涓嶈鍒犱换鍔＄粦瀹氱殑浼氳瘽锛涘缓瀹屽仛 2 鍒嗛挓娴嬭瘯銆?/pre><button class="copy" type="button" data-copy="d9">澶嶅埗</button></div>
+    <div class="fix"><b>有回执，没报告</b><pre id="d4">打开关联会话，手动说：补一份今天的日报，按原格式；不要等下一次。</pre><button class="copy" type="button" data-copy="d4">复制</button></div>
+    <div class="fix"><b>来源打不开</b><pre id="d5">这些链接打不开；请换国内可访问的来源，重新给 3 条，必须带标题、链接、日期；不要编。</pre><button class="copy" type="button" data-copy="d5">复制</button></div>
+    <div class="fix"><b>内容太泛</b><pre id="d6">每条加一句“对我意味着什么”；最后给“要 / 不要 / 观察”；不要写新闻摘要。</pre><button class="copy" type="button" data-copy="d6">复制</button></div>
+    <div class="fix"><b>每天重复</b><pre id="d7">不重复过去 7 天已经写过的内容；必须重复时标注“延续”。</pre><button class="copy" type="button" data-copy="d7">复制</button></div>
+    <div class="fix"><b>时间不对</b><pre id="d8">检查时区是不是 Asia/Shanghai；改完先建一个 2 分钟测试，确认回执。</pre><button class="copy" type="button" data-copy="d8">复制</button></div>
+    <div class="fix"><b>任务不见了</b><pre id="d9">重新建一个，标题和提醒内容照旧；不要删任务绑定的会话；建完做 2 分钟测试。</pre><button class="copy" type="button" data-copy="d9">复制</button></div>
   </div>
 </section>
 
 <section id="flow">
-  <h2>03 路 璇惧爞椤哄簭锛?em>鐓х潃璧?/em>锛?/h2>
+  <h2>03 · 课堂顺序（<em>照着走</em>）</h2>
   <table>
-    <tr><th>鏃堕棿</th><th>鍋氫粈涔?/th><th>鐢ㄥ摢娈?/th></tr>
-    <tr><td>0鈥?</td><td>鐜鑷锛氭ā鍨嬨€佽仈缃戙€佹潵婧?/td><td>00 鑷 1</td></tr>
-    <tr><td>3鈥?</td><td>閫夋柟鍚戙€佸～璁捐鍗°€佽涓€鍙ヨ瘽</td><td>璇句欢 P3鈥揚7</td></tr>
-    <tr><td>8鈥?4</td><td>娓告垙绗?1 姝ワ細楠ㄦ灦</td><td>01 绗?1 姝?/td></tr>
-    <tr><td>14鈥?0</td><td>娓告垙绗?2 姝ワ細鐜╂硶</td><td>01 绗?2 姝?/td></tr>
-    <tr><td>20鈥?7</td><td>娓告垙绗?3 姝ワ細Boss + 鐨偆</td><td>01 绗?3 姝?/td></tr>
-    <tr><td>27鈥?3</td><td>鎹㈣嚜宸辩殑鍥撅紙鍙€夛級</td><td>01 绗?4 姝?/td></tr>
-    <tr><td>33鈥?8</td><td>楠屾敹銆佸崱浣忓叚鍙?/td><td>01 鍗′綇鏃?/td></tr>
-    <tr><td>38鈥?3</td><td>鏃ユ姤锛氱敾甯?+ 鎵嬭窇</td><td>02 绗?1 姝?/td></tr>
-    <tr><td>43鈥?0</td><td>鏃ユ姤锛氬缓姣忓ぉ 07:30</td><td>02 绗?2 姝?/td></tr>
-    <tr><td>50鈥?5</td><td>2 鍒嗛挓娴嬭瘯 + 楠屾敹</td><td>02 绗?3 姝?/td></tr>
-    <tr><td>55鈥?0</td><td>涓嶅悓瀹堕暱 + 澶辫触鎵嬪唽 + 鏀跺熬</td><td>02 鍚庝袱娈?/td></tr>
+    <tr><th>时间</th><th>做什么</th><th>用哪段</th></tr>
+    <tr><td>0–3</td><td>环境自检：模型、联网、来源</td><td>00 自检 1</td></tr>
+    <tr><td>3–8</td><td>选方向、填设计卡、说一句话</td><td>课件 P3–P7</td></tr>
+    <tr><td>8–14</td><td>游戏第 1 步：骨架</td><td>01 第 1 步</td></tr>
+    <tr><td>14–20</td><td>游戏第 2 步：玩法</td><td>01 第 2 步</td></tr>
+    <tr><td>20–27</td><td>游戏第 3 步：Boss + 皮肤</td><td>01 第 3 步</td></tr>
+    <tr><td>27–33</td><td>换自己的图（可选）</td><td>01 第 4 步</td></tr>
+    <tr><td>33–38</td><td>验收、卡住六句</td><td>01 卡住时</td></tr>
+    <tr><td>38–43</td><td>日报：画布 + 手跑</td><td>02 第 1 步</td></tr>
+    <tr><td>43–50</td><td>日报：建每天 07:30</td><td>02 第 2 步</td></tr>
+    <tr><td>50–55</td><td>2 分钟测试 + 验收</td><td>02 第 3 步</td></tr>
+    <tr><td>55–60</td><td>不同家长 + 失败手册 + 收尾</td><td>02 后两段</td></tr>
   </table>
-  <div class="note"><b>璁插笀鎻愰啋</b>銆€涓嶈鏇垮鍛樻敼浠ｇ爜锛涜浠栦滑澶嶅埗涓€鍙ャ€佸彂涓€鍙ャ€佺偣涓€閬嶃€傚摢涓€姝ュけ璐ワ紝灏辩敤鈥滃崱浣忔椂鈥濈殑瀵瑰簲涓€鍙ワ紝涓嶈閲嶅仛鏁翠釜銆?/div>
+  <div class="note"><b>讲师提醒</b>　不要替学员改代码；让他们复制一句、发一句、点一遍。哪一步失败，就用“卡住时”的对应一句，不要重做整个。</div>
 </section>
 
 </main>
 
-<footer class="footer">璇剧▼鎻愮ず璇嶆墜鍐?路 涓庤浠?P1鈥揚33 瀵瑰簲 路 鎵€鏈変唬鐮佸潡鍙洿鎺ュ鍒?/footer>
+<footer class="footer">课程提示词手册 · 与课件 P1–P33 对应 · 所有代码块可直接复制</footer>
 
 <script>
 async function copyText(id, btn){
@@ -253,7 +318,7 @@ async function copyText(id, btn){
     ta.remove();
   }
   const old=btn.textContent;
-  btn.textContent='宸插鍒?;
+  btn.textContent='已复制';
   setTimeout(()=>btn.textContent=old,1200);
 }
 document.querySelectorAll('.copy[data-copy]').forEach(btn=>{
@@ -262,4 +327,3 @@ document.querySelectorAll('.copy[data-copy]').forEach(btn=>{
 </script>
 </body>
 </html>
-
