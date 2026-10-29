@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>做两个东西 · 闯关游戏 + 每日简报 · DeepSeek 家长实操课</title>
+<meta name="description" content="DeepSeek 家长实操课：33 屏，做一款横版闯关/跑酷/益智游戏，再给自己做一份每天 07:30 的定时日报。">
+<style>
+:root{
+  --paper:#f5f4ef;--paper-2:#e9e9e2;--card:#fffefa;--ink:#11130f;--ink-2:#2e332e;
+  --muted:#5c615c;--line:#c9cbc4;--line-2:#9aa096;--blue:#143bb5;--blue-deep:#0d2790;
+  --yellow:#f5ee36;--mono:Consolas,"Cascadia Mono","Courier New",monospace;
+  --sans:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Heiti SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{background:
+  radial-gradient(1100px 600px at 12% -10%,rgba(255,255,255,.6),transparent 60%),
+  radial-gradient(900px 600px at 110% 110%,rgba(20,59,181,.05),transparent 60%),
+  var(--paper)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:44px 34px 72px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:2px solid var(--ink);padding-bottom:14px}
+.brand{display:flex;align-items:baseline;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.brand b{color:var(--ink);font-size:12px}
+.meta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);text-align:right;line-height:1.8}
+.hero{display:grid;grid-template-columns:1.06fr .94fr;gap:44px;align-items:end;margin:34px 0 46px}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;margin-bottom:14px}
+h1{font-size:clamp(40px,5.6vw,78px);line-height:1.04;letter-spacing:-.045em;margin:0 0 18px;font-weight:900}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{font-size:clamp(15px,1.2vw,19px);line-height:1.75;color:var(--ink-2);max-width:34em;margin:0}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);padding:11px 16px;font-size:13px;text-decoration:none;background:transparent;transition:all .18s ease;white-space:nowrap}
+.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.primary:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.poster{display:block;text-decoration:none;color:inherit}
+.poster .frame{border:1px solid var(--ink);background:var(--card);padding:7px;box-shadow:10px 10px 0 var(--ink);transition:transform .18s ease,box-shadow .18s ease}
+.poster:hover .frame{transform:translate(-3px,-3px);box-shadow:13px 13px 0 var(--blue)}
+.poster img{display:block;width:100%;height:auto}
+.poster .cap{display:flex;justify-content:space-between;gap:12px;padding:8px 2px 0;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.poster .cap b{color:var(--ink)}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-top:2px solid var(--ink);padding-top:14px;margin:8px 0 18px}
+.section-head h2{font-size:clamp(20px,2vw,30px);letter-spacing:-.03em;margin:0}
+.section-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{border:1px solid var(--ink);background:var(--card);padding:20px 20px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:7px;min-height:196px;transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-4px);box-shadow:8px 8px 0 var(--blue)}
+.card .no{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--blue)}
+.card h3{font-size:clamp(20px,1.7vw,26px);line-height:1.2;letter-spacing:-.02em;margin:0}
+.card p{font-size:13px;line-height:1.62;color:var(--muted);margin:0}
+.card .go{margin-top:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue)}
+.card.dim{opacity:.42;pointer-events:none;filter:grayscale(.2)}
+.note{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--line);margin-top:28px;padding-top:18px}
+.note div{font-size:12.5px;line-height:1.65;color:var(--ink-2)}
+.note b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--blue);margin-bottom:5px;font-weight:700}
+.foot{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:36px;padding-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);line-height:1.8}
+.foot a{color:var(--blue);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+@media (max-width:900px){
+  .wrap{padding:28px 20px 52px}
+  .top{flex-direction:column;align-items:flex-start;gap:8px}
+  .meta{text-align:left}
+  .hero{grid-template-columns:1fr;gap:26px;margin:26px 0 36px}
+  .grid{grid-template-columns:1fr 1fr}
+  .note{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .card{min-height:0}
+  h1{font-size:clamp(38px,11vw,58px)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><b>D↗S</b><span>碳基社区 · 家长实操课</span></div>
+    <div class="meta">33 SCREENS · 90 MIN · 2 DELIVERABLES</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="kicker">DeepSeek 家长实操课 / 2026</div>
+        <h1>做两个东西。<br><em>一个给孩子，<br>一个给自己。</em></h1>
+        <p class="lead">先装好 DeepSeek 桌面版，再做一款孩子选的闯关游戏；最后给自己做一份每天 07:30 的定时日报。不写代码，只做判断。</p>
+        <div class="buttons">
+          <a class="btn primary" href="course/">打开主课件 →</a>
+          <a class="btn" href="prompts/prompt-sheet.html">讲师提示词手册</a>
+          <a class="btn" href="games/">三个游戏样机</a>
+          <a class="btn" href="setup/">先看课前准备</a>
+        </div>
+      </div>
+
+      <a class="poster" href="poster.png" target="_blank" rel="noopener">
+        <div class="frame"><img src="poster.png" alt="下载桌面版、扫码充值 API 的 16:9 教程图"></div>
+        <div class="cap"><b>课前 10 分钟 · 教程图</b><span>16:9 · 2560×1440</span></div>
+      </a>
+    </section>
+
+    <div class="section-head">
+      <h2>课程文件</h2>
+      <span>按顺序用 · 也可以单独发</span>
+    </div>
+
+    <section class="grid">
+      <a class="card" href="course/">
+        <div class="no">01 / 主课件</div>
+        <h3>游戏 + 日报</h3>
+        <p>33 屏：游戏 21 屏（闯关 / 跑酷 / 益智、三步提示词、IP 素材）+ 日报 12 屏（每天 07:30、验收、四类家长）。</p>
+        <div class="go">33 屏 · 约 88 分钟 →</div>
+      </a>
+
+      <a class="card" href="prompts/prompt-sheet.html">
+        <div class="no">02 / 讲师提示词手册</div>
+        <h3>讲到哪，复制到哪</h3>
+        <p>环境自检、游戏 4 步、跑酷 / 益智、日报 3 步、四类家长、卡住修复；每个代码块可单块复制，可打印。</p>
+        <div class="go">打开手册 →</div>
+      </a>
+
+      <a class="card" href="games/">
+        <div class="no">03 / 三个游戏样机</div>
+        <h3>闯关 / 跑酷 / 益智</h3>
+        <p>恐龙蛋大冒险、恐龙快跑、恐龙推蛋；点开就玩，手机横屏。</p>
+        <div class="go">先玩再选 →</div>
+      </a>
+
+      <a class="card" href="setup/">
+        <div class="no">04 / 课前准备册</div>
+        <h3>装好，再上课</h3>
+        <p>下载桌面版、安装、登录实名、充 10 元、创建 API Key、填进桌面版。</p>
+        <div class="go">11 屏 · 15–20 分钟 →</div>
+      </a>
+
+      <a class="card" href="poster.png" target="_blank" rel="noopener">
+        <div class="no">05 / 教程图</div>
+        <h3>下载 + 扫码充值</h3>
+        <p>一张 16:9 的傻瓜图：官网链接、下载按钮、安装拦截、扫码充值、拿 Key。</p>
+        <div class="go">2560×1440 PNG →</div>
+      </a>
+
+      <a class="card" href="../">
+        <div class="no">06 / 旧课</div>
+        <h3>从会聊天到会干活</h3>
+        <p>AI Agent 入门第一课：聊天机器人、工作台、智能体、工作流、技能。</p>
+        <div class="go">22 屏 · 110 分钟 →</div>
+      </a>
+    </section>
+
+    <section class="note">
+      <div><b>课前</b>发「课前准备册」和教程图；先装好、实名、充 10 元、拿到 Key，再做一次联网自检。</div>
+      <div><b>课上</b>游戏 P3–P21，日报 P22–P33；讲到哪一段，打开提示词手册复制哪一段。</div>
+      <div><b>课后</b>把三个游戏样机发给孩子；日报先手跑 7 天，稳定后再谈推送。</div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>碳基社区 · 黎生 · 2026 · 33 屏 + 3 个样机</span>
+    <span>建议 Chrome / Edge / Safari 打开 · <a href="../">旧课入口</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

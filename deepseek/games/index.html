@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三个游戏样机 · 恐龙蛋大冒险 / 快跑 / 推蛋</title>
+<meta name="description" content="DeepSeek 家长实操课三个游戏方向：横版闯关、跑酷、益智推箱子。点开就玩。">
+<style>
+:root{--paper:#f5f4ef;--card:#fffefa;--ink:#11130f;--ink2:#2e332e;--muted:#5c615c;--line:#c9cbc4;--blue:#143bb5;--yellow:#f5ee36;--mono:Consolas,"Cascadia Mono",monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+body{background:radial-gradient(1100px 600px at 10% -10%,rgba(255,255,255,.65),transparent 60%),radial-gradient(900px 600px at 110% 110%,rgba(20,59,181,.06),transparent 60%),var(--paper)}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 34px 64px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:13px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.top b{color:var(--ink);font-size:12px}
+.hero{margin:30px 0 34px}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--blue);margin-bottom:12px}
+h1{font-size:clamp(38px,5.2vw,72px);line-height:1.04;letter-spacing:-.045em;margin:0 0 14px;font-weight:900}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{font-size:clamp(14px,1.15vw,18px);line-height:1.7;color:var(--ink2);max-width:38em;margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-block;border:1px solid var(--ink);padding:10px 15px;text-decoration:none;color:var(--ink);font-size:13px}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:2px solid var(--ink);padding-top:18px}
+.card{border:1px solid var(--ink);background:var(--card);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-4px);box-shadow:8px 8px 0 var(--blue)}
+.card img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line);background:#0b1a12}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.no{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--blue)}
+h2{font-size:clamp(20px,1.75vw,28px);line-height:1.2;letter-spacing:-.02em;margin:0}
+.body p{font-size:12.5px;line-height:1.6;color:var(--muted);margin:0}
+.go{margin-top:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue);padding-top:6px}
+.note{border-top:1px solid var(--line);margin-top:28px;padding-top:14px;font-size:12.5px;line-height:1.7;color:var(--ink2)}
+.note b{color:var(--blue)}
+.foot{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:28px;padding-top:13px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.foot a{color:var(--blue);text-decoration:none}
+@media(max-width:900px){.wrap{padding:28px 20px 48px}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}h1{font-size:clamp(36px,11vw,54px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span><b>D↗S</b>　碳基社区 · 家长实操课</span><span>3 GAME PROTOTYPES / 2026</span></div>
+
+  <div class="hero">
+    <div class="kicker">GAME LAB / 先玩再选</div>
+    <h1>三个方向，<br><em>先玩一遍。</em></h1>
+    <p class="lead">同一个课程，三种“手在干什么”：横版闯关、跑酷、益智推箱子。孩子喜欢哪个，就做哪个；不要三个都做。</p>
+    <div class="actions">
+      <a class="btn primary" href="../course/">回到主课件 →</a>
+      <a class="btn" href="../prompts/prompt-sheet.html">讲师提示词手册</a>
+      <a class="btn" href="../">课程首页</a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="dino-quest.html">
+      <img src="shots/quest-stage.png" alt="横版闯关：恐龙蛋大冒险">
+      <div class="body">
+        <div class="no">01 / 横版闯关</div>
+        <h2>恐龙蛋大冒险</h2>
+        <p>左右跑、跳平台、踩贼头、捡 3 颗蛋，最后打偷蛋王。有探索，也有 Boss。</p>
+        <div class="go">3 分钟一局 · 点开就玩 →</div>
+      </div>
+    </a>
+
+    <a class="card" href="dino-runner.html">
+      <img src="shots/runner-stage.png" alt="跑酷：恐龙快跑">
+      <div class="body">
+        <div class="no">02 / 跑酷</div>
+        <h2>恐龙快跑</h2>
+        <p>自动往前跑，一键跳；躲石头、树桩和贼，捡蛋加分。60 秒，追高分。</p>
+        <div class="go">60 秒一局 · 点开就玩 →</div>
+      </div>
+    </a>
+
+    <a class="card" href="dino-puzzle.html">
+      <img src="shots/puzzle-stage.png" alt="益智：恐龙推蛋">
+      <div class="body">
+        <div class="no">03 / 益智</div>
+        <h2>恐龙推蛋</h2>
+        <p>方向键推蛋进草窝，只能推不能拉；3 关，能撤销、能重来。越推越绕。</p>
+        <div class="go">5 分钟一局 · 点开就玩 →</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="note"><b>手机横屏</b>　三个都可以在手机横屏玩；如果按钮挡住角色，点右上角/右下角空白处先收起提示。<br><b>课程用法</b>　先让孩子选一个，再回主课件 P4 选方向、P6 填设计卡；不要三个都做。</div>
+
+  <div class="foot"><span>碳基社区 · 黎生 · 2026</span><span><a href="../course/">主课件</a>　<a href="../prompts/prompt-sheet.html">提示词手册</a>　<a href="../">首页</a></span></div>
+</div>
+</body>
+</html>

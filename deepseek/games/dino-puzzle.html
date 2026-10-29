@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>恐龙推蛋</title>
+<style>
+:root{--ink:#f4f1e8;--gold:#f5c542;--green:#7ed957;--line:#2c4a33;--mono:Consolas,"Cascadia Mono",monospace}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#050a07;color:var(--ink);font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;overflow:hidden}
+#app{height:100%;display:grid;place-items:center;padding:12px}
+.game{width:min(1120px,96vw);display:flex;flex-direction:column;gap:7px}
+.stage{position:relative;aspect-ratio:16/9;width:100%;overflow:hidden;border:1px solid #2a4a35;border-radius:12px;background:#0b1a12;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%,#163a26,#08150e 75%)}
+.hud{position:absolute;left:0;right:0;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:12px 16px;background:linear-gradient(180deg,rgba(3,8,5,.8),rgba(3,8,5,0));pointer-events:none;font-family:var(--mono);font-size:13px}
+.hud .level{color:#d8f5c8}.hud .eggs{color:#fff}.hud .moves{margin-left:auto;color:var(--gold)}
+.board-wrap{position:absolute;inset:0;display:grid;place-items:center;padding-top:5%}
+.board{display:grid;grid-template-columns:repeat(7,7.6cqw);grid-template-rows:repeat(7,7.6cqw);border:1px solid #2c4a33;background:#0c1d12;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.cell{position:relative;display:grid;place-items:center;border:1px solid rgba(44,74,51,.35)}
+.cell.wall{background:linear-gradient(135deg,#1b3a27,#12271a);border-color:#2c5a3c;box-shadow:inset 0 0 0 .35cqw rgba(0,0,0,.18)}
+.cell.wall::after{content:"";width:60%;height:60%;border:1px solid rgba(126,217,87,.12);background:rgba(0,0,0,.12)}
+.cell.floor{background:#0f2417}
+.cell.nest{background:#2a1e0d}
+.nest-ico{width:58%;height:58%;border-radius:50%;background:radial-gradient(circle at 40% 30%,#c49a52,#6b4a22);border:2px solid #8a642e;box-shadow:inset 0 0 0 3px rgba(0,0,0,.15)}
+.egg-ico{position:absolute;width:42%;height:54%;border-radius:50% 50% 46% 46%;background:radial-gradient(circle at 35% 30%,#fffdf2,#e6dcc3);border:1px solid #b9a878;z-index:2}
+.egg-ico.done{box-shadow:0 0 1.4cqw rgba(245,197,66,.75);border-color:#f5c542}
+.dino-ico{position:absolute;z-index:3;width:78%;height:78%}
+.dino-ico svg{width:100%;height:100%;display:block;image-rendering:pixelated}
+.overlay{position:absolute;inset:0;z-index:20;display:grid;place-items:center;padding:3cqw;background:rgba(3,10,5,.9);transition:opacity .3s}
+.overlay.off{opacity:0;pointer-events:none}
+.card{width:min(72%,740px);border:1px solid #2e5c3c;background:rgba(10,23,14,.95);padding:2.4cqw 2.8cqw;box-shadow:10px 10px 0 rgba(0,0,0,.28)}
+.kicker{font-family:var(--mono);font-size:1.02cqw;letter-spacing:.16em;color:var(--green);margin-bottom:.7cqw}
+.card h1{font-size:4cqw;line-height:1.08;margin:0 0 .8cqw;color:#fff}
+.card h1 em{font-style:normal;color:var(--gold)}
+.card p{font-size:1.36cqw;line-height:1.6;color:#c2d8c5;margin:0 0 1cqw}
+.keys{display:flex;flex-wrap:wrap;gap:.6cqw .9cqw;margin:0 0 1.3cqw;font-family:var(--mono);font-size:1.05cqw;color:#d8ecdc}
+.keys b{display:inline-block;border:1px solid #3c6a48;background:#12281a;padding:.28cqw .55cqw;margin-right:.25cqw;color:#fff}
+.start{border:1px solid var(--gold);background:var(--gold);color:#17200f;font-size:1.5cqw;font-weight:800;padding:.8cqw 1.6cqw;cursor:pointer}
+.start:hover{background:#fff}
+.foot{margin-top:1cqw;font-family:var(--mono);font-size:.92cqw;letter-spacing:.08em;color:#6f957a}
+.end-card{width:min(74%,660px);border:1px solid #2e5c3c;background:rgba(10,23,14,.97);padding:2.2cqw 2.6cqw;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.stars{font-size:4cqw;color:var(--gold);letter-spacing:.4cqw;line-height:1;margin-bottom:.4cqw}
+.end-card h2{font-size:2.7cqw;margin:0 0 .4cqw;color:#fff}
+.end-sub{font-size:1.18cqw;color:#a9c9b2;line-height:1.5;margin:0 0 1.1cqw}
+.end-stats{display:flex;justify-content:center;gap:2.2cqw;font-family:var(--mono);font-size:1.12cqw;color:#bdd8c4;margin-bottom:1.4cqw}
+.end-stats b{color:var(--gold);font-size:1.8cqw;margin-left:.3cqw}
+.end-actions{display:flex;gap:.9cqw;justify-content:center}
+.end-actions button{border:1px solid #2e5c3c;background:transparent;color:#d8ecdc;padding:.75cqw 1.4cqw;font-size:1.1cqw;cursor:pointer}
+.end-actions button.primary{background:var(--gold);border-color:var(--gold);color:#17200f;font-weight:800}
+.dpad{position:absolute;right:3.5%;bottom:5%;z-index:8;display:grid;grid-template-columns:repeat(3,7.5cqw);grid-template-rows:repeat(2,7.5cqw);gap:.6cqw}
+.dbtn{border:1px solid rgba(126,217,87,.45);background:rgba(4,12,7,.55);color:#e8ffe4;border-radius:12%;display:grid;place-items:center;font-size:2.6cqw;user-select:none;touch-action:none}
+.dbtn:active{background:rgba(126,217,87,.3)}
+.dbtn.up{grid-column:2;grid-row:1}.dbtn.left{grid-column:1;grid-row:2}.dbtn.down{grid-column:2;grid-row:2}.dbtn.right{grid-column:3;grid-row:2}
+.tools{position:absolute;left:3.5%;bottom:5%;z-index:8;display:flex;gap:.7cqw}
+.tools button{border:1px solid #2e5c3c;background:rgba(4,12,7,.55);color:#d8ecdc;padding:.7cqw 1.1cqw;font-size:1.1cqw;cursor:pointer}
+@media (hover:hover) and (pointer:fine){.dpad,.tools{display:none}}
+.footbar{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:#5f7d67}
+.footbar b{color:#9fbd9f}
+</style>
+</head>
+<body>
+<div id="app"><div class="game">
+  <div class="stage">
+    <div class="hud"><span class="level" id="hudLevel">第 1 关</span><span class="eggs" id="hudEggs">归位 0/1</span><span class="moves" id="hudMoves">步数 0</span></div>
+    <div class="board-wrap"><div class="board" id="board"></div></div>
+    <div class="overlay" id="story">
+      <div class="card">
+        <div class="kicker">DINO EGG SOKOBAN / 3 LEVELS</div>
+        <h1>偷蛋贼把蛋打乱了，<br><em>把蛋推回巢里。</em></h1>
+        <p>小恐龙只能推，不能拉。把每一颗蛋推到草窝上；推不动，就绕一圈再来。</p>
+        <div class="keys"><span><b>← ↑ ↓ →</b> 走</span><span><b>Z</b> 撤销</span><span><b>R</b> 重来</span></div>
+        <button class="start" id="startBtn" type="button">开始推 →</button>
+        <div class="foot">益智 · 推箱子 · 3 关</div>
+      </div>
+    </div>
+    <div class="overlay off" id="end">
+      <div class="end-card">
+        <div class="stars" id="endStars">★★★</div>
+        <h2 id="endTitle">全部归位！</h2>
+        <p class="end-sub" id="endSub"></p>
+        <div class="end-stats"><span>步数 <b id="endMoves">0</b></span><span>撤销 <b id="endUndo">0</b></span></div>
+        <div class="end-actions"><button class="primary" id="again" type="button">再推一次</button><button id="toStory" type="button">回到故事</button></div>
+      </div>
+    </div>
+    <div class="tools"><button id="undo" type="button">撤销 Z</button><button id="reset" type="button">重来 R</button></div>
+    <div class="dpad">
+      <div class="dbtn up" data-dir="up">↑</div><div class="dbtn left" data-dir="left">←</div><div class="dbtn down" data-dir="down">↓</div><div class="dbtn right" data-dir="right">→</div>
+    </div>
+  </div>
+  <div class="footbar"><span><b>方向键</b> 走 · <b>Z</b> 撤销 · <b>R</b> 重来</span><span>手机用方向按钮</span></div>
+</div></div>
+<script>
+(function(){
+  "use strict";
+  const $=id=>document.getElementById(id);
+  const LEVELS=[
+    ["#######","#.....#","#.@...#","#..$..#","#..O..#","#.....#","#######"],
+    ["#######","#.....#","#.@$..#","#..O..#","#..$.O#","#.....#","#######"],
+    ["#######","#.....#","#.@...#","#.$#..#","#..O..#","#.....#","#######"]
+  ];
+  const G={state:"story",level:0,grid:[],px:0,py:0,moves:0,undo:0,history:[],solved:false};
+  const DIRS={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+
+  function parse(rows){
+    const grid=rows.map(r=>r.split(""));
+    let px=0,py=0;
+    for(let y=0;y<grid.length;y++)for(let x=0;x<grid[y].length;x++){
+      if(grid[y][x]==="@"){px=x;py=y;grid[y][x]=".";}
+      if(grid[y][x]==="+"){px=x;py=y;grid[y][x]="O";}
+    }
+    return {grid,px,py};
+  }
+  function load(level){
+    G.level=level;const p=parse(LEVELS[level]);G.grid=p.grid;G.px=p.px;G.py=p.py;G.moves=0;G.undo=0;G.history=[];G.solved=false;render();updateHUD();
+  }
+  function start(){G.state="play";$("story").classList.add("off");$("end").classList.add("off");load(0);}
+  function toStory(){G.state="story";$("story").classList.remove("off");$("end").classList.add("off");load(0);}
+
+  function snapshot(){return {grid:G.grid.map(r=>r.slice()),px:G.px,py:G.py,moves:G.moves};}
+  function restore(s){G.grid=s.grid.map(r=>r.slice());G.px=s.px;G.py=s.py;G.moves=s.moves;G.undo++;G.solved=false;render();updateHUD();}
+
+  function move(dir){
+    if(G.state!=="play"||G.solved)return;
+    const [dx,dy]=DIRS[dir];
+    const nx=G.px+dx,ny=G.py+dy;
+    if(!inside(nx,ny)||G.grid[ny][nx]==="#")return;
+    if(G.grid[ny][nx]==="$"||G.grid[ny][nx]==="*"){
+      const bx=nx+dx,by=ny+dy;
+      if(!inside(bx,by)||G.grid[by][bx]==="#"||G.grid[by][bx]==="$"||G.grid[by][bx]==="*")return;
+      G.history.push(snapshot());
+      const wasNest=G.grid[ny][nx]==="*";
+      G.grid[ny][nx]=wasNest?"O":".";
+      G.grid[by][bx]=G.grid[by][bx]==="O"?"*":"$";
+    } else {
+      G.history.push(snapshot());
+    }
+    G.px=nx;G.py=ny;G.moves++;
+    render();updateHUD();
+    if(checkWin())win();
+  }
+  function inside(x,y){return y>=0&&y<G.grid.length&&x>=0&&x<G.grid[0].length;}
+  function checkWin(){
+    for(const row of G.grid)for(const c of row)if(c==="$")return false;
+    return true;
+  }
+  function countEggs(){
+    let total=0,done=0;
+    for(const row of G.grid)for(const c of row){
+      if(c==="$"||c==="*")total++;
+      if(c==="*")done++;
+    }
+    return {total,done};
+  }
+  function updateHUD(){
+    const {total,done}=countEggs();
+    $("hudLevel").textContent="第 "+(G.level+1)+" 关";
+    $("hudEggs").textContent="归位 "+done+"/"+total;
+    $("hudMoves").textContent="步数 "+G.moves;
+  }
+
+  function render(){
+    const board=$("board");board.innerHTML="";
+    for(let y=0;y<7;y++)for(let x=0;x<7;x++){
+      const c=G.grid[y][x];
+      const cell=document.createElement("div");
+      cell.className="cell "+(c==="#"? "wall":"floor");
+      if(c==="O"||c==="*")cell.classList.add("nest");
+      if(c==="O"||c==="*"){const n=document.createElement("i");n.className="nest-ico";cell.appendChild(n);}
+      if(c==="$"||c==="*"){const e=document.createElement("i");e.className="egg-ico"+(c==="*"?" done":"");cell.appendChild(e);}
+      if(G.px===x&&G.py===y){const d=document.createElement("div");d.className="dino-ico";d.innerHTML=dinoSVG();cell.appendChild(d);}
+      board.appendChild(cell);
+    }
+  }
+  function dinoSVG(){
+    return '<svg viewBox="0 0 24 24" shape-rendering="crispEdges">'+
+      '<rect x="6" y="9" width="10" height="7" fill="#7ed957"/>'+
+      '<rect x="14" y="6" width="6" height="6" fill="#7ed957"/>'+
+      '<rect x="16" y="8" width="2" height="2" fill="#0b1b12"/>'+
+      '<rect x="4" y="16" width="3" height="4" fill="#5fae3f"/>'+
+      '<rect x="14" y="16" width="3" height="4" fill="#5fae3f"/>'+
+      '<rect x="2" y="11" width="5" height="3" fill="#a8e86a"/>'+
+      '<path d="M8 9l2-4 2 4" fill="#f5a742"/></svg>';
+  }
+
+  function win(){
+    G.solved=true;
+    setTimeout(()=>{
+      if(G.level>=LEVELS.length-1){end();}
+      else{
+        const {total}=countEggs();
+        $("endTitle").textContent="这一关归位了！";
+        $("endSub").textContent="下一关：蛋更多，路更绕。";
+        $("endMoves").textContent=G.moves;
+        $("endUndo").textContent=G.undo;
+        $("end").classList.remove("off");
+        G.state="end";
+        $("again").textContent="下一关 →";
+        $("again").onclick=()=>{G.state="play";$("end").classList.add("off");$("again").textContent="再推一次";$("again").onclick=start;load(G.level+1);};
+      }
+    },350);
+  }
+  function end(){
+    G.state="end";
+    $("endStars").textContent="★★★";
+    $("endTitle").textContent="全部归位！";
+    $("endSub").textContent="3 关都推完了，偷蛋贼白忙一场。";
+    $("endMoves").textContent=G.moves;
+    $("endUndo").textContent=G.undo;
+    $("end").classList.remove("off");
+  }
+
+  function undo(){if(G.state!=="play"||!G.history.length)return;const s=G.history.pop();G.grid=s.grid.map(r=>r.slice());G.px=s.px;G.py=s.py;G.moves=s.moves;G.undo++;G.solved=false;render();updateHUD();}
+  function reset(){if(G.state!=="play")return;load(G.level);}
+
+  document.addEventListener("keydown",e=>{
+    const k=e.key.toLowerCase();
+    if(k==="arrowup"||k==="w"){e.preventDefault();move("up");}
+    if(k==="arrowdown"||k==="s"){e.preventDefault();move("down");}
+    if(k==="arrowleft"||k==="a"){e.preventDefault();move("left");}
+    if(k==="arrowright"||k==="d"){e.preventDefault();move("right");}
+    if(k==="z")undo();
+    if(k==="r")reset();
+  });
+  document.querySelectorAll(".dbtn").forEach(b=>b.addEventListener("pointerdown",e=>{e.preventDefault();move(b.dataset.dir);}));
+  $("undo").addEventListener("click",undo);
+  $("reset").addEventListener("click",reset);
+  $("startBtn").addEventListener("click",start);
+  $("again").addEventListener("click",start);
+  $("toStory").addEventListener("click",toStory);
+
+  window.__puzzle=G;
+  const params=new URLSearchParams(location.search);
+  if(params.get("level")==="2"){start();load(1);}
+  if(params.get("level")==="3"){start();load(2);}
+  if(params.get("win")==="1"){start();G.grid[2][3]="*";G.grid[3][3]=".";G.solved=true;end();}
+  load(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>汉字星球 · 三个玩法小样</title>
+<style>
+/* =========================================================
+   汉字星球 · 三个玩法小样
+   射击（霓虹）/ 闯关（纸感）/ 养成（像素）
+   共用一个答题内核：3 关 × 8 题 / 3 颗盾 / 积分连击
+   ========================================================= */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0a0a0c;color:#f2f0ea;
+  font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow:hidden}
+button{font-family:inherit}
+#app{height:100%;display:grid;place-items:center;padding:clamp(12px,2vw,28px);overflow:auto}
+
+/* ================= 菜单 ================= */
+.menu{width:min(1180px,96vw);margin:auto}
+.menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.kicker{font-family:Consolas,"Cascadia Mono",monospace;font-size:11px;letter-spacing:.22em;color:#8d8d86;text-transform:uppercase;margin-bottom:10px}
+.menu h1{font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.04em;margin:0 0 10px;font-weight:800}
+.menu h1 em{font-style:normal;color:#f5ee36}
+.menu .lead{margin:0;color:#b9b7ae;font-size:14px;line-height:1.7}
+.menu-note{text-align:right;font-family:Consolas,monospace;font-size:11px;line-height:1.9;color:#77756d;letter-spacing:.06em;white-space:nowrap}
+.menu-note b{color:#f5ee36;font-weight:400}
+.menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.menu-card{padding:0;border:1px solid #2c2c2e;border-radius:18px;overflow:hidden;background:#18181a;color:inherit;text-align:left;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.menu-card:hover{transform:translateY(-4px);border-color:#4a4a4e;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.menu-card:focus-visible{outline:2px solid #f5ee36;outline-offset:3px}
+.mini{position:relative;aspect-ratio:16/9;overflow:hidden;container-type:inline-size}
+.mini-hud{position:absolute;top:5%;left:6%;right:6%;display:flex;justify-content:space-between;font-family:Consolas,monospace;font-size:2.2cqw;letter-spacing:.1em;z-index:3}
+.mini-targets{position:absolute;top:28%;left:0;right:0;display:flex;justify-content:center;gap:6cqw;z-index:2}
+.mini-targets i{width:14cqw;height:14cqw;display:grid;place-items:center;font-style:normal;font-size:6.4cqw;font-weight:800}
+.mini-hero{position:absolute;bottom:5%;left:50%;transform:translateX(-50%);width:16cqw;z-index:2}
+.mini-shoot{background:radial-gradient(70% 60% at 50% 105%,rgba(53,224,255,.22),transparent 60%),radial-gradient(40% 40% at 12% 0%,rgba(164,107,255,.25),transparent 60%),#070b1e}
+.mini-shoot .mini-hud{color:#bff6ff}
+.mini-shoot .mini-targets i{border:1px solid #35e0ff;border-radius:2px;color:#d8f8ff;background:rgba(9,18,44,.7);box-shadow:0 0 2cqw rgba(53,224,255,.4)}
+.mini-shoot .mini-targets i:nth-child(2){border-color:#f5ee36;color:#fff7b0;box-shadow:0 0 2cqw rgba(245,238,54,.4)}
+.mini-shoot .mini-targets i:nth-child(3){border-color:#a46bff;color:#e8dcff;box-shadow:0 0 2cqw rgba(164,107,255,.4)}
+.mini-quest{background:#f5f4ef}
+.mini-quest .mini-hud{color:#5c615c}
+.mini-quest .mini-targets i{background:#fffefa;border:1px solid #11130f;color:#11130f;box-shadow:2px 2px 0 rgba(17,19,15,.1)}
+.mini-quest .mini-targets i:nth-child(1){transform:rotate(-2deg)}
+.mini-quest .mini-targets i:nth-child(2){transform:rotate(1deg)}
+.mini-quest .mini-targets i:nth-child(3){transform:rotate(-1deg)}
+.mini-pet{background:radial-gradient(50% 40% at 50% 110%,rgba(255,79,163,.15),transparent 60%),#0b0b12}
+.mini-pet .mini-hud{color:#f5ee36}
+.mini-pet .mini-targets i{background:#12121c;border:.5cqw solid #35e0ff;color:#fff;font-family:Consolas,monospace}
+.mini-pet .mini-targets i:nth-child(2){border-color:#f5ee36}
+.mini-pet .mini-targets i:nth-child(3){border-color:#ff4fa3}
+.mini-shoot .mini-hero{filter:drop-shadow(0 0 2cqw rgba(53,224,255,.5))}
+.mbody{padding:16px 18px 18px}
+.mbody h2{font-size:20px;margin:0 0 4px;letter-spacing:-.01em}
+.mbody p{margin:0 0 12px;color:#9a988f;font-size:12.5px;letter-spacing:.02em}
+.mbody .go{font-family:Consolas,monospace;font-size:11px;letter-spacing:.12em;color:#f5ee36}
+.menu-foot{margin-top:20px;display:flex;justify-content:space-between;gap:24px;color:#77756d;font-size:11.5px;line-height:1.8;border-top:1px solid #2c2c2e;padding-top:16px}
+.menu-foot b{color:#d4d1c8;font-weight:500}
+
+/* ================= 游戏外壳 ================= */
+.game{width:min(1100px,96vw);margin:auto;display:none;flex-direction:column;gap:10px}
+.game.on{display:flex}
+.gbar{display:flex;align-items:center;gap:clamp(10px,2vw,22px);font-family:Consolas,"Cascadia Mono",monospace;font-size:12px;letter-spacing:.06em;color:#b9b7ae}
+.gbar .back{border:1px solid #3a3a3e;background:transparent;color:#d4d1c8;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.08em;cursor:pointer}
+.gbar .back:hover{border-color:#f5ee36;color:#f5ee36}
+.gbar .level{color:#f2f0ea;letter-spacing:.1em}
+.gbar .score{margin-left:auto;color:#f5ee36;font-weight:700;font-size:14px}
+.gbar .hearts{color:#ff5d8f;font-size:15px;letter-spacing:2px}
+.progress{height:3px;background:#242428;border-radius:2px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:#f5ee36;transition:width .3s ease}
+.stage{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;border-radius:18px;overflow:hidden;border:1px solid #2c2c2e;isolation:isolate}
+
+/* 统一场景元素 */
+.scene{position:absolute;inset:0;pointer-events:none;z-index:1;display:none}
+.mode-shoot .scene-shoot,.mode-quest .scene-quest,.mode-pet .scene-pet{display:block}
+.scene>svg{display:block}
+.prompt{position:absolute;top:7%;left:5%;right:5%;z-index:8;display:flex;align-items:center;gap:2cqw;font-size:3.6cqw;line-height:1.2}
+.prompt b{font-weight:800}
+.speak{flex:none;border:1px solid currentColor;background:transparent;color:inherit;opacity:.55;width:5.2cqw;height:5.2cqw;border-radius:50%;display:grid;place-items:center;cursor:pointer;font-size:2.2cqw;padding:0}
+.speak:hover{opacity:1}
+.options{position:absolute;inset:0;z-index:6;pointer-events:none}
+.opt{position:absolute;pointer-events:auto;border:0;background:none;color:inherit;padding:0;cursor:pointer;transition:transform .18s ease,opacity .18s ease,left .45s cubic-bezier(.2,.8,.2,1),top .45s ease;isolation:isolate}
+.opt .char{position:relative;z-index:2;display:grid;place-items:center;line-height:1}
+.opt .key{position:absolute;top:.7cqw;left:.8cqw;font-family:Consolas,monospace;font-size:1.3cqw;opacity:.5;z-index:3}
+.feedback{position:absolute;left:0;right:0;bottom:10%;text-align:center;z-index:9;font-size:1.95cqw;line-height:1.5;pointer-events:none;opacity:0;transition:opacity .2s}
+.feedback.show{opacity:1}
+.banner{position:absolute;inset:0;z-index:20;display:grid;place-items:center;opacity:0;transition:opacity .25s;pointer-events:none}
+.banner.show{opacity:1}
+.banner .bwrap{text-align:center;padding:4cqw 6cqw}
+.banner b{display:block;font-size:5.2cqw;line-height:1.1;letter-spacing:-.02em}
+.banner span{display:block;margin-top:1.4cqw;font-size:1.8cqw;letter-spacing:.2em;opacity:.7}
+.shake{animation:shake .36s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-.8cqw)}40%{transform:translateX(.8cqw)}60%{transform:translateX(-.5cqw)}80%{transform:translateX(.5cqw)}}
+
+/* ================= 射击 · 霓虹 ================= */
+.game.mode-shoot .stage{background:#070b1e;color:#eaf6ff}
+.mode-shoot .scene::before{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%,#fff,transparent 60%),
+    radial-gradient(1.5px 1.5px at 26% 62%,#9fe9ff,transparent 60%),
+    radial-gradient(2px 2px at 48% 12%,#fff,transparent 60%),
+    radial-gradient(1.5px 1.5px at 66% 38%,#ffd7f0,transparent 60%),
+    radial-gradient(2px 2px at 84% 22%,#fff,transparent 60%),
+    radial-gradient(1.5px 1.5px at 92% 68%,#b7c6ff,transparent 60%),
+    radial-gradient(60% 55% at 50% 108%,rgba(53,224,255,.22),transparent 60%),
+    radial-gradient(42% 40% at 10% 0%,rgba(164,107,255,.22),transparent 60%)}
+.mode-shoot .scene::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 45%,rgba(0,0,0,.5) 100%)}
+.mode-shoot .prompt{color:#fff;text-shadow:0 0 2.2cqw rgba(53,224,255,.75)}
+.mode-shoot .prompt b{color:#f5ee36;text-shadow:0 0 2.2cqw rgba(245,238,54,.8)}
+.mode-shoot .speak{color:#9fe9ff;border-color:rgba(159,233,255,.45)}
+.mode-shoot .opt{top:25%;left:var(--x);width:15cqw;height:15cqw;margin-left:-7.5cqw;
+  background:rgba(9,18,44,.78);border:1px solid #35e0ff;border-radius:1.4cqw;
+  box-shadow:0 0 2.4cqw rgba(53,224,255,.4),inset 0 0 1.8cqw rgba(53,224,255,.16);
+  color:#d8f8ff;font-size:7.2cqw;animation:float 4.2s ease-in-out infinite}
+.mode-shoot .opt:nth-child(2){border-color:#f5ee36;color:#fff7b0;box-shadow:0 0 2.4cqw rgba(245,238,54,.38),inset 0 0 1.8cqw rgba(245,238,54,.14);animation-delay:.4s}
+.mode-shoot .opt:nth-child(3){border-color:#a46bff;color:#e8dcff;box-shadow:0 0 2.4cqw rgba(164,107,255,.45),inset 0 0 1.8cqw rgba(164,107,255,.18);animation-delay:.8s}
+.mode-shoot .opt:hover{transform:translateY(-.8cqw)}
+.mode-shoot .opt.correct{border-color:#f5ee36!important;box-shadow:0 0 4cqw rgba(245,238,54,.8)!important}
+.mode-shoot .opt.wrong{border-color:#ff5d8f!important;box-shadow:0 0 4cqw rgba(255,93,143,.7)!important}
+.mode-shoot .opt.hit{opacity:0;transform:scale(.7)}
+.mode-shoot .feedback{top:19%;bottom:auto;color:#bff6ff;text-shadow:0 0 1.5cqw rgba(0,0,0,.8)}
+.mode-shoot .feedback b{color:#f5ee36}
+.mode-shoot .banner{background:rgba(3,6,18,.72)}
+.mode-shoot .banner b{color:#f5ee36;text-shadow:0 0 3cqw rgba(245,238,54,.45)}
+.mode-shoot .banner span{color:#9fe9ff}
+.ship{position:absolute;bottom:4%;left:50%;width:19cqw;transform:translateX(-50%);z-index:4;filter:drop-shadow(0 0 2.2cqw rgba(53,224,255,.45))}
+.beam{position:absolute;width:.38cqw;background:linear-gradient(to top,rgba(53,224,255,0),#9fe9ff,#fff);transform-origin:top center;opacity:0;z-index:5;pointer-events:none;border-radius:999px}
+.beam.fire{animation:beam .42s ease-out}
+@keyframes beam{0%{opacity:0;transform:scaleY(.2)}20%{opacity:1}100%{opacity:0;transform:scaleY(1)}}
+.spark{position:absolute;width:.8cqw;height:.8cqw;border-radius:50%;background:#f5ee36;z-index:7;pointer-events:none;animation:spark .6s ease-out forwards}
+@keyframes spark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
+.mode-shoot .stage.flash::after{content:"";position:absolute;inset:0;background:rgba(255,93,143,.18);z-index:10;pointer-events:none;animation:flash .3s ease}
+@keyframes flash{0%{opacity:1}100%{opacity:0}}
+@keyframes float{0%,100%{top:25%}50%{top:27.2%}}
+
+/* ================= 闯关 · 纸感 ================= */
+.game.mode-quest .stage{background:#f5f4ef;color:#11130f}
+.mode-quest .scene::before{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(rgba(17,19,15,.04) 1px,transparent 1px),
+    radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
+    linear-gradient(to bottom,#f5f4ef 0 58%,#e9e9e2 58% 100%);
+  background-size:5px 5px,9px 9px,100% 100%}
+.mode-quest .scene .sun{position:absolute;top:12%;right:10%;width:9cqw;height:9cqw;border:1px solid #143bb5;border-radius:50%;opacity:.35}
+.mode-quest .scene .hill{position:absolute;left:-5%;right:-5%;bottom:38%;height:18%;background:#e9e9e2;border-top:1px solid #c9cbc4;border-radius:50% 50% 0 0}
+.mode-quest .scene .river{position:absolute;left:0;right:0;bottom:0;height:38%;background:
+  repeating-linear-gradient(0deg,rgba(20,59,181,.08) 0 2px,transparent 2px 9px),#e3e8f4}
+.mode-quest .scene .river::before,.mode-quest .scene .river::after{content:"";position:absolute;left:5%;right:5%;height:1px;background:rgba(20,59,181,.25)}
+.mode-quest .scene .river::before{top:22%}
+.mode-quest .scene .river::after{top:62%}
+.fox{position:absolute;bottom:38%;left:8%;width:12cqw;z-index:4;transition:left .45s cubic-bezier(.2,.8,.2,1),bottom .35s ease,transform .2s;transform:translateX(-50%)}
+.fox.hop{animation:hop .45s ease}
+@keyframes hop{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-2.4cqw)}}
+.mode-quest .prompt{color:#11130f;font-family:"Songti SC","STSong","SimSun",serif;font-weight:700}
+.mode-quest .prompt b{color:#143bb5;border-bottom:.55cqw solid #143bb5;padding-bottom:.15cqw}
+.mode-quest .speak{color:#5c615c;border-color:#c9cbc4}
+.mode-quest .opt{bottom:17%;left:var(--x);width:15cqw;height:9.5cqw;margin-left:-7.5cqw;
+  background:#fffefa;border:1px solid #11130f;box-shadow:.7cqw .7cqw 0 rgba(17,19,15,.08);
+  color:#11130f;font-size:6.2cqw;font-family:"Songti SC","STSong","SimSun",serif}
+.mode-quest .opt:nth-child(2){--rot:1.4deg}
+.mode-quest .opt:nth-child(3){--rot:-1.2deg}
+.mode-quest .opt:hover{transform:translateY(-.6cqw) rotate(var(--rot,0deg))}
+.mode-quest .opt.correct{border-color:#143bb5;box-shadow:.7cqw .7cqw 0 #143bb5}
+.mode-quest .opt.wrong{border-color:#b3261e;box-shadow:.7cqw .7cqw 0 #b3261e}
+.mode-quest .opt.sink{opacity:0;transform:translateY(2.6cqw)}
+.mode-quest .feedback{bottom:6%;color:#2e332e}
+.mode-quest .feedback b{color:#143bb5}
+.mode-quest .banner{background:rgba(245,244,239,.82)}
+.mode-quest .banner b{color:#11130f}
+.mode-quest .banner span{color:#5c615c}
+.mode-quest .progress i{background:#143bb5}
+.mode-quest .gbar .score{color:#143bb5}
+.mode-quest .gbar .hearts{color:#143bb5}
+
+/* ================= 养成 · 像素 ================= */
+.game.mode-pet .stage{background:#0b0b12;color:#eaf6ff}
+.mode-pet .scene::before{content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),
+    radial-gradient(circle at 18% 24%,rgba(53,224,255,.13),transparent 28%),
+    radial-gradient(circle at 84% 72%,rgba(255,79,163,.12),transparent 32%),
+    radial-gradient(circle at 62% 12%,rgba(245,238,54,.08),transparent 26%)}
+.mode-pet .scene .ground{position:absolute;left:0;right:0;bottom:0;height:22%;background:#12121c;border-top:.4cqw solid #35e0ff;box-shadow:0 -1cqw 4cqw rgba(53,224,255,.18)}
+.mode-pet .scene .ground::before{content:"";position:absolute;left:0;right:0;top:1.2cqw;height:1px;background:rgba(53,224,255,.25)}
+.dino{position:absolute;bottom:30%;left:50%;width:23cqw;transform:translateX(-50%);z-index:4;transition:width .4s ease,filter .3s ease}
+.dino svg{display:block;width:100%;height:auto}\n.dino::after{content:"";position:absolute;left:18%;right:18%;bottom:-1.6cqw;height:1.3cqw;border-radius:50%;background:rgba(53,224,255,.16);filter:blur(.45cqw)}
+.dino .s-egg,.dino .s-baby,.dino .s-adult{display:none}
+.dino[data-stage="0"] .s-egg{display:block}
+.dino[data-stage="1"] .s-baby{display:block}
+.dino[data-stage="2"] .s-adult{display:block}
+.dino.happy{animation:petjump .45s ease}
+@keyframes petjump{0%,100%{transform:translateX(-50%) translateY(0)}45%{transform:translateX(-50%) translateY(-2.2cqw)}}
+.dino.sad{animation:petsad .4s ease}
+@keyframes petsad{0%,100%{transform:translateX(-50%) rotate(0)}25%{transform:translateX(-50%) rotate(-4deg)}75%{transform:translateX(-50%) rotate(4deg)}}
+.mode-pet .prompt{color:#fff;text-shadow:.4cqw .4cqw 0 #000}
+.mode-pet .prompt b{color:#0b0b12;background:#f5ee36;padding:0 .8cqw;box-shadow:.45cqw .45cqw 0 #000;text-shadow:none}
+.mode-pet .speak{color:#f5ee36;border-color:#f5ee36}
+.mode-pet .opt{bottom:4%;left:var(--x);width:11.5cqw;height:11.5cqw;margin-left:-5.75cqw;
+  background:#12121c;border:.5cqw solid #35e0ff;box-shadow:.8cqw .8cqw 0 #000;
+  color:#fff;font-size:5.8cqw;font-family:Consolas,"Cascadia Mono",monospace}
+.mode-pet .opt:nth-child(2){border-color:#f5ee36}
+.mode-pet .opt:nth-child(3){border-color:#ff4fa3}
+.mode-pet .opt:hover{transform:translateY(-.7cqw)}
+.mode-pet .opt.correct{border-color:#f5ee36;box-shadow:0 0 3cqw rgba(245,238,54,.7)}
+.mode-pet .opt.wrong{border-color:#ff5d8f;box-shadow:0 0 3cqw rgba(255,93,143,.7)}
+.mode-pet .opt.eaten{opacity:0;transform:translateY(-3cqw) scale(.7)}
+.mode-pet .feedback{top:19%;bottom:auto;color:#bff6ff}
+.mode-pet .feedback b{color:#f5ee36}
+.mode-pet .banner{background:rgba(5,5,10,.78)}
+.mode-pet .banner b{color:#f5ee36;text-shadow:.4cqw .4cqw 0 #000}
+.mode-pet .banner span{color:#ff9fc2}
+.mode-pet .progress i{background:#ff4fa3}
+.mode-pet .gbar .score{color:#f5ee36}
+.mode-pet .gbar .hearts{color:#ff4fa3}
+.heart-float{position:absolute;z-index:8;font-size:3cqw;color:#ff5d8f;pointer-events:none;animation:heartfloat .8s ease-out forwards}
+@keyframes heartfloat{0%{opacity:1;transform:translateY(0) scale(.8)}100%{opacity:0;transform:translateY(-5cqw) scale(1.2)}}
+
+/* ================= 结算 ================= */
+.end{position:absolute;inset:0;z-index:30;display:none;place-items:center;background:rgba(6,6,10,.84);backdrop-filter:blur(6px);padding:3cqw}
+.end.on{display:grid}
+.end-card{width:min(88%,760px);max-height:92%;display:flex;flex-direction:column;overflow:hidden;background:#18181a;border:1px solid #3a3a3e;border-radius:16px;padding:2.6cqw 3.4cqw;text-align:center;color:#f2f0ea;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.end-card .stars{font-size:4.4cqw;line-height:1;color:#f5ee36;letter-spacing:.45cqw;margin-bottom:.5cqw}
+.end-card h2{font-size:3.3cqw;margin:0 0 .4cqw;letter-spacing:-.02em}
+.end-card .sub{color:#9a988f;font-size:1.45cqw;margin:0 0 1.5cqw}
+.end-card .big{font-family:Consolas,monospace;font-size:3.9cqw;color:#f5ee36;line-height:1;margin-bottom:1.1cqw}
+.end-card .big small{font-size:1.4cqw;color:#9a988f;letter-spacing:.14em}
+.end-scroll{overflow:auto;min-height:0;padding-right:.3cqw}
+.end-card .count{font-size:1.4cqw;color:#9a988f;letter-spacing:.08em;margin:0 0 1.1cqw}
+.end-card .count b{color:#f5ee36;font-weight:700}
+.end-card .words{display:flex;flex-wrap:wrap;gap:.9cqw;justify-content:center;margin:0 0 1.6cqw}
+.end-card .words span{font-size:1.7cqw;padding:.32cqw .68cqw;border:1px solid #3a3a3e;border-radius:.6cqw;color:#d4d1c8}
+.end-actions{display:flex;gap:1.6cqw;justify-content:center;flex-wrap:wrap;flex:none;margin-top:1.8cqw;padding-top:1.4cqw;border-top:1px solid #2c2c2e}
+.btn{border:1px solid #4a4a4e;background:transparent;color:#f2f0ea;border-radius:999px;padding:1.2cqw 2.4cqw;font-size:1.6cqw;cursor:pointer;letter-spacing:.06em}
+.btn:hover{border-color:#f5ee36;color:#f5ee36}
+.btn.primary{background:#f5ee36;color:#11130f;border-color:#f5ee36;font-weight:700}
+.btn.primary:hover{background:#fff;border-color:#fff;color:#11130f}
+.gfoot{display:flex;justify-content:space-between;gap:16px;font-family:Consolas,monospace;font-size:10.5px;color:#77756d;letter-spacing:.06em}
+.gfoot button{border:0;background:transparent;color:#77756d;font:inherit;cursor:pointer;padding:0}
+.gfoot button:hover{color:#f5ee36}
+
+@media (max-width:860px){
+  #app{padding:10px}
+  .menu-grid{grid-template-columns:1fr;gap:12px}
+  .menu-card{display:grid;grid-template-columns:42% 1fr;align-items:center}
+  .mini{aspect-ratio:16/10}
+  .menu-head{flex-direction:column;align-items:flex-start;gap:10px}
+  .menu-note{text-align:left;white-space:normal}
+  .menu-foot{flex-direction:column;gap:6px}
+  .game{width:100%}
+  .gbar{font-size:10px;gap:8px}
+  .gbar .score{font-size:12px}
+  .prompt{font-size:4.2cqw}
+  .end-card{width:92%}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ================= 菜单 ================= -->
+  <section class="menu" id="menu">
+    <header class="menu-head">
+      <div>
+        <div class="kicker">Hanzi Planet / Playable Prototype</div>
+        <h1>三个玩法，<em>先玩一遍</em>。</h1>
+        <p class="lead">同一个答题内核：3 关 × 8 题、3 颗盾、答对 +10、连击加成。<br>只换场景和反馈——你选一个，先玩一关。</p>
+      </div>
+      <div class="menu-note">
+        <span><b>射击</b> 霓虹打陨石</span><br>
+        <span><b>闯关</b> 纸感小狐狸</span><br>
+        <span><b>养成</b> 像素小恐龙</span>
+      </div>
+    </header>
+
+    <div class="menu-grid">
+      <button class="menu-card" data-mode="shoot" type="button">
+        <div class="mini mini-shoot">
+          <div class="mini-hud"><span>LV.01</span><span>0120</span></div>
+          <div class="mini-targets"><i>山</i><i>水</i><i>田</i></div>
+          <svg class="mini-hero" viewBox="0 0 80 60" aria-hidden="true">
+            <path d="M40 6 L58 36 L40 29 L22 36 Z" fill="#35e0ff"/>
+            <path d="M40 29 L49 52 L40 46 L31 52 Z" fill="#a46bff"/>
+            <circle cx="40" cy="21" r="2.2" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="mbody"><h2>太空打陨石</h2><p>射击 · 霓虹太空 · 3 关</p><span class="go">开始 →</span></div>
+      </button>
+
+      <button class="menu-card" data-mode="quest" type="button">
+        <div class="mini mini-quest">
+          <div class="mini-hud"><span>第一关 · 认字</span><span>120 分</span></div>
+          <div class="mini-targets"><i>山</i><i>水</i><i>田</i></div>
+          <svg class="mini-hero" viewBox="0 0 80 60" aria-hidden="true">
+            <path d="M14 46 L20 22 L30 32 L50 32 L60 22 L66 46 Z" fill="#d97a3a"/>
+            <path d="M20 22 L24 34 L30 32 Z" fill="#f0b27a"/>
+            <path d="M60 22 L56 34 L50 32 Z" fill="#f0b27a"/>
+            <path d="M30 44 L30 54 M50 44 L50 54" stroke="#11130f" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="34" cy="38" r="2" fill="#11130f"/><circle cx="46" cy="38" r="2" fill="#11130f"/>
+            <path d="M38 42 Q40 44 42 42" stroke="#11130f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path d="M66 40 Q74 34 70 28" stroke="#d97a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mbody"><h2>小狐狸过河</h2><p>闯关 · 纸感绘本 · 3 关</p><span class="go">开始 →</span></div>
+      </button>
+
+      <button class="menu-card" data-mode="pet" type="button">
+        <div class="mini mini-pet">
+          <div class="mini-hud"><span>LV.01</span><span>0120</span></div>
+          <div class="mini-targets"><i>山</i><i>水</i><i>田</i></div>
+          <svg class="mini-hero" viewBox="0 0 80 60" aria-hidden="true">
+            <rect x="26" y="20" width="28" height="24" fill="#35e0ff"/>
+            <rect x="32" y="12" width="16" height="10" fill="#35e0ff"/>
+            <rect x="36" y="16" width="3" height="3" fill="#0b0b12"/>
+            <rect x="45" y="16" width="3" height="3" fill="#0b0b12"/>
+            <rect x="32" y="44" width="7" height="8" fill="#f5ee36"/>
+            <rect x="43" y="44" width="7" height="8" fill="#f5ee36"/>
+            <rect x="52" y="26" width="8" height="5" fill="#ff4fa3"/>
+          </svg>
+        </div>
+        <div class="mbody"><h2>养只小恐龙</h2><p>养成 · 像素街机 · 3 关</p><span class="go">开始 →</span></div>
+      </button>
+    </div>
+
+    <div class="menu-foot">
+      <div><b>怎么玩</b>　点字作答；答错扣一颗盾；三颗盾用完就结束。</div>
+      <div><b>建议</b>　横屏；音量开小一点；先玩一关，再看要不要改。</div>
+    </div>
+  </section>
+
+  <!-- ================= 游戏 ================= -->
+  <section class="game" id="game">
+    <div class="gbar">
+      <button class="back" id="back" type="button">← 返回</button>
+      <span class="level" id="levelLabel">第一关 · 认字</span>
+      <span class="score" id="score">0</span>
+      <span class="hearts" id="hearts">♥♥♥</span>
+    </div>
+    <div class="progress"><i id="progressFill"></i></div>
+
+    <div class="stage" id="stage">
+      <div class="scene scene-shoot">
+        <svg class="ship" viewBox="0 0 80 60" aria-hidden="true">
+          <path d="M40 4 L58 34 L40 27 L22 34 Z" fill="#35e0ff"/>
+          <path d="M40 27 L49 51 L40 45 L31 51 Z" fill="#a46bff"/>
+          <circle cx="40" cy="20" r="2.2" fill="#fff"/>
+        </svg>
+        <div class="beam" id="beam"></div>
+      </div>
+
+      <div class="scene scene-quest">
+        <div class="sun"></div>
+        <div class="hill"></div>
+        <div class="river"></div>
+        <svg class="fox" viewBox="0 0 80 60" aria-hidden="true">
+          <path d="M14 46 L20 22 L30 32 L50 32 L60 22 L66 46 Z" fill="#d97a3a"/>
+          <path d="M20 22 L24 34 L30 32 Z" fill="#f0b27a"/>
+          <path d="M60 22 L56 34 L50 32 Z" fill="#f0b27a"/>
+          <path d="M30 44 L30 54 M50 44 L50 54" stroke="#11130f" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="34" cy="38" r="2" fill="#11130f"/><circle cx="46" cy="38" r="2" fill="#11130f"/>
+          <path d="M38 42 Q40 44 42 42" stroke="#11130f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M66 40 Q74 34 70 28" stroke="#d97a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="scene scene-pet">
+        <div class="ground"></div>
+        <div class="dino" id="dino" data-stage="0">
+          <svg class="s-egg" viewBox="0 0 80 60" aria-hidden="true">
+            <ellipse cx="40" cy="34" rx="17" ry="21" fill="#f5ee36"/>
+            <ellipse cx="40" cy="34" rx="17" ry="21" fill="none" stroke="#0b0b12" stroke-width="2"/>
+            <circle cx="33" cy="28" r="3" fill="#ff4fa3"/><circle cx="47" cy="38" r="3" fill="#35e0ff"/>
+            <circle cx="42" cy="23" r="2" fill="#ff4fa3"/><circle cx="34" cy="42" r="2" fill="#35e0ff"/>
+          </svg>
+          <svg class="s-baby" viewBox="0 0 80 60" aria-hidden="true">
+            <rect x="28" y="24" width="26" height="20" fill="#35e0ff"/>
+            <rect x="33" y="15" width="16" height="11" fill="#35e0ff"/>
+            <rect x="37" y="19" width="3" height="3" fill="#0b0b12"/><rect x="45" y="19" width="3" height="3" fill="#0b0b12"/>
+            <rect x="32" y="44" width="6" height="8" fill="#f5ee36"/><rect x="44" y="44" width="6" height="8" fill="#f5ee36"/>
+            <rect x="54" y="30" width="7" height="4" fill="#ff4fa3"/>
+            <rect x="28" y="24" width="26" height="20" fill="none" stroke="#0b0b12" stroke-width="2"/>
+          </svg>
+          <svg class="s-adult" viewBox="0 0 80 60" aria-hidden="true">
+            <rect x="22" y="22" width="34" height="24" fill="#35e0ff"/>
+            <rect x="28" y="11" width="20" height="13" fill="#35e0ff"/>
+            <rect x="32" y="16" width="4" height="4" fill="#0b0b12"/><rect x="43" y="16" width="4" height="4" fill="#0b0b12"/>
+            <rect x="26" y="46" width="8" height="8" fill="#f5ee36"/><rect x="44" y="46" width="8" height="8" fill="#f5ee36"/>
+            <path d="M22 28 L14 22 L22 36 Z" fill="#ff4fa3"/>
+            <path d="M56 28 L64 22 L56 36 Z" fill="#ff4fa3"/>
+            <rect x="18" y="18" width="6" height="6" fill="#f5ee36"/><rect x="54" y="18" width="6" height="6" fill="#f5ee36"/>
+            <rect x="22" y="22" width="34" height="24" fill="none" stroke="#0b0b12" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="prompt" id="prompt"><span id="promptText"></span><button class="speak" id="speak" type="button" aria-label="朗读题目">🔊</button></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="banner" id="banner"><div class="bwrap"><b id="bannerTitle"></b><span id="bannerSub"></span></div></div>
+      <div class="end" id="end"><div class="end-card" id="endCard"></div></div>
+    </div>
+
+    <div class="gfoot">
+      <span>1 / 2 / 3 选择 · Esc 返回 · 点 🔊 听题</span>
+      <span><button id="soundToggle" type="button">音效：开</button></span>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- 题库：3 关 × 8 题 ---------------- */
+  var LEVELS = [
+    { name:"第一关 · 认字", short:"认字", questions:[
+      { q:"山", tip:"shān", options:["山","水","田"], answer:0, hint:"“山”像三座山峰。" },
+      { q:"水", tip:"shuǐ", options:["水","木","火"], answer:0, hint:"“水”中间是竖钩，两边是水花。" },
+      { q:"火", tip:"huǒ", options:["火","大","人"], answer:0, hint:"“火”像跳动的火苗。" },
+      { q:"田", tip:"tián", options:["田","日","口"], answer:0, hint:"“田”是方方正正的田地。" },
+      { q:"人", tip:"rén", options:["人","入","八"], answer:0, hint:"“人”像一个人迈开腿。" },
+      { q:"口", tip:"kǒu", options:["口","日","目"], answer:0, hint:"“口”是张开的嘴巴。" },
+      { q:"日", tip:"rì", options:["日","目","白"], answer:0, hint:"“日”里面只有一横。" },
+      { q:"月", tip:"yuè", options:["月","用","肉"], answer:0, hint:"“月”像弯弯的月牙。" }
+    ]},
+    { name:"第二关 · 组词", short:"组词", questions:[
+      { q:"太阳", tip:"tài yáng", options:["太阳","月亮","星星"], answer:0, hint:"白天的光来自太阳。" },
+      { q:"月亮", tip:"yuè liang", options:["月亮","太阳","白云"], answer:0, hint:"晚上挂在天上。" },
+      { q:"山水", tip:"shān shuǐ", options:["山水","水火","田地"], answer:0, hint:"山和水，合起来就是风景。" },
+      { q:"火苗", tip:"huǒ miáo", options:["火苗","火把","火山"], answer:0, hint:"小小的火，叫火苗。" },
+      { q:"田地", tip:"tián dì", options:["田地","田野","田字"], answer:0, hint:"种庄稼的地方。" },
+      { q:"人口", tip:"rén kǒu", options:["人口","人们","大人"], answer:0, hint:"一个地方有多少人。" },
+      { q:"日出", tip:"rì chū", options:["日出","日落","月光"], answer:0, hint:"太阳升起来。" },
+      { q:"月牙", tip:"yuè yá", options:["月牙","月亮","月饼"], answer:0, hint:"弯弯的月亮像牙齿。" }
+    ]},
+    { name:"第三关 · 偏旁", short:"偏旁", questions:[
+      { q:"带三点水的字", tip:"氵 = 三点水", options:["江","树","灯"], answer:0, hint:"“江”左边是三点水。" },
+      { q:"带木字旁的字", tip:"木 = 木字旁", options:["林","河","烧"], answer:0, hint:"“林”左边是木字旁。" },
+      { q:"带火字旁的字", tip:"火 = 火字旁", options:["灯","江","树"], answer:0, hint:"“灯”左边是火字旁。" },
+      { q:"带口字旁的字", tip:"口 = 口字旁", options:["吃","林","河"], answer:0, hint:"“吃”左边是口字旁。" },
+      { q:"带单人旁的字", tip:"亻 = 单人旁", options:["你","江","灯"], answer:0, hint:"“你”左边是单人旁。" },
+      { q:"带草字头的字", tip:"艹 = 草字头", options:["花","树","河"], answer:0, hint:"“花”上面是草字头。" },
+      { q:"带宝盖头的字", tip:"宀 = 宝盖头", options:["家","花","吃"], answer:0, hint:"“家”上面是宝盖头。" },
+      { q:"带虫字旁的字", tip:"虫 = 虫字旁", options:["蚂","花","家"], answer:0, hint:"“蚂”左边是虫字旁。" }
+    ]}
+  ];
+
+  /* ---------------- DOM ---------------- */
+  var $ = function(id){ return document.getElementById(id); };
+  var app = $("app"), menu = $("menu"), game = $("game");
+  var stage = $("stage"), optionsEl = $("options"), promptText = $("promptText");
+  var feedback = $("feedback"), banner = $("banner"), bannerTitle = $("bannerTitle"), bannerSub = $("bannerSub");
+  var scoreEl = $("score"), heartsEl = $("hearts"), levelLabel = $("levelLabel"), progressFill = $("progressFill");
+  var endEl = $("end"), endCard = $("endCard"), dino = $("dino"), beam = $("beam"), fox = document.querySelector(".fox");
+  var soundOn = true, audioCtx = null, speakOn = true;
+
+  var state = null;
+
+  /* ---------------- 工具 ---------------- */
+  function pad(n){ return n < 10 ? "0" + n : String(n); }
+  function shuffle(arr){
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  function prepQuestion(q){
+    var opts = q.options.map(function(text, i){ return { text:text, correct:i === q.answer }; });
+    shuffle(opts);
+    return { q:q.q, tip:q.tip, hint:q.hint, options:opts.map(function(o){ return o.text; }), answer:opts.findIndex(function(o){ return o.correct; }) };
+  }
+  function promptHTML(q){
+    var mode = state.mode, lv = state.level;
+    var t = "<b>" + q.q + "</b>";
+    if (mode === "shoot") return lv === 2 ? "打中" + t : "打中「" + t + "」";
+    if (mode === "quest") return lv === 2 ? "找到" + t : "找到「" + t + "」";
+    return lv === 2 ? "喂它" + t : "喂它「" + t + "」";
+  }
+  function stripTags(s){ return s.replace(/<[^>]*>/g, ""); }
+
+  /* ---------------- 声音 ---------------- */
+  function ensureAudio(){
+    if (!soundOn) return null;
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){ return null; }
+    }
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    return audioCtx;
+  }
+  function beep(freq, dur, type, gain){
+    var ctx = ensureAudio(); if (!ctx) return;
+    var o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = type || "sine"; o.frequency.value = freq;
+    g.gain.value = gain || 0.06;
+    o.connect(g); g.connect(ctx.destination);
+    var t = ctx.currentTime;
+    g.gain.setValueAtTime(g.gain.value, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.start(t); o.stop(t + dur + 0.02);
+  }
+  function sfxGood(){ beep(660,.08,"square",.05); setTimeout(function(){ beep(990,.12,"square",.05); },70); }
+  function sfxBad(){ beep(160,.2,"sawtooth",.06); }
+  function sfxLevel(){ [523,659,784].forEach(function(f,i){ setTimeout(function(){ beep(f,.1,"triangle",.05); }, i*90); }); }
+
+  /* ---------------- 朗读 ---------------- */
+  function speak(){
+    if (!speakOn || !("speechSynthesis" in window) || !state) return;
+    var q = state.questions[state.qIndex]; if (!q) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(q.q);
+    u.lang = "zh-CN"; u.rate = 0.9; u.pitch = 1.05;
+    window.speechSynthesis.speak(u);
+  }
+
+  /* ---------------- 菜单 / 开始 ---------------- */
+  function showMenu(){
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    game.classList.remove("on"); game.className = "game";
+    menu.style.display = "";
+    endEl.classList.remove("on");
+  }
+  function startGame(mode){
+    menu.style.display = "none";
+    game.className = "game on mode-" + mode;
+    state = { mode:mode, level:0, qIndex:0, score:0, combo:0, hearts:3, correct:0, answered:0,
+      locked:true, questions:[], words:[], levelScore:0 };
+    showMenuCards(false);
+    loadLevel(0);
+    ensureAudio();
+  }
+  function showMenuCards(v){ /* reserved */ }
+
+  function loadLevel(i){
+    state.level = i;
+    state.qIndex = 0;
+    state.levelScore = 0;
+    state.questions = LEVELS[i].questions.map(prepQuestion);
+    state.locked = true;
+    dino.dataset.stage = String(i);
+    dino.style.width = i === 0 ? "18cqw" : (i === 1 ? "22cqw" : "26cqw");
+    if (i > 0 && state.mode === "pet") sfxLevel();
+    showBanner(LEVELS[i].name, i === 0 ? "3 关 × 8 题 · 3 颗盾" : (i === 1 ? "词语关 · 词更长" : "偏旁关 · 速度更快"));
+    updateHUD();
+    setTimeout(function(){ if (state) renderQuestion(); }, 850);
+  }
+
+  function showBanner(title, sub){
+    bannerTitle.textContent = title || "";
+    bannerSub.textContent = sub || "";
+    banner.classList.add("show");
+    setTimeout(function(){ banner.classList.remove("show"); }, 900);
+  }
+
+  /* ---------------- 渲染 ---------------- */
+  function updateHUD(){
+    if (!state) return;
+    scoreEl.textContent = state.score + " 分";
+    heartsEl.textContent = "♥".repeat(Math.max(0, state.hearts)) + "♡".repeat(Math.max(0, 3 - state.hearts));
+    levelLabel.textContent = LEVELS[state.level].name;
+    progressFill.style.width = Math.round((state.qIndex / 8) * 100) + "%";
+  }
+
+  function renderQuestion(){
+    if (!state || state.hearts <= 0) return;
+    var q = state.questions[state.qIndex];
+    state.locked = false;
+    promptText.innerHTML = promptHTML(q);
+    feedback.classList.remove("show");
+    feedback.innerHTML = "";
+    optionsEl.innerHTML = "";
+
+    var xs = state.mode === "shoot" ? [18, 50, 82] : (state.mode === "quest" ? [22, 50, 78] : [20, 50, 80]);
+    q.options.forEach(function(text, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.style.setProperty("--x", xs[i] + "%");
+      b.dataset.i = i;
+      b.innerHTML = '<span class="key">' + (i + 1) + '</span><span class="char">' + text + '</span>';
+      b.addEventListener("click", function(){ choose(i, b); });
+      optionsEl.appendChild(b);
+    });
+
+    if (state.mode === "quest" && fox) {
+      fox.style.left = "8%";
+      fox.style.bottom = "38%";
+      fox.classList.remove("hop");
+    }
+    updateHUD();
+  }
+
+  /* ---------------- 作答 ---------------- */
+  function choose(i, btn){
+    if (!state || state.locked) return;
+    var q = state.questions[state.qIndex];
+    if (!q) return;
+    state.locked = true;
+    state.answered++;
+    var good = i === q.answer;
+    var all = optionsEl.querySelectorAll(".opt");
+
+    if (good) {
+      state.combo++;
+      state.correct++;
+      var gain = 10 + Math.min(state.combo - 1, 5) * 2;
+      state.score += gain;
+      state.levelScore += gain;
+      var learned = state.level === 2 ? q.options[q.answer] : q.q;
+      if (state.words.indexOf(learned) === -1) state.words.push(learned);
+      btn.classList.add("correct");
+      showFloat(btn, "+" + gain + (state.combo > 1 ? " ×" + state.combo : ""));
+      feedback.innerHTML = '<b>答对了</b>　' + q.q + (q.tip ? " · " + q.tip : "") + (state.combo > 1 ? "　连击 ×" + state.combo : "");
+      feedback.classList.add("show");
+      sfxGood();
+      if (state.mode === "shoot") { fireBeam(btn); explode(btn); btn.classList.add("hit"); stage.classList.add("flash"); setTimeout(function(){ stage.classList.remove("flash"); }, 320); }
+      if (state.mode === "quest" && fox) {
+        var r = btn.getBoundingClientRect(), s = stage.getBoundingClientRect();
+        fox.style.left = Math.round(((r.left + r.width / 2) - s.left) / s.width * 100) + "%";
+        fox.style.bottom = "34%";
+        fox.classList.add("hop");
+      }
+      if (state.mode === "pet") {
+        btn.classList.add("eaten");
+        dino.classList.add("happy");
+        setTimeout(function(){ dino.classList.remove("happy"); }, 500);
+        floatHeart();
+      }
+      updateHUD();
+      setTimeout(next, 950);
+    } else {
+      state.combo = 0;
+      state.hearts = Math.max(0, state.hearts - 1);
+      btn.classList.add("wrong");
+      if (all[q.answer]) all[q.answer].classList.add("correct");
+      feedback.innerHTML = '<b>再想想</b>　正确答案是「' + q.q + '」' + (q.tip ? " · " + q.tip : "") + (q.hint ? "<br>" + q.hint : "");
+      feedback.classList.add("show");
+      sfxBad();
+      stage.classList.add("shake");
+      setTimeout(function(){ stage.classList.remove("shake"); }, 380);
+      if (state.mode === "pet") { dino.classList.add("sad"); setTimeout(function(){ dino.classList.remove("sad"); }, 450); }
+      updateHUD();
+      setTimeout(next, 1500);
+    }
+  }
+
+  function next(){
+    if (!state) return;
+    if (state.hearts <= 0) { endGame(false); return; }
+    state.qIndex++;
+    if (state.qIndex >= 8) {
+      if (state.level >= 2) { endGame(true); return; }
+      loadLevel(state.level + 1);
+      return;
+    }
+    renderQuestion();
+  }
+
+  /* ---------------- 特效 ---------------- */
+  function showFloat(btn, text){
+    var r = btn.getBoundingClientRect(), s = stage.getBoundingClientRect();
+    var el = document.createElement("div");
+    el.textContent = text;
+    el.style.cssText = "position:absolute;z-index:12;pointer-events:none;font-family:Consolas,monospace;font-weight:700;font-size:2.4cqw;color:#f5ee36;text-shadow:0 0 1cqw rgba(0,0,0,.6);left:" +
+      ((r.left + r.width / 2 - s.left) / s.width * 100) + "%;top:" + ((r.top - s.top) / s.height * 100) + "%;transform:translate(-50%,-50%);animation:floatUp .8s ease-out forwards";
+    stage.appendChild(el);
+    setTimeout(function(){ el.remove(); }, 850);
+  }
+  function floatHeart(){
+    var r = dino.getBoundingClientRect(), s = stage.getBoundingClientRect();
+    var el = document.createElement("div");
+    el.className = "heart-float"; el.textContent = "♥";
+    el.style.left = ((r.left + r.width / 2 - s.left) / s.width * 100) + "%";
+    el.style.top = ((r.top - s.top) / s.height * 100) + "%";
+    stage.appendChild(el);
+    setTimeout(function(){ el.remove(); }, 850);
+  }
+  function fireBeam(btn){
+    if (!beam) return;
+    var s = stage.getBoundingClientRect();
+    var ship = stage.querySelector(".ship").getBoundingClientRect();
+    var t = btn.getBoundingClientRect();
+    var x1 = ship.left + ship.width / 2 - s.left;
+    var y1 = ship.top + ship.height / 2 - s.top;
+    var x2 = t.left + t.width / 2 - s.left;
+    var y2 = t.top + t.height / 2 - s.top;
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+    beam.style.left = x1 + "px"; beam.style.top = y1 + "px";
+    beam.style.height = len + "px";
+    beam.style.transform = "rotate(" + angle + "deg)";
+    beam.classList.remove("fire");
+    void beam.offsetWidth;
+    beam.classList.add("fire");
+    setTimeout(function(){ beam.classList.remove("fire"); }, 460);
+  }
+  function explode(btn){
+    var s = stage.getBoundingClientRect();
+    var r = btn.getBoundingClientRect();
+    var cx = r.left + r.width / 2 - s.left;
+    var cy = r.top + r.height / 2 - s.top;
+    for (var i = 0; i < 10; i++) {
+      var p = document.createElement("i");
+      p.className = "spark";
+      p.style.left = cx + "px"; p.style.top = cy + "px";
+      var a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 70;
+      p.style.setProperty("--dx", Math.cos(a) * d + "px");
+      p.style.setProperty("--dy", Math.sin(a) * d + "px");
+      p.style.background = ["#f5ee36","#35e0ff","#ff4fa3","#fff"][i % 4];
+      stage.appendChild(p);
+      setTimeout(function(el){ el.remove(); }, 650, p);
+    }
+  }
+
+  /* ---------------- 结算 ---------------- */
+  function endGame(win){
+    if (!state) return;
+    state.locked = true;
+    var stars = win ? (state.hearts === 3 ? 3 : state.hearts === 2 ? 2 : 1) : 0;
+    var words = state.words.slice(0, 24);
+    var title = win ? "通关！" : "差一点，再来一次";
+    var sub = win ? "三关都过了，小恐龙/小狐狸/飞船都到家了。" : "盾用完了。没关系，再玩一次就熟了。";
+    if (state.mode === "pet" && win) sub = "小恐龙长大了，今天认识的字都在下面。";
+    if (state.mode === "quest" && win) sub = "小狐狸过河了，今天认识的字都在下面。";
+    if (state.mode === "shoot" && win) sub = "陨石清完了，今天认识的字都在下面。";
+
+    endCard.innerHTML =
+      '<div class="end-scroll">' +
+        '<div class="stars">' + (win ? "★★★".slice(0, stars) + "☆☆☆".slice(0, 3 - stars) : "☆☆☆") + '</div>' +
+        '<h2>' + title + '</h2>' +
+        '<p class="sub">' + sub + '</p>' +
+        '<div class="big">' + state.score + '<small> 分</small></div>' +
+        '<div class="count">今天认识了 <b>' + words.length + '</b> 个字</div>' +
+        (words.length ? '<div class="words">' + words.map(function(w){ return "<span>" + w + "</span>"; }).join("") + '</div>' : "") +
+      '</div>' +
+      '<div class="end-actions">' +
+        '<button class="btn primary" id="again" type="button">再玩一次</button>' +
+        '<button class="btn" id="toMenu" type="button">换一个玩法</button>' +
+      '</div>';
+    endEl.classList.add("on");
+    $("again").addEventListener("click", function(){ startGame(state.mode); });
+    $("toMenu").addEventListener("click", showMenu);
+    if (win) sfxLevel();
+  }
+
+  /* ---------------- 事件 ---------------- */
+  document.querySelectorAll(".menu-card").forEach(function(card){
+    card.addEventListener("click", function(){ startGame(card.dataset.mode); });
+  });
+  $("back").addEventListener("click", showMenu);
+  $("speak").addEventListener("click", speak);
+  $("soundToggle").addEventListener("click", function(){
+    soundOn = !soundOn;
+    this.textContent = "音效：" + (soundOn ? "开" : "关");
+    if (!soundOn && audioCtx) { try { audioCtx.suspend(); } catch(e){} }
+  });
+  document.addEventListener("keydown", function(e){
+    if (!state || !game.classList.contains("on")) return;
+    if (e.key === "Escape") { showMenu(); return; }
+    if (endEl.classList.contains("on")) {
+      if (e.key.toLowerCase() === "r") { startGame(state.mode); }
+      return;
+    }
+    if (["1","2","3"].indexOf(e.key) >= 0) {
+      var i = parseInt(e.key, 10) - 1;
+      var btn = optionsEl.children[i];
+      if (btn) choose(i, btn);
+    }
+  });
+
+  /* 调试：?auto=1 自动答对，用来看完整流程 */
+  var auto = new URLSearchParams(location.search).get("auto");
+  if (auto === "1") {
+    setInterval(function(){
+      if (!state || state.locked || !game.classList.contains("on")) return;
+      var q = state.questions[state.qIndex];
+      if (!q) return;
+      var btn = optionsEl.children[q.answer];
+      if (btn) choose(q.answer, btn);
+    }, 1300);
+  }
+})();
+</script>
+
+<style>
+@keyframes floatUp{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-130%) scale(1.1)}}
+</style>
+</body>
+</html>
