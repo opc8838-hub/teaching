@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="course.css">
+<link rel="stylesheet" href="course-v2.css">
 </head>
 <body>
 
@@ -47,15 +48,33 @@
     <div class="cover-bottom">
       <div class="cover-route">
         <div><b>01</b><span>大环境</span></div>
-        <div><b>02</b><span>岗位与能力</span></div>
-        <div><b>03</b><span>项目全流程</span></div>
-        <div><b>04</b><span>创新创业</span></div>
-        <div><b>05</b><span>社区服务</span></div>
+        <div><b>02</b><span>不设限</span></div>
+        <div><b>03</b><span>岗位与能力</span></div>
+        <div><b>04</b><span>项目全流程</span></div>
+        <div><b>05</b><span>创新创业</span></div>
+        <div><b>06</b><span>社区服务</span></div>
       </div>
       <div class="cover-meta">→ / 空格 翻页 · N 备注 · M 目录 · F 全屏</div>
     </div>
   </div>
 </section>
+
+<section class="slide" data-chapter="开场" data-title="开场一分钟" data-minutes="1.5" data-notes="放片 60 秒，开场暖场用。点画面播放，不用解说，放完再开口。放完说一句：这支片子的画面全是代码画的，配乐也是代码合成的——人定方向和审美，AI 来造。这就是今天要讲的事。片尾那句“下一步，由我们来造”，就是今天的题目。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">00 / 开场一分钟</span>
+      <h2>从只会聊天，<em>到回到书桌前</em></h2>
+    </header>
+    <div class="body">
+      <div class="video-wrap" style="max-width:min(1100px,100%);margin:0 auto;width:100%">
+        <video src="media/back-to-work.mp4" poster="media/back-to-work.jpg" preload="metadata" playsinline controls></video>
+        <button class="play-big" type="button"><span>▶ Back to Work · 60 秒</span></button>
+      </div>
+    </div>
+    <p class="footnote"><b>这支片子</b>画面全部用代码画，配乐用代码合成：人定方向和审美，AI 来造。</p>
+  </div>
+</section>
+
 
 <section class="slide" data-chapter="开场" data-title="我是谁" data-minutes="2" data-notes="2 分钟。不要念履历。重点讲一句话：我不是算法工程师，我是用 AI 把东西做出来、交给付钱的人的那种人。举一个例子就够：博物馆那场比赛，5 个人办完，策划、文案、设计、网站都走 AI 工作流。告诉学生：今天讲的每个案例都是我们自己做过、或者亲眼看过的。">
   <div class="frame">
@@ -232,21 +251,12 @@
           </div>
         </div>
         <div class="stack">
-          <span class="kicker" style="margin:0">中美顶尖模型的性能差距</span>
-          <svg class="chart-svg" viewBox="0 0 560 300" role="img" aria-label="中美顶尖模型差距从 2023 年的 17.5 到 31.6 个百分点缩小到 2026 年 3 月的 2.7%">
-            <line class="grid" x1="50" y1="40" x2="540" y2="40"/>
-            <line class="grid" x1="50" y1="120" x2="540" y2="120"/>
-            <line class="grid" x1="50" y1="200" x2="540" y2="200"/>
-            <line class="axis" x1="50" y1="260" x2="540" y2="260"/>
-            <text x="8" y="44">30</text><text x="8" y="124">20</text><text x="8" y="204">10</text><text x="14" y="264">0</text>
-            <polygon class="band" points="70,52 70,120 520,258 520,238"/>
-            <path class="line" d="M70,86 C200,120 330,200 520,238"/>
-            <circle class="dot" cx="70" cy="86" r="6"/>
-            <circle class="dot" cx="520" cy="238" r="7"/>
-            <text class="lbl" x="82" y="76">17.5–31.6 个百分点</text>
-            <text class="lbl" x="420" y="226">2.7%</text>
-            <text x="56" y="286">2023.05</text><text x="470" y="286">2026.03</text>
-          </svg>
+          <span class="kicker" style="margin:0">中美顶尖模型的性能差距：三年缩到个位数</span>
+          <div class="gap">
+            <div class="gap-row"><span class="gy">2023.05</span><div class="bar-track"><div class="bar-fill" style="--w:55%;--i:0"></div><div class="bar-range" style="--a:55%;--b:100%"></div></div><b class="gv">17.5–31.6<small> 个百分点</small></b></div>
+            <div class="gap-row"><span class="gy">2026.03</span><div class="bar-track"><div class="bar-fill blue" style="--w:8.5%;--i:2"></div></div><b class="gv blue">2.7<small>%</small></b></div>
+            <p class="gap-note">条越短，差距越小 · 斜纹 = 不同测试的差距范围</p>
+          </div>
           <p class="quote" style="font-size:clamp(16px,1.3vw,22px)">“在未来，基础模型大体上会趋同，<span class="hl">数据加上闭环运营</span>，才是新的竞争护城河。”<small>—— 李开复</small></p>
         </div>
       </div>
@@ -330,14 +340,200 @@
   </div>
 </section>
 
-<!-- =================== 02 岗位与能力 =================== -->
 
-<section class="slide chapter" data-chapter="02 · 岗位与能力" data-title="章节：岗位与能力" data-minutes="0.5" data-notes="章节页。对应学校议程第一项：企业真实项目案例引入，AI 数字化转型岗位人才能力素养解析。先给一个工具：接手次数。">
+<!-- =================== 02 不设限 =================== -->
+
+<section class="slide chapter" data-chapter="02 · 不设限" data-title="章节：不设限" data-minutes="0.5" data-notes="章节页。这一章是全场最想让大家带走的：先相信，再谈能力。不需要先有专业技能，AI 放大的是你已经有的东西。">
   <div class="frame">
     <div class="ch-grid">
       <div class="ch-num">02</div>
       <div>
-        <div class="ch-label">Chapter 02 · AI 数字化转型岗位能力</div>
+        <div class="ch-label">Chapter 02 · 不设限</div>
+        <h2>你可以是，<br><em>任何一种人</em></h2>
+        <p class="ch-q">不需要先有专业技能。AI 放大的，是你已经有的东西：你的专业、你的通识、你在意的事。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="你可以是一名……" data-minutes="3" data-notes="3 分钟。左边的词会自动轮换，不用管它。讲自己：在阿里做了 5 年市场销售和业务管理，又做了 2 年抖音本地生活服务商，不是科班，也不是程序员出身。这一年用 AI 做出了右边这些东西。重点不是我多厉害，而是：两年前做这些，需要一个设计团队、一个开发团队、一个视频团队；现在是一个人加一群 AI。问学生：你想成为哪一种？其实不用选，可以同时是好几种。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / 不设限</span>
+    </header>
+    <div class="body">
+      <div class="split">
+        <div class="becoming" id="becoming">
+          <p class="b-pre">你可以是一名</p>
+          <p class="b-word" data-role="word"><span>设计师</span></p>
+          <p class="b-post">也可以，同时是好几种人。</p>
+          <div class="chips" data-role="chips">
+            <span>设计师</span><span>工程师</span><span>程序员</span><span>产品经理</span><span>导演</span><span>剪辑师</span><span>数据分析师</span><span>运营</span><span>讲师</span><span>创业者</span>
+          </div>
+        </div>
+        <div class="card me-now">
+          <span class="kicker" style="margin-bottom:6px">我自己：不是科班，也不是程序员出身</span>
+          <p class="was">以前：阿里 5 年市场销售与业务管理 · 抖音本地生活服务商 2 年。<br>这一年，用 AI 当过——</p>
+          <div class="row"><b>设计师</b><span>hely.fun：不用写提示词的 AI 设计平台，1,600+ 个设计案例，已上线付费</span></div>
+          <div class="row"><b>工程师</b><span>碳基社区官网 carbounity.com 重构上线；博物馆 AI 赛事平台</span></div>
+          <div class="row"><b>导演</b><span>连盈科技发布会片，比赛第一名</span></div>
+          <div class="row"><b>动效设计师</b><span>cellmotion.cn 动效站；开场那支 Back to Work</span></div>
+          <div class="row"><b>讲师</b><span>今天这份课件，也是和 AI 一起做的</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote"><b>不是我多厉害</b>两年前，这些事要一个设计团队、一个开发团队、一个视频团队；现在是一个人，加一群 AI。</p>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="1000 天，三层变化" data-minutes="3.5" data-notes="3.5 分钟。快刀广播站做到第 1000 期，主播问听众：这 1000 天你变了什么？几乎没人在报工具名，大家讲的都是同一件事。按三层讲，每层讲一个人就够：第一层，IT 同学把两天的电脑盘点变成两三个小时；第二层，技术负责人团队缩到只剩自己，靠 AI 撑起十几个人的活，还有人给 9 个 AI 安排工位、定规矩，最重要的一条是“没证据就不算完成”；第三层，60 岁的医生和两个孩子的妈妈，发现自己还能做以前没想过的事。问：你现在在哪一层？">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / 跟 AI 相处 1000 天</span>
+      <h2>普通人身上，<em>发生了三层变化</em></h2>
+      <p class="lead">几乎没人在报“我学会了哪个工具”。大家讲的都是同一件事：<b>AI 来了以后，一个人该把自己的哪些东西重新升级一遍。</b></p>
+    </header>
+    <div class="body">
+      <div class="layers">
+        <div class="layer">
+          <header><span class="no">第一层</span><h3>把活交出去</h3><p>有标准答案的、0 到 60 分的活，交给 AI</p></header>
+          <div class="person"><span class="who">集团 IT 负责人 · 原来是 AI 门外汉</span><p>500 名员工、300 多台电脑的资产盘点，他用 AI 做了个小工具发给同事。</p><div class="got">一天半到两天 → <em>两三个小时</em></div></div>
+          <div class="person"><span class="who">做了 19 年的秘书</span><p>一听领导布置写材料就头疼。学了 AI 公文写作之后——</p><div class="got">心里不慌了，<em>不用再靠加班硬扛</em></div></div>
+        </div>
+        <div class="layer">
+          <header><span class="no">第二层</span><h3>指挥 AI</h3><p>给 AI 分工、定规矩、验收结果</p></header>
+          <div class="person"><span class="who">小公司技术负责人</span><p>公司困难，技术团队缩到只剩他一个。前端、后端、App、运维，全压在他身上。</p><div class="got">一个人撑起<em>十几个人的活</em>，一两天上线一个新功能</div><p class="say">“站在 AI 的肩膀上，感觉自己强得可怕。”</p></div>
+          <div class="person"><span class="who">一位普通听众</span><p>给 9 个 AI 安排工位、配邮箱、建任务台，还定了一套“宪法”：谁接活、谁交接、谁验收。</p><div class="got">每天 5:15 自动出一份全球 AI 资讯，<em>迭代到第 36 版</em></div><p class="say">“没证据，就不算完成。”</p></div>
+        </div>
+        <div class="layer">
+          <header><span class="no">第三层</span><h3>重新认识自己</h3><p>发现自己原来还能做什么</p></header>
+          <div class="person"><span class="who">60 岁的风湿免疫科医生</span><p>DeepSeek 出圈时才第一次认真接触 AI，连“提示词”是什么都说不清。笨办法：不会的问 AI。</p><div class="got">后来在全国做了 <em>30 多场</em> AI 分享</div></div>
+          <div class="person"><span class="who">疾控工作者 · 两个孩子的妈妈</span><p>用 AI 辅助拍视频日记；暑假带爱打游戏的儿子，用 AI 做游戏去参赛。</p><div class="got">日记 <em>222 天</em>没断；儿子从玩游戏，变成<em>做游戏</em></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote"><b>来源</b>快刀广播站 1011 期《从学会用 AI，到重新认识自己：分享同学们的 1000 天故事》。</p>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="跨过去的人" data-minutes="2" data-notes="2 分钟。一行一行念左边和右边，中间的箭头会依次出现。不用解释，让反差自己说话。最后念右边那句话。强调：他们都不是先准备好了才开始的，都是先动手，再慢慢想通。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / 跨过去的人</span>
+      <h2>他们都没有<em>“先准备好”</em></h2>
+    </header>
+    <div class="body">
+      <div class="split l6" style="align-items:start">
+        <div class="cross">
+          <div class="x" style="--k:0"><span class="f">做了十几年测试的工程师</span><i>→</i><span class="t">转去做了 AI 部署工程师</span></div>
+          <div class="x" style="--k:1"><span class="f">一位月嫂</span><i>→</i><span class="t">靠 AI 辅助学习，考下营养师证</span></div>
+          <div class="x" style="--k:2"><span class="f">财务共享中心的员工</span><i>→</i><span class="t">带财务团队用 AI 编程，还跨专业考过软件设计师、系统分析师</span></div>
+          <div class="x" style="--k:3"><span class="f">39 岁，从北京回到新一线城市</span><i>→</i><span class="t">进电商公司做 AI 业务伙伴</span></div>
+          <div class="x" style="--k:4"><span class="f">一位技术开发者 + 医生朋友的一句吐槽</span><i>→</i><span class="t">1.14 万名医护在用的泵速计算助手</span></div>
+          <div class="x" style="--k:5"><span class="f">小程序大赛 30 多位开发者</span><i>→</i><span class="t">只有一两个以前做过程序员</span></div>
+        </div>
+        <div class="stack">
+          <p class="quote">“AI 没有替他们决定人生往哪儿走，但让他们看到了，自己原来还可以走到别的地方。”</p>
+          <p class="quote" style="border-color:var(--yellow);font-size:clamp(17px,1.4vw,24px)">“不用等准备好了再开始。这些人都是先动手，再慢慢想通的。”</p>
+          <p class="src">—— 快刀广播站 1011 期、1031 期</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="专业 × 通识 × AI" data-minutes="3" data-notes="3 分钟。上面是一个公式：你的专业给深度，通识能力是底盘，AI 给速度，乘起来是一个人的团队。点下面三个按钮，按专业讲：数媒同学、计算机同学、其他专业的同学各看一遍。重点讲黄色那一格“这周就能做”。最后念那句：AI 能做 0 到 60 分，60 到 100 分还得靠你的专业判断和责任——所以专业不会没用，反而更值钱。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / AI 放大你的专业</span>
+      <h2>AI 不替代你的专业，<em>它放大你的专业</em></h2>
+    </header>
+    <div class="body" id="amplify">
+      <div class="formula">
+        <div><span>深度</span><b>你的专业</b></div><i>×</i>
+        <div><span>底盘</span><b>通识能力</b></div><i>×</i>
+        <div><span>速度</span><b>AI</b></div><i>=</i>
+        <div class="res"><span>结果</span><b>一个人的团队</b></div>
+      </div>
+      <div class="mx-head" style="margin-top:16px">
+        <div class="seg" data-role="tabs">
+          <button type="button" class="on" data-m="0">数字媒体技术</button>
+          <button type="button" data-m="1">计算机应用技术</button>
+          <button type="button" data-m="2">其他专业 · 懂一个行业</button>
+        </div>
+        <p class="src">通识能力 = 说清楚 · 会验收 · 有审美 · 会学习 · 守边界</p>
+      </div>
+      <div class="amp-grid" data-role="grid"></div>
+      <p class="quote" style="margin-top:14px;font-size:clamp(17px,1.4vw,24px)">AI 能做 0 到 60 分的重复工作；60 到 100 分，还得靠你的专业判断和责任。</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="AI 协同" data-minutes="3" data-notes="3 分钟。这是方法页。左边五步：定目标、分工、执行、验收、沉淀——注意只有第三步是 AI 主导，其他四步都离不开人。右边讲这份课件本身是怎么做出来的：我给它学校的要求、7 篇文章、一段视频和我的想法；它读材料、上网查最新数据、写成网页、自己截图检查每一页；我看效果、挑毛病，比如“这张图不好看”“这页对学生太深了”，它再改。最后一句：从问“AI 能干什么”，变成问“这件事该派谁去干”。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / AI 协同</span>
+      <h2>从“我和一个工具”，到“<em>我和一支团队</em>”</h2>
+    </header>
+    <div class="body">
+      <div class="split" style="align-items:start">
+        <div class="coop">
+          <div class="c"><b>01</b><div><h4>定目标</h4><p>做给谁、做成什么样、怎么才算好</p></div><span class="who">人</span></div>
+          <div class="c"><b>02</b><div><h4>分工</h4><p>给每个 AI 一个角色：查资料的、写代码的、出画面的</p></div><span class="who">人</span></div>
+          <div class="c"><b>03</b><div><h4>执行</h4><p>几个 AI 同时干活，人不用守着</p></div><span class="who ai">AI</span></div>
+          <div class="c"><b>04</b><div><h4>验收</h4><p>没证据不算完成：能打开、能运行、数字能核对</p></div><span class="who">人</span></div>
+          <div class="c"><b>05</b><div><h4>沉淀</h4><p>把这次的做法存成“技能”，下次一句话调用</p></div><span class="who both">人 + AI</span></div>
+        </div>
+        <div class="card ink" style="display:flex;flex-direction:column;gap:12px">
+          <span class="kicker" style="color:#9aa096;margin:0">例子：这份课件就是这么做出来的</span>
+          <p style="font-size:clamp(14.5px,1.1vw,18px);line-height:1.7"><b style="color:var(--yellow)">我给：</b>学校的五项要求、7 篇文章、一段视频、我想讲的话。</p>
+          <p style="font-size:clamp(14.5px,1.1vw,18px);line-height:1.7"><b style="color:var(--yellow)">AI 做：</b>读完材料，上网查最新数据，写成网页，自己截图检查每一页。</p>
+          <p style="font-size:clamp(14.5px,1.1vw,18px);line-height:1.7"><b style="color:var(--yellow)">我再看：</b>挑毛病——“这张图不好看”“这页对学生太深了”“案例不够”，它再改。</p>
+          <p style="font-size:clamp(17px,1.4vw,24px);line-height:1.5;font-weight:800;border-top:1px solid #3a3f3a;padding-top:12px">从问“AI 又能干什么”，<br>变成问“<span style="color:var(--yellow)">这件事该派谁去干</span>”。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 · 不设限" data-title="案例：发布会片" data-minutes="3" data-notes="3 分钟。放 40–60 秒即可，建议拖到约 0:40 产品揭幕那段开始放。讲三点：人负责结构、审美和挑毛病；AI 负责配音、部分画面和用代码做的动效；一版一版改，v7 参赛拿了第一名，客户再改版到 v8b 定稿。最后讲教训：最大的一次返工是结构被否——开工前就该拿参考片对齐结构。这条后来写进了我们的工作流。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">02 / 案例</span>
+      <h2>一个人 + 一群 AI，<em>做一支发布会片</em></h2>
+    </header>
+    <div class="body">
+      <div class="split" style="grid-template-columns:1.2fr .8fr">
+        <div class="video-wrap">
+          <video src="media/lianying.mp4" poster="media/lianying.jpg" preload="metadata" playsinline controls></video>
+          <button class="play-big" type="button"><span>▶ 连盈科技发布会片</span></button>
+        </div>
+        <div class="stack">
+          <div class="stats" style="--n:2">
+            <div class="stat"><div class="n"><span class="count" data-to="5">0</span><small>幕</small></div><p>苹果发布会式结构，中英双语</p></div>
+            <div class="stat blue"><div class="n">第 1<small>名</small></div><p>参赛版 v7 获比赛第一名</p></div>
+          </div>
+          <div class="me-now">
+            <div class="row"><b>人负责</b><span>定结构、定审美、挑毛病，一版一版改</span></div>
+            <div class="row"><b>AI 负责</b><span>克隆配音、生成部分画面；开灯揭幕、零件合拢、专利墙用代码做</span></div>
+            <div class="row"><b>迭代</b><span>v1 → v7 参赛 → 客户改版 v8b 定稿</span></div>
+          </div>
+          <p class="quote" style="font-size:clamp(15px,1.2vw,20px)">教训：最大的一次返工是结构被否。开工前，就该拿参考片对齐结构。</p>
+        </div>
+      </div>
+    </div>
+    <p class="footnote"><b>制作手记</b>opc8838-hub.github.io/keynote · 客户项目，部分画面由 AI 生成。</p>
+  </div>
+</section>
+
+<!-- =================== 03 岗位与能力 =================== -->
+
+<section class="slide chapter" data-chapter="03 · 岗位与能力" data-title="章节：岗位与能力" data-minutes="0.5" data-notes="章节页。对应学校议程第一项：企业真实项目案例引入，AI 数字化转型岗位人才能力素养解析。先给一个工具：接手次数。">
+  <div class="frame">
+    <div class="ch-grid">
+      <div class="ch-num">03</div>
+      <div>
+        <div class="ch-label">Chapter 03 · AI 数字化转型岗位能力</div>
         <h2>名字保护不了你，<br><em>流程里的位置</em>才能</h2>
         <p class="ch-q">企业重画流程时，哪些“手”会被省掉？哪些省不掉？</p>
         <p class="ch-req">对应议程 ① 企业真实项目案例引入：AI 数字化转型岗位人才能力素养解析</p>
@@ -346,10 +542,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="数一数接手次数" data-minutes="3" data-notes="3 分钟，现场互动。先选“报销”，问大家：一笔差旅费从提交到到账，经过几个人的手？点“标出传递 / 判断”，解释：经手后原封不动传给下一个人的，是传递；经你手之后下一个人拿到的东西不一样了，是判断。再点“AI 接手传递环节”，看计数从 5 变成 2。然后切到“发稿”“做海报”再来一遍。最后一句：会消失的不是某一层人，是流程里不必要的接手。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="数一数接手次数" data-minutes="3" data-notes="3 分钟，现场互动。先选“报销”，问大家：一笔差旅费从提交到到账，经过几个人的手？点“标出传递 / 判断”，解释：经手后原封不动传给下一个人的，是传递；经你手之后下一个人拿到的东西不一样了，是判断。再点“AI 接手传递环节”，看计数从 5 变成 2。然后切到“发稿”“做海报”再来一遍。最后一句：会消失的不是某一层人，是流程里不必要的接手。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / 现场数一数</span>
+      <span class="kicker">03 / 现场数一数</span>
       <h2>一件事，经过了<em>几个人的手</em>？</h2>
       <p class="lead">每多一次接手，就多一次等待、一次沟通、一次出错的可能。<b>接手次数</b>是能数出来的。</p>
     </header>
@@ -372,10 +568,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="传递还是判断" data-minutes="1.5" data-notes="1.5 分钟。讲银行贷款审批智能体的故事：做 AI 的团队去问业务员怎么审批，问得越具体，对方越迟疑，最后反问一句“你们做这个到底为了什么”——这叫教学悖论：要让 AI 学会，得先让快被替代的人把最值钱的经验教出来。落到学生：你将来每天的工作里，传递和判断各占多少？判断才是值钱的那部分。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="传递还是判断" data-minutes="1.5" data-notes="1.5 分钟。讲银行贷款审批智能体的故事：做 AI 的团队去问业务员怎么审批，问得越具体，对方越迟疑，最后反问一句“你们做这个到底为了什么”——这叫教学悖论：要让 AI 学会，得先让快被替代的人把最值钱的经验教出来。落到学生：你将来每天的工作里，传递和判断各占多少？判断才是值钱的那部分。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / 传递 vs 判断</span>
+      <span class="kicker">03 / 传递 vs 判断</span>
       <h2>值钱的，是你那一手里的<em>判断</em></h2>
     </header>
     <div class="body">
@@ -395,10 +591,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="五类 AI 新角色" data-minutes="3" data-notes="3 分钟。BCG 访谈了 10 个国家、50 多家 AI 走在前面的企业，归纳出五类角色原型。让学生点开卡片看背面：真实企业怎么做、在学校怎么练。重点讲第 4 类领域知识负责人——不一定懂 AI，但一定懂业务。最后强调：五类里没有一个叫“AI 使用者”。这些职责大多还没变成正式岗位，而是先长在原来的岗位上，就像当年产品经理先长在项目经理身上。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="五类 AI 新角色" data-minutes="3" data-notes="3 分钟。BCG 访谈了 10 个国家、50 多家 AI 走在前面的企业，归纳出五类角色原型。让学生点开卡片看背面：真实企业怎么做、在学校怎么练。重点讲第 4 类领域知识负责人——不一定懂 AI，但一定懂业务。最后强调：五类里没有一个叫“AI 使用者”。这些职责大多还没变成正式岗位，而是先长在原来的岗位上，就像当年产品经理先长在项目经理身上。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / BCG：50 多家前沿企业里冒出的新职责</span>
+      <span class="kicker">03 / BCG：50 多家前沿企业里冒出的新职责</span>
       <h2>五类新角色里，没有一个叫“<em>AI 使用者</em>”</h2>
       <p class="lead">它们都在回答同一个问题：<b>AI 干完活之后，剩下的事谁来扛？</b>点开卡片看真实案例。</p>
     </header>
@@ -430,10 +626,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="老专家 90 分" data-minutes="1" data-notes="1 分钟。动画讲完就翻页。老专家 90 分，其他人平均 20 分；AI 的作用不是取代 90 分的人，而是让其他人快速到 60 分。落到学生：你们就是那个从 20 到 60 的人——也可以是帮老专家把经验写下来、教给 AI 的人。这正是第 4 类角色。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="老专家 90 分" data-minutes="1" data-notes="1 分钟。动画讲完就翻页。老专家 90 分，其他人平均 20 分；AI 的作用不是取代 90 分的人，而是让其他人快速到 60 分。落到学生：你们就是那个从 20 到 60 的人——也可以是帮老专家把经验写下来、教给 AI 的人。这正是第 4 类角色。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / AI 到底在替代什么</span>
+      <span class="kicker">03 / AI 到底在替代什么</span>
       <h2>不是取代 90 分的人，<br>是让 20 分的人<em>快速到 60 分</em></h2>
     </header>
     <div class="body">
@@ -452,10 +648,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="三类岗位能力清单" data-minutes="3.5" data-notes="3.5 分钟，核心页。对应学校要求：区分技术岗、业务岗、运营岗，讲知识储备、操作技能、职业素养。点上方三个按钮切换。每个岗位只念最上面那一句话和典型岗位名，三列让学生拍照。提醒：数字媒体技术专业天然靠近运营岗和技术岗里的前端/视觉；计算机应用技术专业靠近技术岗。业务岗谁都可以去，前提是懂一个行业。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="三类岗位能力清单" data-minutes="3.5" data-notes="3.5 分钟，核心页。对应学校要求：区分技术岗、业务岗、运营岗，讲知识储备、操作技能、职业素养。点上方三个按钮切换。每个岗位只念最上面那一句话和典型岗位名，三列让学生拍照。提醒：数字媒体技术专业天然靠近运营岗和技术岗里的前端/视觉；计算机应用技术专业靠近技术岗。业务岗谁都可以去，前提是懂一个行业。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / 核心能力清单 · 可以拍照</span>
+      <span class="kicker">03 / 核心能力清单 · 可以拍照</span>
       <h2>三类岗位，企业<em>具体要什么</em></h2>
     </header>
     <div class="body" id="matrix">
@@ -478,10 +674,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="一个认知偏差" data-minutes="1.5" data-notes="1.5 分钟。破除“重算法理论、轻落地应用”的偏差。三层：最上面基础模型，是少数顶尖公司和顶尖人才的比赛；中间平台工具；最下面应用落地，是千行百业，绝大多数 AI 岗位在这里。证据：微信小程序大赛一个赛区 30 多个项目，只有一两个开发者以前会写代码。不是说算法不重要，而是说：你不需要先学会训练大模型，才能在 AI 行业有位置。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="一个认知偏差" data-minutes="1.5" data-notes="1.5 分钟。破除“重算法理论、轻落地应用”的偏差。三层：最上面基础模型，是少数顶尖公司和顶尖人才的比赛；中间平台工具；最下面应用落地，是千行百业，绝大多数 AI 岗位在这里。证据：微信小程序大赛一个赛区 30 多个项目，只有一两个开发者以前会写代码。不是说算法不重要，而是说：你不需要先学会训练大模型，才能在 AI 行业有位置。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / 破除一个偏差</span>
+      <span class="kicker">03 / 破除一个偏差</span>
       <h2>AI 岗位 ≠ <em>训练大模型</em></h2>
       <p class="lead">“重算法理论、轻落地应用”是最常见的误会。绝大多数 AI 岗位，在最下面那一层。</p>
     </header>
@@ -502,10 +698,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="02 · 岗位与能力" data-title="五项通识基本功" data-minutes="2" data-notes="2 分钟。这是不分岗位的通识能力。每条配一个故事：说清楚——需求写不清 AI 也做不对；会验收——第 3 章有个找错小游戏；用 AI 学——17 岁的陈广宇用 Gemini 一段一段啃论文，追问到弄懂；被看见——他一篇博客只有 20 个关注者，被对的人看到，拿到硅谷实习，后来成了 Kimi 论文的共同第一作者；守边界——合规和版权第 4 章讲。">
+<section class="slide" data-chapter="03 · 岗位与能力" data-title="五项通识基本功" data-minutes="2" data-notes="2 分钟。这是不分岗位的通识能力。每条配一个故事：说清楚——需求写不清 AI 也做不对；会验收——第 4 章有个找错小游戏；用 AI 学——17 岁的陈广宇用 Gemini 一段一段啃论文，追问到弄懂；被看见——他一篇博客只有 20 个关注者，被对的人看到，拿到硅谷实习，后来成了 Kimi 论文的共同第一作者；守边界——合规和版权第 5 章讲。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">02 / 不分岗位的通识能力</span>
+      <span class="kicker">03 / 不分岗位的通识能力</span>
       <h2>五项<em>基本功</em></h2>
     </header>
     <div class="body">
@@ -523,12 +719,12 @@
 
 <!-- =================== 03 项目全流程 =================== -->
 
-<section class="slide chapter" data-chapter="03 · 项目全流程" data-title="章节：项目全流程" data-minutes="0.5" data-notes="章节页。对应学校议程第二项：数字化业务全流程拆解，从需求调研到迭代落地。用我们自己做的一个真实项目走一遍。">
+<section class="slide chapter" data-chapter="04 · 项目全流程" data-title="章节：项目全流程" data-minutes="0.5" data-notes="章节页。对应学校议程第二项：数字化业务全流程拆解，从需求调研到迭代落地。用我们自己做的一个真实项目走一遍。">
   <div class="frame">
     <div class="ch-grid">
-      <div class="ch-num">03</div>
+      <div class="ch-num">04</div>
       <div>
-        <div class="ch-label">Chapter 03 · 数字化业务全流程</div>
+        <div class="ch-label">Chapter 04 · 数字化业务全流程</div>
         <h2>一个项目，<br>从<em>一句需求</em>到上线</h2>
         <p class="ch-q">每一步在做什么？AI 做了什么？人必须做什么？你们能接哪一段？</p>
         <p class="ch-req">对应议程 ② 数字化业务全流程拆解：从需求调研到迭代落地</p>
@@ -537,10 +733,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="03 · 项目全流程" data-title="真实项目：进馆计划" data-minutes="1.5" data-notes="1.5 分钟。介绍案例背景：东莞市博物馆三星堆特展，我们承接了“AI 创作者进馆计划”。两天，两个赛道，指定两件文物。5 个人的执行团队，100 多人到场，官网公开 82 条作品。下一页逐步拆解。">
+<section class="slide" data-chapter="04 · 项目全流程" data-title="真实项目：进馆计划" data-minutes="1.5" data-notes="1.5 分钟。介绍案例背景：东莞市博物馆三星堆特展，我们承接了“AI 创作者进馆计划”。两天，两个赛道，指定两件文物。5 个人的执行团队，100 多人到场，官网公开 82 条作品。下一页逐步拆解。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">03 / 真实项目</span>
+      <span class="kicker">04 / 真实项目</span>
       <h2>东莞市博物馆 · <em>AI 创作者进馆计划</em></h2>
       <p class="lead">围绕三星堆特展的<b>储贝器</b>、<b>祭祀大面具</b>两件文物：AI 视频赛道 + AI 编程（互动游戏 / 网页）赛道。2026 年 10 月 24–25 日。</p>
     </header>
@@ -561,10 +757,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="03 · 项目全流程" data-title="六步全流程" data-minutes="6" data-notes="6 分钟，核心页。逐个点六个步骤，每步讲三句：这一步做什么；在博物馆项目里具体是什么；高职生能接哪些活（右下黄色卡）。重点讲第 2 步可行性：现场网络不稳，所以要求作品能断网运行；游戏要支持手柄——这些约束不是 AI 想出来的，是人去现场看出来的。第 6 步强调：上线不是结束，82 条作品、投票数据、复盘，才是下一次做得更好的原料。">
+<section class="slide" data-chapter="04 · 项目全流程" data-title="六步全流程" data-minutes="6" data-notes="6 分钟，核心页。逐个点六个步骤，每步讲三句：这一步做什么；在博物馆项目里具体是什么；高职生能接哪些活（右下黄色卡）。重点讲第 2 步可行性：现场网络不稳，所以要求作品能断网运行；游戏要支持手柄——这些约束不是 AI 想出来的，是人去现场看出来的。第 6 步强调：上线不是结束，82 条作品、投票数据、复盘，才是下一次做得更好的原料。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">03 / 点每一步看细节</span>
+      <span class="kicker">04 / 点每一步看细节</span>
       <h2>六步走完，<em>你能接哪一段</em>？</h2>
     </header>
     <div class="body" id="pipeline">
@@ -575,10 +771,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="03 · 项目全流程" data-title="AI 放在哪一侧" data-minutes="1.5" data-notes="1.5 分钟。泵速计算助手的开发者说：把 AI 放在研发侧，把确定性留在运行侧。ICU 里同一个输入必须给出同一个输出、能审计、断网能用，所以运行时完全不用生成式 AI。对照博物馆项目：投票计数、作品编号这些，必须是确定的程序，不能交给 AI“生成”。这是做产品最容易犯的错：为了蹭热度往产品里塞 AI。">
+<section class="slide" data-chapter="04 · 项目全流程" data-title="AI 放在哪一侧" data-minutes="1.5" data-notes="1.5 分钟。泵速计算助手的开发者说：把 AI 放在研发侧，把确定性留在运行侧。ICU 里同一个输入必须给出同一个输出、能审计、断网能用，所以运行时完全不用生成式 AI。对照博物馆项目：投票计数、作品编号这些，必须是确定的程序，不能交给 AI“生成”。这是做产品最容易犯的错：为了蹭热度往产品里塞 AI。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">03 / 一条设计原则</span>
+      <span class="kicker">04 / 一条设计原则</span>
       <h2>AI 放在<em>研发侧</em>，确定性留在<em>运行侧</em></h2>
       <p class="lead">“泵速计算助手”：把医嘱剂量换算成输液泵的毫升每小时。9 月上线，<b>1.14 万</b>名医护用户，<b>2,647</b> 人加到常用，零推广。</p>
     </header>
@@ -593,10 +789,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="03 · 项目全流程" data-title="找错：验收练习" data-minutes="2" data-notes="2 分钟，现场互动。这是一份“AI 做的漂亮报告”，让学生找哪一行有问题，点击揭晓。答案是第 4 行结论：月活和周活口径不同，不能直接比，“下降 75%”站不住。这是快刀青衣自己差点发出去的真事。然后讲菲尔兹奖得主邓煜的话：人要跟 AI 比速度没有任何希望，但人始终是主体——你有责任验证它的结果。">
+<section class="slide" data-chapter="04 · 项目全流程" data-title="找错：验收练习" data-minutes="2" data-notes="2 分钟，现场互动。这是一份“AI 做的漂亮报告”，让学生找哪一行有问题，点击揭晓。答案是第 4 行结论：月活和周活口径不同，不能直接比，“下降 75%”站不住。这是快刀青衣自己差点发出去的真事。然后讲菲尔兹奖得主邓煜的话：人要跟 AI 比速度没有任何希望，但人始终是主体——你有责任验证它的结果。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">03 / 现场找错</span>
+      <span class="kicker">04 / 现场找错</span>
       <h2>这份 AI 报告，<em>哪一行</em>不能发？</h2>
     </header>
     <div class="body">
@@ -622,12 +818,12 @@
 
 <!-- =================== 04 创新创业 =================== -->
 
-<section class="slide chapter" data-chapter="04 · 创新创业" data-title="章节：创新创业" data-minutes="0.5" data-notes="章节页。对应学校议程第三项：AI 创新创业方向解读，可落地赛道、机遇与风险。读出那句话，停两秒。">
+<section class="slide chapter" data-chapter="05 · 创新创业" data-title="章节：创新创业" data-minutes="0.5" data-notes="章节页。对应学校议程第三项：AI 创新创业方向解读，可落地赛道、机遇与风险。读出那句话，停两秒。">
   <div class="frame">
     <div class="ch-grid">
-      <div class="ch-num">04</div>
+      <div class="ch-num">05</div>
       <div>
-        <div class="ch-label">Chapter 04 · AI 创新创业</div>
+        <div class="ch-label">Chapter 05 · AI 创新创业</div>
         <h2>每个人的起点，<br>都<em>特别小</em></h2>
         <p class="ch-q">小到可能只是一个让你不舒服的瞬间。但在 AI 时代，这个瞬间真的可能长成一个不错的产品，然后找到和你一样在意的人。</p>
         <p class="ch-req">对应议程 ③ AI 创新创业方向解读：可落地赛道、机遇与风险研判</p>
@@ -636,10 +832,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="04 · 创新创业" data-title="五个小程序" data-minutes="3" data-notes="3 分钟。五个真实项目，每个讲“起点是哪个不舒服的瞬间”。袋袋集：毕业搬宿舍，一沓奶茶纸袋扔不下手。泵速：医生朋友吐槽手算容易错。她写过：觉得 1000 多位古代女性写作者不该被忘掉——AI 在这里不生成诗，是帮人从古籍里把真人捞出来，19 道闸门核对。回家计划：领养完就断联这件事不对，于是一个人加 AI 搭了一整套制度。强调：这些需求，以前没有公司会立项，因为市场太小；但当一个人就能做出来，市场大不大反而没那么重要。">
+<section class="slide" data-chapter="05 · 创新创业" data-title="五个小程序" data-minutes="3" data-notes="3 分钟。五个真实项目，每个讲“起点是哪个不舒服的瞬间”。袋袋集：毕业搬宿舍，一沓奶茶纸袋扔不下手。泵速：医生朋友吐槽手算容易错。她写过：觉得 1000 多位古代女性写作者不该被忘掉——AI 在这里不生成诗，是帮人从古籍里把真人捞出来，19 道闸门核对。回家计划：领养完就断联这件事不对，于是一个人加 AI 搭了一整套制度。强调：这些需求，以前没有公司会立项，因为市场太小；但当一个人就能做出来，市场大不大反而没那么重要。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">04 / 微信小程序大赛 · 一天 30 多个路演</span>
+      <span class="kicker">05 / 微信小程序大赛 · 一天 30 多个路演</span>
       <h2>以前没人立项的小需求，<em>现在一个人就能做</em></h2>
     </header>
     <div class="body">
@@ -656,10 +852,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="04 · 创新创业" data-title="还没被碰过的地方" data-minutes="3" data-notes="3 分钟。这是最大的机会页。官方数据：制造业 AI 重点场景普及率 34.2%，但规上制造企业用大模型的只有 10.6%；长江商学院调了 2000 多家规上工业企业，AI 采用率 10.4%，没用的企业里 79.2% 说“场景不适用”。解读：不是 AI 不行，是没有人把工厂里的场景翻译成 AI 能干的活。很多工厂的经验在老师傅脑子里、记录在纸上，连数据标注都还没开始。国家数据局正在推数据标注和行业数据集。我们碳基社区在做“AI 创作者进厂计划”，就是把人带进工厂找真需求。">
+<section class="slide" data-chapter="05 · 创新创业" data-title="还没被碰过的地方" data-minutes="3" data-notes="3 分钟。这是最大的机会页。官方数据：制造业 AI 重点场景普及率 34.2%，但规上制造企业用大模型的只有 10.6%；长江商学院调了 2000 多家规上工业企业，AI 采用率 10.4%，没用的企业里 79.2% 说“场景不适用”。解读：不是 AI 不行，是没有人把工厂里的场景翻译成 AI 能干的活。很多工厂的经验在老师傅脑子里、记录在纸上，连数据标注都还没开始。国家数据局正在推数据标注和行业数据集。我们碳基社区在做“AI 创作者进厂计划”，就是把人带进工厂找真需求。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">04 / 机会在哪</span>
+      <span class="kicker">05 / 机会在哪</span>
       <h2>工厂里，<em>九成</em>的地方还没被 AI 碰过</h2>
     </header>
     <div class="body">
@@ -690,10 +886,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="04 · 创新创业" data-title="门槛适中的六个方向" data-minutes="2" data-notes="2 分钟。这六个方向是按高职学生现有技术基础挑的：起步成本低、一台电脑就能开始、能找到第一单。每个方向讲一句“第一单从哪来”。提醒：方向 1 最容易起步，但也最容易同质化；方向 5、6 竞争最少，但要先懂一个行业或一个社区。">
+<section class="slide" data-chapter="05 · 创新创业" data-title="门槛适中的六个方向" data-minutes="2" data-notes="2 分钟。这六个方向是按高职学生现有技术基础挑的：起步成本低、一台电脑就能开始、能找到第一单。每个方向讲一句“第一单从哪来”。提醒：方向 1 最容易起步，但也最容易同质化；方向 5、6 竞争最少，但要先懂一个行业或一个社区。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">04 / 适合高职起步</span>
+      <span class="kicker">05 / 适合高职起步</span>
       <h2>门槛适中、<em>能找到第一单</em>的六个方向</h2>
     </header>
     <div class="body">
@@ -703,36 +899,56 @@
         <div class="icard"><span class="no">03 · 数媒</span><h3>AI 视频与宣传片</h3><p>企业、学校、社区的宣传片，产品动效，活动快剪。</p><div class="foot">第一单：<b>学院和社团的活动</b></div></div>
         <div class="icard blue"><span class="no">04 · 计算机</span><h3>工作流与智能体搭建</h3><p>把一家小公司里重复的一件事，做成能反复调用的技能。</p><div class="foot">第一单：<b>实习单位的一个流程</b></div></div>
         <div class="icard blue"><span class="no">05 · 都可以</span><h3>行业数据整理与标注</h3><p>制造、文博、农业：把纸上的、老师傅脑子里的，变成数据和手册。</p><div class="foot">第一单：<b>进厂计划 / 校企项目</b> · 竞争最少</div></div>
-        <div class="icard yel"><span class="no">06 · 都可以</span><h3>社区与公共服务数字化</h3><p>科普、适老化辅导、社区宣传素材、便民工具。</p><div class="foot">第一单：<b>志愿服务</b> · 见第 05 章</div></div>
+        <div class="icard yel"><span class="no">06 · 都可以</span><h3>社区与公共服务数字化</h3><p>科普、适老化辅导、社区宣传素材、便民工具。</p><div class="foot">第一单：<b>志愿服务</b> · 见第 06 章</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-chapter="04 · 创新创业" data-title="五个现实风险" data-minutes="3" data-notes="3 分钟，互动。学校特别要求讲的五个风险：技术合规、知识产权、成本控制、市场同质化、盈利模式。让学生想一个自己的点子，逐张点卡片：想过这个问题了就点亮，背面出现“怎么防”。点满 5 张才算想清楚。每张都有真实例子：DayDayCup 上线一周服务器费用爆掉；小程序大赛收藏类扎堆好几个；30 多个项目大多几十到几千用户、商业化几乎没启动。">
+<section class="slide" data-chapter="05 · 创新创业" data-title="我们做过的案例" data-minutes="2.5" data-notes="2.5 分钟。这一页说明上一页的六个方向不是纸上谈兵，我们和社区伙伴都做过。重点讲 hely.fun：本地商家不会写提示词，就把提示词和设计经验做成模板，选模板、填信息就能出图。漫剧系统和电商发货系统是社区伙伴做的智能体，说明一个小团队也能做出完整的业务系统。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">04 / 理性创业 · 拿你的点子自查</span>
-      <h2>想好这五件事，<em>再动手</em></h2>
-      <p class="lead">想一个你自己的点子。每想清楚一条，就点亮一张。</p>
+      <span class="kicker">05 / 不是纸上谈兵</span>
+      <h2>这些方向，<em>我们和社区伙伴都做过</em></h2>
+    </header>
+    <div class="body">
+      <div class="case-cards">
+        <div class="case-card"><figure class="photo"><img src="img/hely_five.jpg" alt="hely.fun 五连图"></figure><div class="txt"><span class="tag blue">方向 01 · 本地商家 AI 内容</span><h3>hely.fun</h3><p>商家不会写提示词：选模板、填信息，就出五连图、海报、商品图。1,600+ 设计案例，已上线付费。</p></div></div>
+        <div class="case-card"><figure class="photo"><img src="img/hk_steak_1.jpg" alt="西餐厅美食黑客松"></figure><div class="txt"><span class="tag blue">方向 01 · 内容宣发</span><h3>老牌西餐厅美食黑客松</h3><p>围绕餐厅的宣发需求，参赛者现场产出海报、短视频和官网方案。</p></div></div>
+        <div class="case-card"><figure class="photo"><img src="img/cal_box.jpg" alt="WaytoAGI 共创日历"></figure><div class="txt"><span class="tag">方向 04 · 工作流</span><h3>WaytoAGI 2026 共创日历</h3><p>365 天、365 位 AI 创作者的作品，征集、整理、排版用多维表格全自动管理。</p></div></div>
+        <div class="case-card"><figure class="photo"><img src="img/sys_comic.jpg" alt="漫剧自动化生产系统"></figure><div class="txt"><span class="tag">方向 04 · 社区伙伴</span><h3>漫剧自动化生产系统</h3><p>剧本 → 分镜 → 角色道具资产统一管理 → 风格标准化输出，一条流水线。</p></div></div>
+        <div class="case-card"><figure class="photo"><img src="img/sys_ecom.jpg" alt="电商批量自动发货系统"></figure><div class="txt"><span class="tag">方向 04 · 社区伙伴</span><h3>电商批量自动发货系统</h3><p>抓取商品、自动铺货、发货到海外平台，客服和销售数据分析一站完成。</p></div></div>
+        <div class="case-card"><figure class="photo"><img src="media/lianying.jpg" alt="连盈发布会片"></figure><div class="txt"><span class="tag blue">方向 03 · AI 视频</span><h3>连盈科技发布会片</h3><p>给一家康复床工厂做的苹果式发布会片，参赛拿了第一名。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide" data-chapter="05 · 创新创业" data-title="动手前的五个问题" data-minutes="3" data-notes="3 分钟，互动。学校要求讲的五个风险（合规、知识产权、成本、同质化、盈利模式），换成五个大白话问题，用一个学生都熟的例子过一遍：校园二手书小程序。请同学们一起回答，每答出一条就点亮一张卡，背面出现“可以这样做”。点满五张才算想清楚。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">05 / 理性创业</span>
+      <h2>动手之前，<em>先问自己五个问题</em></h2>
+      <p class="lead">拿一个例子过一遍：<b>做一个“校园二手书”小程序。</b>每想清楚一条，就点亮一张。</p>
     </header>
     <div class="body" id="risk">
       <div class="risk">
-        <div class="rk"><span class="no">风险 01</span><h3>技术合规</h3><p class="q">你的产品用户信息怎么存？AI 生成的图和视频标识了吗？用的模型是正规渠道吗？</p><p class="a"><b>怎么防</b>用正规模型接口；按《生成合成内容标识办法》加标识；不收集不必要的个人信息。</p><span class="chk">○ 点击：我想过了</span></div>
-        <div class="rk"><span class="no">风险 02</span><h3>知识产权</h3><p class="q">素材、字体、音乐、别人的 IP 能商用吗？你的作品怎么证明是你的？</p><p class="a"><b>怎么防</b>素材用可商用来源；保留创作过程记录；引用注明出处——AI 也该守学术规范。</p><span class="chk">○ 点击：我想过了</span></div>
-        <div class="rk"><span class="no">风险 03</span><h3>成本控制</h3><p class="q">一个用户用一次，你要付多少模型和服务器钱？火了你付得起吗？</p><p class="a"><b>怎么防</b>先算单次成本、设上限；不需要 AI 的环节不用 AI。DayDayCup 上线一周服务器费用就爆了。</p><span class="chk">○ 点击：我想过了</span></div>
-        <div class="rk"><span class="no">风险 04</span><h3>同质化</h3><p class="q">你能一个周末做出来的，别人也能。凭什么是你？</p><p class="a"><b>怎么防</b>往窄处走、往深处走：比别人多懂一个行业、一群人。一场比赛里收藏类就扎堆好几个。</p><span class="chk">○ 点击：我想过了</span></div>
-        <div class="rk"><span class="no">风险 05</span><h3>盈利模式</h3><p class="q">谁付钱？为什么付？付多少？多久付一次？</p><p class="a"><b>怎么防</b>先找 3 个愿意付钱的人再加功能。30 多个项目大多只有几十到几千用户，商业化几乎没启动。</p><span class="chk">○ 点击：我想过了</span></div>
+        <div class="rk"><span class="no">问题 01</span><h3>会不会惹麻烦？</h3><span class="tg">合规</span><p class="q">要收同学的手机号、宿舍号吗？AI 生成的图片，标了“AI 生成”吗？</p><p class="a"><b>可以这样做</b>只收必要的信息；AI 做的图按规定标出来；用正规平台的 AI。</p><span class="chk">○ 点击：想清楚了</span></div>
+        <div class="rk"><span class="no">问题 02</span><h3>东西是不是你的？</h3><span class="tg">知识产权</span><p class="q">书的封面图、字体、背景音乐、动漫形象，能随便拿来用吗？</p><p class="a"><b>可以这样做</b>封面让卖家自己拍；字体和音乐用免费可商用的；不用别人的 IP。</p><span class="chk">○ 点击：想清楚了</span></div>
+        <div class="rk"><span class="no">问题 03</span><h3>人多了，付得起吗？</h3><span class="tg">成本</span><p class="q">AI 每识别一本书都要花钱。开学那周，全校一万人一起用呢？</p><p class="a"><b>可以这样做</b>先算一次花多少钱；能扫书号就别每次都调 AI。有个小程序上线一周，服务器费用就爆了。</p><span class="chk">○ 点击：想清楚了</span></div>
+        <div class="rk"><span class="no">问题 04</span><h3>别人为什么用你的？</h3><span class="tg">同质化</span><p class="q">闲鱼、校园群都能卖书，凭什么用你的？</p><p class="a"><b>可以这样做</b>只做本校：按专业、按课程找教材，开学那两周最好用。</p><span class="chk">○ 点击：想清楚了</span></div>
+        <div class="rk"><span class="no">问题 05</span><h3>谁会掏钱？</h3><span class="tg">盈利模式</span><p class="q">同学会付钱吗？还是打印店、书店、学长学姐？</p><p class="a"><b>可以这样做</b>先免费跑起来；先找到 3 个愿意付钱的人，再加功能。</p><span class="chk">○ 点击：想清楚了</span></div>
       </div>
-      <div class="risk-meter"><div class="m"><i></i><i></i><i></i><i></i><i></i></div><span data-role="say">还没想过任何一条。</span></div>
+      <div class="risk-meter"><div class="m"><i></i><i></i><i></i><i></i><i></i></div><span data-role="say">还没想清楚任何一条。</span></div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-chapter="04 · 创新创业" data-title="从一个不舒服开始" data-minutes="2" data-notes="2 分钟，现场互动。请一位同学说出一个让他不舒服的瞬间，讲师直接填进左边三个框，右边自动生成一句产品描述和三步动作。也可以点下面的例子演示。强调：先做一个自己会用的东西，哪怕只有你一个人用，也比一直放在脑子里想强。">
+<section class="slide" data-chapter="05 · 创新创业" data-title="从一个不舒服开始" data-minutes="2" data-notes="2 分钟，现场互动。请一位同学说出一个让他不舒服的瞬间，讲师直接填进左边三个框，右边自动生成一句产品描述和三步动作。也可以点下面的例子演示。强调：先做一个自己会用的东西，哪怕只有你一个人用，也比一直放在脑子里想强。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">04 / 现场填一填</span>
+      <span class="kicker">05 / 现场填一填</span>
       <h2>把一个<em>不舒服的瞬间</em>，写成一个产品</h2>
     </header>
     <div class="body">
@@ -768,12 +984,12 @@
 
 <!-- =================== 05 社区服务 =================== -->
 
-<section class="slide chapter" data-chapter="05 · 社区服务" data-title="章节：社区服务" data-minutes="0.5" data-notes="章节页。对应学校议程第四项专题研讨：高职院校 AI 社区服务建设路径、运行模式与学生参与渠道。这一章更像一起讨论，可以边讲边请老师补充。">
+<section class="slide chapter" data-chapter="06 · 社区服务" data-title="章节：社区服务" data-minutes="0.5" data-notes="章节页。对应学校议程第四项专题研讨：高职院校 AI 社区服务建设路径、运行模式与学生参与渠道。这一章更像一起讨论，可以边讲边请老师补充。">
   <div class="frame">
     <div class="ch-grid">
-      <div class="ch-num">05</div>
+      <div class="ch-num">06</div>
       <div>
-        <div class="ch-label">Chapter 05 · 专题研讨</div>
+        <div class="ch-label">Chapter 06 · 专题研讨</div>
         <h2>把学到的 AI，<br><em>用在身边的社区</em></h2>
         <p class="ch-q">能做哪些事？怎么持续做下去？每个同学从哪一级开始参与？</p>
         <p class="ch-req">对应议程 ④ 高职院校 AI 社区服务建设路径、运行模式与学生参与渠道</p>
@@ -782,10 +998,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="05 · 社区服务" data-title="四类可落地场景" data-minutes="2.5" data-notes="2.5 分钟。四类场景各讲一个能马上做的项目。科普：碳基做过亲子 AI 工作坊、青年夜校 AI 课，大学生完全可以当助教。便民工具：一个社区活动报名或维修预约小程序，一个周末能做出第一版。宣传素材：不是替社工做一百张海报，而是做一个“技能”交给社工自己用。适老化：教长辈识别 AI 换脸和语音诈骗，这件事非常紧迫。">
+<section class="slide" data-chapter="06 · 社区服务" data-title="四类可落地场景" data-minutes="2.5" data-notes="2.5 分钟。四类场景各讲一个能马上做的项目。科普：碳基做过亲子 AI 工作坊、青年夜校 AI 课，大学生完全可以当助教。便民工具：一个社区活动报名或维修预约小程序，一个周末能做出第一版。宣传素材：不是替社工做一百张海报，而是做一个“技能”交给社工自己用。适老化：教长辈识别 AI 换脸和语音诈骗，这件事非常紧迫。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">05 / 场景</span>
+      <span class="kicker">06 / 场景</span>
       <h2>AI 社区服务，<em>四类能马上做的事</em></h2>
     </header>
     <div class="body">
@@ -805,10 +1021,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="05 · 社区服务" data-title="可持续运行模式" data-minutes="2" data-notes="2 分钟。社区服务最怕一阵风：做一次活动就没了。五种模式各自解决一个“为什么能持续”的问题：企业给真需求和导师；志愿时长给学生动力；横向小项目给真钱；学分置换让它进课表；竞赛孵化让好项目有出路。下面这条循环是关键：需求进来，学生做，成果出去，回报回来。请老师们一起讨论哪几条学院最容易先落地。">
+<section class="slide" data-chapter="06 · 社区服务" data-title="可持续运行模式" data-minutes="2" data-notes="2 分钟。社区服务最怕一阵风：做一次活动就没了。五种模式各自解决一个“为什么能持续”的问题：企业给真需求和导师；志愿时长给学生动力；横向小项目给真钱；学分置换让它进课表；竞赛孵化让好项目有出路。下面这条循环是关键：需求进来，学生做，成果出去，回报回来。请老师们一起讨论哪几条学院最容易先落地。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">05 / 运行模式</span>
+      <span class="kicker">06 / 运行模式</span>
       <h2>不靠一阵风，<em>靠一个循环</em></h2>
     </header>
     <div class="body">
@@ -824,10 +1040,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="05 · 社区服务" data-title="分层参与" data-minutes="2" data-notes="2 分钟。每个同学找自己的位置，不需要一上来就创业。第 1 级社团：每周一次 AI 作品打卡；第 2 级课程实训：用真需求当作业；第 3 级志愿服务：去社区科普和辅导；第 4 级顶岗实习和横向项目：真交付；第 5 级创新创业：孵化。问一句：你现在在哪一级？下学期想到哪一级？">
+<section class="slide" data-chapter="06 · 社区服务" data-title="分层参与" data-minutes="2" data-notes="2 分钟。每个同学找自己的位置，不需要一上来就创业。第 1 级社团：每周一次 AI 作品打卡；第 2 级课程实训：用真需求当作业；第 3 级志愿服务：去社区科普和辅导；第 4 级顶岗实习和横向项目：真交付；第 5 级创新创业：孵化。问一句：你现在在哪一级？下学期想到哪一级？">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">05 / 学生参与渠道</span>
+      <span class="kicker">06 / 学生参与渠道</span>
       <h2>你现在在<em>哪一级</em>？</h2>
     </header>
     <div class="body">
@@ -843,10 +1059,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="05 · 社区服务" data-title="可以一起做的事" data-minutes="1.5" data-notes="1.5 分钟。这一页是提议，不是承诺，具体合作由学院和我们会后再定。讲四件碳基社区现成能接上的事：每月的 WaytoAGI 切磋大会和 TRAE Friends 活动；企业黑客松，企业出题人才解题；AI 创作者进厂计划；社区和企业的真实需求池。">
+<section class="slide" data-chapter="06 · 社区服务" data-title="可以一起做的事" data-minutes="1.5" data-notes="1.5 分钟。这一页是提议，不是承诺，具体合作由学院和我们会后再定。讲四件碳基社区现成能接上的事：每月的 WaytoAGI 切磋大会和 TRAE Friends 活动；企业黑客松，企业出题人才解题；AI 创作者进厂计划；社区和企业的真实需求池。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">05 / 一起做</span>
+      <span class="kicker">06 / 一起做</span>
       <h2>碳基社区能和学院<em>接上的四件事</em></h2>
       <p class="lead">以下是提议，具体方式会后和学院一起商量。</p>
     </header>
@@ -859,7 +1075,7 @@
           <div class="icard yel"><span class="no">04 · 常态</span><h3>真实需求池</h3><p>社区、商家、企业的小需求，变成课程实训和横向小项目。</p></div>
         </div>
         <div class="mosaic" style="grid-template-columns:1fr 1fr;grid-auto-rows:clamp(90px,15vh,170px)">
-          <figure class="photo w2"><img src="img/wa_group.jpg" alt="WaytoAGI 切磋大会合影"><figcaption>WaytoAGI 东莞 AI 切磋大会</figcaption></figure>
+          <figure class="photo w2"><img src="img/wa_group.jpg" alt="WaytoAGI 切磋大会"><figcaption>WaytoAGI 东莞 AI 切磋大会</figcaption></figure>
           <figure class="photo"><img src="img/factory_group.jpg" alt="进厂计划"><figcaption>进厂计划</figcaption></figure>
           <figure class="photo"><img src="img/wb_team.jpg" alt="文博会团队"><figcaption>文博会</figcaption></figure>
         </div>
@@ -873,21 +1089,21 @@
 <section class="slide chapter" data-chapter="收尾 · 思维" data-title="章节：收尾" data-minutes="0.5" data-notes="收尾章节页。说：工具会变，今天讲的工具明年可能就不一样了。最后留给你们的是几句能用很久的话。">
   <div class="frame">
     <div class="ch-grid">
-      <div class="ch-num">06</div>
+      <div class="ch-num">07</div>
       <div>
         <div class="ch-label">Closing · 留下来的东西</div>
         <h2>工具会变，<br><em>这几句话不会</em></h2>
-        <p class="ch-q">从七篇文章、一位菲尔兹奖得主和一位投资人的话里，挑出能用很久的几句。</p>
+        <p class="ch-q">从七篇文章里，挑出关于思维和方法、能用很久的十二句。</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-chapter="收尾 · 思维" data-title="七句话" data-minutes="3" data-notes="3 分钟。左边点一条，右边显示金句和核心思想。不用全讲，挑三条：传递还是判断；你的签字比 AI 的产出更贵；每个人的起点都特别小。其余让学生拍照。这些文章都来自快刀青衣的《快刀广播站》，推荐同学们自己去听。">
+<section class="slide" data-chapter="收尾 · 思维" data-title="十二句话" data-minutes="3" data-notes="3 分钟。左边点一条，右边显示金句和核心思想。不用全讲，挑三条：传递还是判断；你的签字比 AI 的产出更贵；每个人的起点都特别小。其余让学生拍照。这些文章都来自快刀青衣的《快刀广播站》，推荐同学们自己去听。">
   <div class="frame">
     <header class="s-head">
       <span class="kicker">收尾 / 核心思想与金句</span>
-      <h2>今天最想留给你们的<em>七句话</em></h2>
+      <h2>今天最想留给你们的<em>十二句话</em></h2>
     </header>
     <div class="body">
       <div class="qwall" id="quotes">
@@ -947,10 +1163,10 @@
   </div>
 </section>
 
-<section class="slide" data-chapter="答疑" data-title="答疑与合影" data-minutes="10" data-notes="答疑。没人提问时，按顺序点开左边的引导问题，每个问题讲讲师自己的答案，再请同学补充。结束前请大家起立合影。">
+<section class="slide" data-chapter="答疑" data-title="答疑" data-minutes="10" data-notes="答疑。没人提问时，按顺序点开左边的引导问题，每个问题讲讲师自己的答案，再请同学补充。结束后按学校安排合影。">
   <div class="frame">
     <header class="s-head">
-      <span class="kicker">互动答疑 · 集体合影</span>
+      <span class="kicker">互动答疑</span>
       <h2>轮到你们<em>提问</em>了</h2>
     </header>
     <div class="body">
@@ -963,7 +1179,7 @@
           <div class="qa-row"><h4><i>Q5</i>想参加黑客松，要准备什么？</h4><p>一台电脑、一个熟练的 AI 编程工具、一个作品集链接，再找两个和你专业不一样的队友。碳基社区的活动欢迎同学们来。</p></div>
         </div>
         <div class="stack" style="align-items:flex-start">
-          <p class="photo-call">合影<br><em style="font-style:normal;color:var(--blue)">谢谢。</em></p>
+          <p class="photo-call"><em style="font-style:normal;color:var(--blue)">谢谢</em></p>
           <p class="lead">黎健堂 · 碳基社区 · 广州德宝里科技服务有限公司</p>
           <div class="me-links"><a href="https://www.carbounity.com" target="_blank" rel="noopener">carbounity.com</a><a href="https://hely.fun" target="_blank" rel="noopener">hely.fun</a></div>
         </div>

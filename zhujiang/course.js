@@ -396,12 +396,12 @@
     var root = $("#risk");
     if (!root) return;
     var cards = $$(".rk", root), bars = $$(".risk-meter i", root), say = $("[data-role=say]", root);
-    var words = ["还没想过任何一条。", "想清楚 1 条。继续。", "想清楚 2 条。别急着写代码。", "想清楚 3 条。快了。", "想清楚 4 条。还差最后一条。", "5 条都想过了——可以动手了。"];
+    var words = ["还没想清楚任何一条。", "想清楚 1 条。继续。", "想清楚 2 条。别急着写代码。", "想清楚 3 条。快了。", "想清楚 4 条。还差最后一条。", "5 条都想清楚了——可以动手了。"];
     function update() {
       var n = cards.filter(function (c) { return c.classList.contains("done"); }).length;
       bars.forEach(function (b, i) { b.classList.toggle("on", i < n); });
       say.textContent = words[n];
-      cards.forEach(function (c) { $(".chk", c).textContent = c.classList.contains("done") ? "● 我想过了" : "○ 点击：我想过了"; });
+      cards.forEach(function (c) { $(".chk", c).textContent = c.classList.contains("done") ? "● 想清楚了" : "○ 点击：想清楚了"; });
     }
     cards.forEach(function (c) { c.addEventListener("click", function () { c.classList.toggle("done"); update(); fitSlide(slides[idx]); }); });
     update();
@@ -433,25 +433,40 @@
      互动 8：七句话
      ========================================================= */
   var QUOTES = [
-    { t: "接手次数：传递还是判断", from: "快刀广播站 1005 · 美国超市巨头计划裁 3000 个岗位",
+    { t: "传递还是判断", from: "快刀广播站 1005 · 美国超市巨头计划裁 3000 个岗位",
       q: "名字保护不了你，流程里的位置才决定你安不安全。",
       i: "会消失的不是某一层人，而是流程里不必要的接手。你经手的东西原封不动传下去，是<b>传递</b>；经你手之后，下一个人拿到的东西不一样了，是<b>判断</b>。判断，才是现在真正值钱的地方。" },
-    { t: "五类新角色：对 AI 的产出负责", from: "快刀广播站 1012 · 50 多家前沿公司涌现出五类 AI 新角色",
+    { t: "你的签字比 AI 的产出更贵", from: "快刀广播站 1012 · 50 多家前沿公司涌现出五类 AI 新角色",
       q: "AI 一秒钟能生成 100 份方案，但哪份能用，还是得你说了算。你的签字，比 AI 的产出更贵。",
       i: "“会用 AI”正在变成和“会用电脑”一样的基本功。新的价值在三件事：自己干活、<b>确保 AI 干对了</b>、<b>把自己知道的东西变成别人能用的东西</b>。" },
-    { t: "邓煜：方向盘在人手里", from: "快刀广播站 1025 · 菲尔兹奖得主邓煜谈 AI",
+    { t: "方向盘在人手里", from: "快刀广播站 1025 · 菲尔兹奖得主邓煜谈 AI",
       q: "如果人要跟 AI 比速度，那肯定是没有任何希望的。人始终是主体，AI 是一个工具。",
       i: "汽车跑得再快，也不知道要去哪儿。人的位置在驾驶座：决定方向、什么时候刹车，<b>并且有责任验证结果</b>。不是开头在场、中间离开，是全程在场。" },
-    { t: "17 岁少年：怎么被看见", from: "快刀广播站 1007 · 17 岁天才少年离开 Kimi",
+    { t: "加速器，不是入场券", from: "快刀广播站 1007 · 17 岁天才少年离开 Kimi",
       q: "AI 是加速器，不是入场券。入场券还是得靠你自己挣。",
-      i: "把学习过程公开写出来。在一个足够垂直的领域里，你不需要很多读者，<b>你需要被对的人看到</b>。写了，就多一次被发现的可能；不写，可能性就是零。" },
-    { t: "1000 天：没证据，不算完成", from: "快刀广播站 1011 · 从学会用 AI，到重新认识自己",
+      i: "17 岁的陈广宇用 AI 读论文，不是让它总结，是<b>一段一段追问到真懂</b>。真正让他拿到机会的，是自己写出来的理解，和能在真实项目里干活。" },
+    { t: "被对的人看见", from: "快刀广播站 1007 · 17 岁天才少年离开 Kimi",
+      q: "你不需要很多读者，你需要的是被对的人看到。写了，就多一次被发现的可能；不写，可能性就是零。",
+      i: "他的博客发出时只有 20 来个关注者，被一位做同方向的学者回复，接着拿到硅谷实习，后来成为 Kimi 论文的共同第一作者。<b>把学习过程公开写出来、做出来、发出来。</b>" },
+    { t: "第六个烧饼", from: "快刀广播站 1007 · 17 岁天才少年离开 Kimi",
+      q: "吃了六个烧饼才吃饱，别说“早知道就直接吃第六个”。",
+      i: "总有人说“等 AI 再发展发展，我就不用学了”。可学 AI 也是厚积薄发：<b>用过之前的工具、有过自己的思考</b>，新工具出来时，你才能马上感觉到它哪里不一样。" },
+    { t: "没证据，不算完成", from: "快刀广播站 1011 · 从学会用 AI，到重新认识自己",
       q: "没证据，就不算完成。",
-      i: "三层变化：先把有标准答案的活交给 AI；再<b>指挥 AI</b>，从问“AI 又能干什么”变成问“这件事该派谁去干”；最后，是<b>重新认识自己</b>——原来还能走到别的地方。" },
-    { t: "国办文件：效率红利归谁", from: "快刀广播站 1015 · 国务院办公厅发文谈 AI 与就业",
+      i: "AI 嘴上说“完成了”，实际根本没干完——这和带新人一样。区别是<b>新人会脸红，AI 不会，下次还可能这么答</b>。所以验收要看证据：能打开、能运行、数字能核对。" },
+    { t: "这件事该派谁去干", from: "快刀广播站 1011 · 从学会用 AI，到重新认识自己",
+      q: "从问“AI 又能干什么”，变成问“这件事该派谁去干”。",
+      i: "第一层，把有标准答案的活交给 AI；第二层，<b>给 AI 分工、定规矩、验收结果</b>——这已经不是“我和一个工具”，而是“我和一支团队”。" },
+    { t: "原来还能走到别的地方", from: "快刀广播站 1011 · 从学会用 AI，到重新认识自己",
+      q: "AI 没有替他们决定人生往哪儿走，但让他们看到了，自己原来还可以走到别的地方。",
+      i: "测试工程师转去做 AI 部署，月嫂考下营养师证，60 岁的医生在全国做了 30 多场分享。<b>不用等准备好了再开始，先动手，再慢慢想通。</b>" },
+    { t: "别轻易说“AI 不行”", from: "快刀广播站 1031 · 给微信小程序大赛当了一天评委",
+      q: "千万别因为今天用 AI 做某个任务失败了，就给 AI 判死刑。很有可能不是“AI 不行”，是“我的 AI 不行”。",
+      i: "AI 迭代得很快，睡一觉它可能就会了。<b>换个人、换个方法，事情就做成了。</b>卡住的时候，先怀疑自己的用法，而不是马上下结论。" },
+    { t: "效率红利会被吃掉", from: "快刀广播站 1015 · 国务院办公厅发文谈 AI 与就业",
       q: "AI 给你提高的那点效率，人一定会想办法把它吃掉。",
-      i: "效率红利归谁，第一次被写进国务院级别的文件。你能不能在新的组织架构里坐下来，取决于：<b>你和 AI 搭档干出来的，比单纯用 AI 更好，也比旁边的同事加 AI 更好</b>。" },
-    { t: "小程序大赛：起点特别小", from: "快刀广播站 1031 · 给微信小程序大赛当了一天评委",
+      i: "一天能做 8 张海报了，真正用上的可能还是那 1 张。你能不能在新的组织里坐下来，取决于：<b>你和 AI 搭档干出来的，比单纯用 AI 更好，也比旁边的同事加 AI 更好</b>。" },
+    { t: "起点特别小", from: "快刀广播站 1031 · 给微信小程序大赛当了一天评委",
       q: "每个人的起点都特别小，小到可能只是一个让自己觉得不舒服的瞬间。",
       i: "但在 AI 时代，这样一个小小的瞬间，<b>真的有机会长成一个不错的产品，然后找到跟你一样在意这件事的人</b>。先做一个自己会用的东西。" }
   ];
@@ -469,6 +484,53 @@
       $$("button", list).forEach(function (b) { b.classList.toggle("on", +b.dataset.q === i); });
     }
     list.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) render(+b.dataset.q); });
+    render(0);
+  })();
+
+
+  /* ---------- 互动 10：你可以是一名…… ---------- */
+  (function () {
+    var root = $("#becoming");
+    if (!root) return;
+    var box = $("[data-role=word]", root), chips = $$("[data-role=chips] span", root), k = 0;
+    var slide = root.closest(".slide");
+    function show(n) {
+      var old = $("span:not(.out)", box);
+      if (old) { old.classList.add("out"); setTimeout(function () { if (old.parentNode) old.parentNode.removeChild(old); }, 420); }
+      var sp = document.createElement("span"); sp.textContent = chips[n].textContent; box.appendChild(sp);
+      chips.forEach(function (c, i) { c.classList.toggle("on", i === n); });
+    }
+    setInterval(function () { if (!slide.classList.contains("is-active")) return; k = (k + 1) % chips.length; show(k); }, 1500);
+    chips.forEach(function (c, i) { c.style.cursor = "pointer"; c.addEventListener("click", function () { k = i; show(i); }); });
+    box.innerHTML = ""; show(0);
+  })();
+
+  /* ---------- 互动 11：专业 × 通识 × AI ---------- */
+  var AMP = [
+    { give: "审美、镜头感、排版、讲故事的能力", up: "一个人的设计 + 视频工作室",
+      ex: "开场那支 Back to Work 和碳基社区介绍片：人定故事和审美，画面动效和配乐全由 AI 写代码生成。",
+      go: "给学院的一次活动，做一支 30 秒的 AI 宣传片。" },
+    { give: "逻辑、工程习惯、会调试、懂系统", up: "一个人的开发团队",
+      ex: "一位技术负责人，团队缩到只剩自己，靠 AI 编程工具撑起前端、后端、App 和运维。",
+      go: "给社团做一个报名或值班小程序，并部署上线。" },
+    { give: "一个行业的经验和判断", up: "懂 AI 的领域专家",
+      ex: "60 岁的风湿免疫科医生：最清楚该让 AI 解决什么问题的人，还是他自己。",
+      go: "把你最熟的一件事，写成一份 AI 能照着做的手册。" }
+  ];
+  (function () {
+    var root = $("#amplify");
+    if (!root) return;
+    var grid = $("[data-role=grid]", root);
+    function render(m) {
+      var x = AMP[m];
+      grid.innerHTML =
+        "<div class=\"amp\" style=\"--k:0\"><h4>你的专业给你</h4><p>" + x.give + "</p></div>" +
+        "<div class=\"amp up\" style=\"--k:1\"><h4>AI 放大成</h4><p>" + x.up + "</p></div>" +
+        "<div class=\"amp\" style=\"--k:2\"><h4>真实例子</h4><p>" + x.ex + "</p></div>" +
+        "<div class=\"amp go\" style=\"--k:3\"><h4>这周就能做</h4><p>" + x.go + "</p></div>";
+      $$("[data-m]", root).forEach(function (b) { b.classList.toggle("on", +b.dataset.m === m); });
+    }
+    root.addEventListener("click", function (e) { var b = e.target.closest("[data-m]"); if (b) { render(+b.dataset.m); fitSlide(slides[idx]); } });
     render(0);
   })();
 
