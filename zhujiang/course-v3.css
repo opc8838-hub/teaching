@@ -135,10 +135,36 @@
 .bcard.yel { background: var(--yellow); }
 @media (max-width: 900px) { .brand-grid { grid-template-columns: 1fr 1fr; } }
 
-/* 微信二维码卡 */
-.wx-card { display: flex; gap: clamp(14px, 1.4vw, 24px); align-items: center; margin-top: clamp(14px, 2.4vh, 28px); padding: clamp(12px, 1.2vw, 18px); background: #fff; border: 1px solid var(--line); border-radius: 14px; }
-.wx-card img { width: clamp(150px, 13vw, 230px); height: auto; display: block; border-radius: 8px; }
-.wx-txt { display: flex; flex-direction: column; gap: 6px; }
-.wx-k { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--blue); }
-.wx-txt b { font-size: clamp(22px, 2vw, 34px); letter-spacing: .01em; }
-.wx-s { font-size: clamp(13px, .95vw, 16px); line-height: 1.55; color: var(--ink-2); }
+/* 答疑页右栏 */
+.qa-wrap { display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 21vw, 340px); gap: clamp(28px, 4vw, 72px); align-items: start; }
+.qa-side { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; flex-direction: column; gap: 14px; }
+.qs-k { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--muted); }
+.qs-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: clamp(14px, 1.3vw, 22px); display: flex; flex-direction: column; gap: 12px; }
+.qs-card img { width: 100%; height: auto; display: block; }
+.qs-card div { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 10px; }
+.qs-card span { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--blue); }
+.qs-card b { font-size: clamp(18px, 1.5vw, 26px); }
+.qs-name { font-size: clamp(13px, .95vw, 16px); line-height: 1.7; color: var(--ink-2); }
+
+/* THANKS 收尾页 */
+.slide.thanks { background: var(--ink); color: var(--paper); }
+.thanks .frame { justify-content: space-between; padding-top: clamp(28px, 5vh, 60px); }
+.tk-top { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: rgba(245, 244, 239, .55); }
+.tk-grid { flex: 1 1 auto; display: grid; grid-template-columns: minmax(0, 1fr) clamp(300px, 26vw, 420px); gap: clamp(32px, 5vw, 96px); align-items: center; }
+.tk-word { white-space: nowrap; font-size: clamp(64px, 8.2vw, 160px); line-height: .9; font-weight: 900; letter-spacing: -.045em; color: var(--paper); margin: 0; }
+.tk-cn { margin-top: clamp(18px, 3vh, 36px); display: flex; align-items: center; gap: 18px; font-size: clamp(22px, 2vw, 36px); font-weight: 700; }
+.tk-cn i { width: 40px; height: 2px; background: var(--yellow); display: inline-block; }
+.tk-line { margin-top: clamp(14px, 2.2vh, 26px); font-size: clamp(16px, 1.25vw, 22px); color: rgba(245, 244, 239, .7); }
+.tk-line em { font-style: normal; color: var(--yellow); }
+.tk-card { background: var(--paper); color: var(--ink); border-radius: 22px; padding: clamp(18px, 1.6vw, 28px); display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
+.tk-card img { width: 100%; height: auto; display: block; border-radius: 10px; background: #fff; }
+.tk-id { display: flex; flex-direction: column; gap: 4px; }
+.tk-id span { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--blue); }
+.tk-id b { font-size: clamp(26px, 2.3vw, 40px); letter-spacing: -.01em; }
+.tk-id p { font-size: clamp(13px, .95vw, 16px); line-height: 1.6; color: var(--ink-2); }
+.tk-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; border-top: 1px solid rgba(245, 244, 239, .2); padding-top: 18px; }
+.tk-who { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.tk-who b { font-size: clamp(18px, 1.4vw, 24px); }
+.tk-who span { font-size: clamp(13px, 1vw, 16px); color: rgba(245, 244, 239, .65); }
+.tk-links { display: flex; gap: 22px; font-family: var(--mono); font-size: 13px; }
+.tk-links a { color: var(--yellow); text-decoration: none; border-bottom: 1px solid rgba(245, 238, 54, .4); }
