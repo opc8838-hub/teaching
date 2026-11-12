@@ -166,7 +166,7 @@
 
   var wheelTotal = 0, wheelTimer = null;
   window.addEventListener("wheel", function (e) {
-    if (window.innerWidth <= 900) return;
+    if (window.innerWidth <= 900 || document.body.classList.contains("modal-open")) return;
     if (e.target.closest(".panel-body, .menu-list, .flip-b")) return;
     if (Math.abs(e.deltaY) < 4) return;
     wheelTotal += e.deltaY;
@@ -177,7 +177,7 @@
 
   var touchStart = null;
   window.addEventListener("touchstart", function (e) {
-    if (e.target.closest(".panel, button, a, input, video, .flip, .rk, .rp-row, .qa-row")) { touchStart = null; return; }
+    if (document.body.classList.contains("modal-open") || e.target.closest(".panel, button, a, input, video, .flip, .rk, .rp-row, .qa-row, [data-detail]")) { touchStart = null; return; }
     var t = e.touches[0]; touchStart = { x: t.clientX, y: t.clientY };
   }, { passive: true });
   window.addEventListener("touchend", function (e) {
@@ -434,7 +434,7 @@
      ========================================================= */
   var QUOTES = [
     { t: "传递还是判断", from: "快刀广播站 1005 · 美国超市巨头计划裁 3000 个岗位",
-      q: "名字保护不了你，流程里的位置才决定你安不安全。",
+      q: "名字（头衔、岗位名称）保护不了你，流程里的位置才决定你安不安全。",
       i: "会消失的不是某一层人，而是流程里不必要的接手。你经手的东西原封不动传下去，是<b>传递</b>；经你手之后，下一个人拿到的东西不一样了，是<b>判断</b>。判断，才是现在真正值钱的地方。" },
     { t: "你的签字比 AI 的产出更贵", from: "快刀广播站 1012 · 50 多家前沿公司涌现出五类 AI 新角色",
       q: "AI 一秒钟能生成 100 份方案，但哪份能用，还是得你说了算。你的签字，比 AI 的产出更贵。",
@@ -532,6 +532,19 @@
     }
     root.addEventListener("click", function (e) { var b = e.target.closest("[data-m]"); if (b) { render(+b.dataset.m); fitSlide(slides[idx]); } });
     render(0);
+  })();
+
+  /* ---------- 互动 12：定位表高亮 ---------- */
+  (function () {
+    var t = $("#pos");
+    if (!t) return;
+    t.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-c]");
+      if (!b) return;
+      var c = "c" + b.dataset.c, on = t.classList.contains(c);
+      t.classList.remove("c1", "c2", "c3");
+      if (!on) t.classList.add(c);
+    });
   })();
 
   /* ---------- 互动 9：答疑展开 ---------- */
