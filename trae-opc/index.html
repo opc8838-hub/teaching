@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一个想法，一个人，1689 个案例 · TRAE Friends OPC Talk</title>
+<meta name="description" content="黎健堂分享一个人和 AI 搭建生图网站 hely.fun 的经历。">
+<meta name="theme-color" content="#f5f4ef">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="course.css">
+<link rel="stylesheet" href="course-v2.css">
+<link rel="stylesheet" href="course-v3.css">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="talk.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#slide-1"><b>hely.fun</b><span>TRAE Friends · OPC Talk</span></a>
+  <div class="top-context"><span id="chapter-name">开场</span><i></i><span id="slide-title"></span></div>
+  <div class="top-actions">
+    <button class="btn" id="notes-button" type="button">备注 N</button>
+    <button class="btn" id="menu-button" type="button">目录 M</button>
+  </div>
+</header>
+
+<main class="deck" id="deck">
+
+<section class="slide opener" data-chapter="00 / 开场" data-title="封面" data-minutes="0.5" data-notes="大家好，我是黎健堂。今天讲我一个人和 AI 怎么把 hely.fun 搭起来。先看一小段成片。 开场先别急着讲：问一句“这周有谁用 AI 做完过一件完整的事？”举手看看，然后翻页放片。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">00 / 开场</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 01</span></div></header>
+    <div class="body"><div class="opening"><div><div class="eventline"><i></i> TRAE Friends · OPC Talk · 2026.11</div><h1>一个想法，<br>一个人，<br><em>1689</em> 个案例</h1><p class="cover-sub">hely.fun 是怎么搭起来的</p><p class="byline">主讲 &nbsp; 黎健堂</p></div><figure class="proof"><div class="print-grid"><img class="" src="img/wall/d15.jpg" alt=""><img class="" src="img/wall/d11.jpg" alt=""><img class="" src="img/wall/d13.jpg" alt=""><img class="" src="img/wall/d28.jpg" alt=""><img class="" src="img/wall/c03.jpg" alt=""><img class="" src="img/wall/d03.jpg" alt=""></div><figcaption><b>hely.fun</b><span>生图案例选页</span></figcaption></figure></div></div><div class="page-foot"><div class="rail"><span>想法</span><i>→</i><span>知识</span><i>→</i><span>Skill</span><i>→</i><span>产品</span><i>→</i><span>UI</span><i>→</i><span>迭代</span></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="00 / 开场" data-title="放片" data-minutes="1" data-notes="放完说：&quot;这是 hely.fun，一个不用写提示词的生图网站。从想法到上线，是我一个人加 AI 做的。今天就讲它是怎么搭起来的。&quot;">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">00 / 开场</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 02</span></div><h2>先看 26 秒，认识一下 <em>hely.fun</em></h2></header>
+    <div class="body"><div class="movie"><div class="video-wrap"><video src="media/hely-opening.mp4" poster="media/hely-poster.jpg" preload="metadata" controls playsinline></video><button class="play-big" type="button"><span>▶ &nbsp; 播放开场片</span></button></div></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="00 / 开场" data-title="我是谁" data-minutes="1.5" data-notes="在阿里做了 5 年市场销售，又做了 2 年抖音本地生活服务商，不是程序员。今年 5 月 21 日开工，到现在半年。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">00 / 开场</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 03</span></div><h2>我是谁</h2></header>
+    <div class="body"><div class="bio"><figure><img class="" src="img/me.jpg" alt="主讲人黎健堂"><figcaption>黎健堂 · 大家叫我黎生</figcaption></figure><div><p class="bigline">我以前跑市场，<br>也帮餐馆做生意。</p><div class="lined"><div><b>5 年</b><span>在阿里做市场销售</span></div><div><b>2 年</b><span>做抖音本地生活服务商</span></div><div><b>5 月 21 日</b><span>一个人 + AI，开工做 hely.fun</span></div></div></div></div></div><div class="page-foot">我不是程序员。做这个网站，从自己熟悉的商家开始。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="00 / 开场" data-title="今天讲什么" data-minutes="1" data-notes="今天不讲大道理，就按这个顺序讲我真实走过的路。 点“重新走一遍”可以让六格再亮一次。每一格就是后面的一章，讲到哪章可以回来指一下。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">00 / 开场</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 04</span></div><h2>今天，按这六步走</h2></header>
+    <div class="body"><div class="map-six"><article style="--i:0"><small>01</small><h3>想法</h3><p>老板到底想要什么？</p></article><article style="--i:1"><small>02</small><h3>知识</h3><p>一张好图里，哪些能换？</p></article><article style="--i:2"><small>03</small><h3>Skill</h3><p>怎么让 AI 照着做？</p></article><article style="--i:3"><small>04</small><h3>产品</h3><p>一个人怎么把网站上线？</p></article><article style="--i:4"><small>05</small><h3>UI</h3><p>怎么让用户用着顺手？</p></article><article style="--i:5"><small>06</small><h3>迭代</h3><p>五联图怎么越改越好？</p></article></div></div><div class="page-foot"><button type="button" class="quiet" id="route-replay">重新走一遍 ↻</button></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="01 / 一个想法" data-title="提示词是反人类的" data-minutes="2" data-notes="让开餐馆的老板去学这个，等于让他学写代码。我相信未来不需要提示词：人说人话，机器去翻译。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">01 / 一个想法</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 05</span></div></header>
+    <div class="body"><div class="prompt-row"><article class="prompt-paper"><div class="micro">案例库里的原始提示词 · 商品广告</div><p lang="en" data-case-id="2048748266293190833">Low-angle fashion campaign photograph of a confident model holding a large [product name] very close to the camera, exaggerated perspective with the hand and product dominating the foreground, full-body pose visible in the background, wide stance, dynamic posture, clean pure white studio background, high-key lighting, sharp focus on product, slight depth of field on the model, bold colorful outfit with strong contrast tones, modern beauty advertising aesthetic, ultra-clean composition, commercial studio photography, glossy packaging detail visible, crisp shadows</p></article><h2 class="prompt-verdict">提示词是<br><em>反人类</em>的。</h2><article class="boss"><div class="micro">餐饮老板会怎么说？</div><blockquote>“帮我做张中秋海报，<br>放我们家招牌菜。”</blockquote></article></div></div><div class="page-foot">用户说人话，机器来翻译。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="01 / 一个想法" data-title="选 → 填 → 生成" data-minutes="1.5" data-notes="提示词还在，只是藏到了后面。用户看到的是一张好看的图，他只需要说&quot;我要这样的&quot;。 先让大家看七个灰格，问“你们平时做一张图要几步？”，再点“收成三步”。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">01 / 一个想法</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 06</span></div><h2>选 <em>→</em> 填 <em>→</em> 生成</h2></header>
+    <div class="body"><div class="steps-stage"><p class="micro" id="step-caption">做一张图，常见的走法</p><div class="oldsteps" id="oldsteps"><span>找参考图</span><span>学提示词</span><span>写英文</span><span>调参数</span><span>反复抽卡</span><span>修图</span><span>导出</span></div><div class="newsteps" id="newsteps" hidden><span>选一张图</span><span>填自己的信息</span><span>生成</span></div><button type="button" class="action" id="fold-steps">收成三步 →</button></div></div><div class="page-foot"><strong>任何操作不超过 3 步。</strong></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="01 / 一个想法" data-title="第一天写的不是代码" data-minutes="1.5" data-notes="开工第一天，我先写了一篇想法。所以 hely 的每个模板都存两份：人看表单，Agent 看结构。今天给人用，明天直接给 Agent 调。 点卡片右下角“翻到背面”，给大家看同一个模板给 AI 看的那一面；再点一次翻回来。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">01 / 一个想法</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 07</span></div><h2>第一天写的不是代码</h2></header>
+    <div class="body"><div class="duo"><div><div class="micro">开工第一天的笔记</div><h3 class="subhead">《Agent 产品形态的哲思》</h3><div class="lined"><div><b>GUI</b><span>人点按钮。</span></div><div><b>Agent 工作流</b><span>AI 干活，人来确认。</span></div><div><b>Agent-first</b><span>AI 可以直接调用产品。</span></div></div></div><button class="schema-card" type="button" id="flip-schema" aria-pressed="false"><span class="schema-face"><small>给人看的 · 表单节选</small><strong>这张图，你想换什么？</strong><span class="mock-field">菜品或技巧主题 <i>必填</i></span><span class="mock-field">标题文字</span><b>翻到背面 ↗</b></span><span class="schema-back" hidden><small>给 Agent 看的 · agent_schema 节选</small><code>{
+  &quot;slots&quot;: {
+    &quot;dish_or_topic&quot;: {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;description&quot;: &quot;菜品或技巧主题&quot;,
+      &quot;required&quot;: true
+    }
+  }
+}</code><b>翻回正面 ↶</b></span></button></div></div><div class="page-foot">同一个模板，给人一张表，给 AI 一份结构。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="02 / 把想法变成知识" data-title="案例就是知识" data-minutes="2" data-notes="我做的第一件事不是写代码，而是找大量好图和它们的提示词。每一张好图背后都有一套&quot;怎么做出来&quot;的经验，把它拆出来，就是知识。 翻到这页，数字会从 24 自己滚到 1689；点“重看增长”可以再滚一次。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">02 / 把想法变成知识</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 08</span></div><h2>案例就是知识</h2></header>
+    <div class="body"><div class="wall-layout"><div class="wall-count"><span class="micro">5 月 21 日 · 起步</span><b>24</b><span class="down">↓</span><span class="micro">现在的案例库</span><strong id="wall-count">24</strong><button type="button" class="quiet" id="wall-replay">重看增长 ↻</button></div><div class="gallery-wall"><img class="" src="img/wall/c00.jpg" alt=""><img class="" src="img/wall/c01.jpg" alt=""><img class="" src="img/wall/c02.jpg" alt=""><img class="" src="img/wall/c03.jpg" alt=""><img class="" src="img/wall/c04.jpg" alt=""><img class="" src="img/wall/c05.jpg" alt=""><img class="" src="img/wall/c06.jpg" alt=""><img class="" src="img/wall/d00.jpg" alt=""><img class="" src="img/wall/d01.jpg" alt=""><img class="" src="img/wall/d02.jpg" alt=""><img class="" src="img/wall/d03.jpg" alt=""><img class="" src="img/wall/d04.jpg" alt=""><img class="" src="img/wall/d05.jpg" alt=""><img class="" src="img/wall/d06.jpg" alt=""><img class="" src="img/wall/d07.jpg" alt=""><img class="" src="img/wall/d08.jpg" alt=""><img class="" src="img/wall/d09.jpg" alt=""><img class="" src="img/wall/d10.jpg" alt=""><img class="" src="img/wall/d11.jpg" alt=""><img class="" src="img/wall/d12.jpg" alt=""><img class="" src="img/wall/d13.jpg" alt=""><img class="" src="img/wall/d14.jpg" alt=""><img class="" src="img/wall/d15.jpg" alt=""><img class="" src="img/wall/d16.jpg" alt=""><img class="" src="img/wall/d17.jpg" alt=""><img class="" src="img/wall/d18.jpg" alt=""><img class="" src="img/wall/d19.jpg" alt=""><img class="" src="img/wall/d20.jpg" alt=""><img class="" src="img/wall/d21.jpg" alt=""><img class="" src="img/wall/d22.jpg" alt=""><img class="" src="img/wall/d23.jpg" alt=""><img class="" src="img/wall/d24.jpg" alt=""><img class="" src="img/wall/d25.jpg" alt=""><img class="" src="img/wall/d26.jpg" alt=""><img class="" src="img/wall/d27.jpg" alt=""><img class="" src="img/wall/d28.jpg" alt=""><img class="" src="img/wall/d29.jpg" alt=""></div></div></div><div class="page-foot">分类负责导航，标签负责匹配，表单负责复用。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="02 / 把想法变成知识" data-title="互动「填一填」" data-minutes="2.5" data-notes="表单不是按分类硬套的，是从图里&quot;可以换的东西&quot;抽出来的。这就是把一张图变成模板的核心。 现场互动：先问“换成你家的招牌菜，你会改哪儿？”，大家说一处，就点亮图上对应的框；最后点“揭晓真实表单”，对一对谁说得最全。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">02 / 把想法变成知识</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 09</span></div><h2>填一填 <em>／</em> 这张图里，哪里能换？</h2></header>
+    <div class="body"><div class="dish-layout"><div class="dish-poster" data-case-id="2011994819124752631"><img class="" src="img/case_dish.jpg" alt="叙利亚餐饮海报，顶部标题，中间菜品，周围有配料说明"><button class="hot hot-1" type="button" aria-pressed="false" aria-label="点亮标题文字"><span>1</span><b>标题文字</b></button><button class="hot hot-2" type="button" aria-pressed="false" aria-label="点亮菜品"><span>2</span><b>菜品</b></button><button class="hot hot-3" type="button" aria-pressed="false" aria-label="点亮配料说明"><span>3</span><b>配料说明</b></button></div><div class="dish-answer"><div class="micro">现场互动 · 先听大家说</div><h3>换成你家的招牌菜，<br>你会改哪儿？</h3><p>听到一处，就点亮图上的框。</p><button type="button" class="action" id="show-fields">揭晓真实表单 →</button><ul class="field-list" id="fields" hidden><li><b>菜品或技巧主题</b><span class='answer-input'>填写菜品或技巧主题</span><small>必填</small></li><li><b>标题文字</b><span class='answer-input'>补充标题文字</span><small>选填</small></li><li><b>关键信息</b><span class='answer-input'>补充关键信息</span><small>选填</small></li><li><b>发布平台</b><span class='answer-input'>补充发布平台</span><small>选填</small></li><li><b>补充要求</b><span class='answer-input'>补充补充要求</span><small>选填</small></li></ul></div></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="02 / 把想法变成知识" data-title="Skill 当生产线" data-minutes="2.5" data-notes="一张一张做模板，1689 个做不完。所以我把&quot;怎么做模板&quot;这件事本身写成 Skill，让 AI 按 Skill 批量干。整个网站就是靠这些 Skill 一点点长起来的。拍照句：一件事重复三次，就把它写成 Skill。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">02 / 把想法变成知识</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 10</span></div><h2>把做模板的办法，写成 <em>Skill</em></h2></header>
+    <div class="body"><div class="production"><article><span>01</span><h3>采集</h3><p>收好图和原始提示词</p><small class="station-skills">分类 · 标签</small></article><article><span>02</span><h3>反译</h3><p>拆出这张图的做法</p><small class="station-skills">适配策略</small></article><article><span>03</span><h3>封装</h3><p>把能换的地方做成表单</p><small class="station-skills">表单 · Agent 结构 · 用户说明</small></article><article><span>04</span><h3>上架</h3><p>检查好，放进案例库</p><small class="station-skills">审核 · 导入更新</small></article></div><div class="skillband"><div><strong>8 个 Skill</strong><p>6 月 8 日，把重复的活写下来，让 AI 照着做。</p></div><div><small>人来做</small><b>审美判断</b></div></div></div><div class="page-foot"><strong>一件事重复三次，就写成 Skill。</strong></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="03 / 一个人就是一支队伍" data-title="时间线" data-minutes="2.5" data-notes="挑三个点讲：第一天就有了能看的原型；第四天就上线了；7 月最拼，一个月提交 133 次。 点任意一个时间节点，下面会显示那天做了什么。右边柱状图不用逐根讲。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">03 / 一个人就是一支队伍</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 11</span></div><h2>从 5 月的原型，到 11 月的智能改图</h2></header>
+    <div class="body"><div class="chron"><div><p class="micro">点一个节点，看当时在做什么</p><div class="nodes"><button type="button" class="node selected" data-blurb="用 Next.js 做出苹果风界面，放进 24 个案例。当天提交了 10 次。"><small>5/21</small><b>原型</b></button><button type="button" class="node" data-blurb="部署到 Vercel，用阿里云发短信，数据放 Supabase。"><small>5/25</small><b>网站上线</b></button><button type="button" class="node" data-blurb="把分类、表单、审核等做法写成 Skill。"><small>6/8</small><b>8 个 Skill</b></button><button type="button" class="node" data-blurb="看着参考图，反推它的提示词。"><small>6/22</small><b>反推提示词</b></button><button type="button" class="node" data-blurb="加上画布，可以在上面摆图、改图。"><small>6/23</small><b>画布</b></button><button type="button" class="node" data-blurb="用户可以用支付宝给账号充积分。"><small>6/25</small><b>支付宝充值</b></button><button type="button" class="node" data-blurb="集中做上线前的收尾。"><small>7/2</small><b>上线冲刺</b></button><button type="button" class="node" data-blurb="生成任务缩到底部，等图时还能继续逛。"><small>7/10</small><b>生成浮球</b></button><button type="button" class="node" data-blurb="做出社区画廊，也给运营留了后台。"><small>7/14</small><b>画廊和后台</b></button><button type="button" class="node" data-blurb="多一种登录方式，和手机号账号打通。"><small>7/29</small><b>Google 登录</b></button><button type="button" class="node" data-blurb="把风格大师加进网站。"><small>8/4</small><b>风格大师</b></button><button type="button" class="node" data-blurb="开始做一张长图、自动切成五张的工具。"><small>10/12</small><b>五联图</b></button><button type="button" class="node" data-blurb="用户说要改哪里，AI 按要求改图。"><small>11 月</small><b>智能改图</b></button></div><div id="node-detail" class="node-detail">用 Next.js 做出苹果风界面，放进 24 个案例。当天提交了 10 次。</div></div><div class="bar-panel"><div class="micro">每月提交次数</div><div class="monthly-bars"><div><b>64</b><i style="height:65.4px"></i><span>5 月</span></div><div><b>102</b><i style="height:104.3px"></i><span>6 月</span></div><div><b>133</b><i style="height:136.0px"></i><span>7 月</span></div><div><b>22</b><i style="height:22.5px"></i><span>8 月</span></div><div><b>1</b><i style="height:2.0px"></i><span>9 月</span></div><div><b>32</b><i style="height:32.7px"></i><span>10 月</span></div><div><b>约 23</b><i style="height:23.5px"></i><span>11 月</span></div></div><p>7 月最忙，一个月提交 133 次。</p></div></div></div><div class="page-foot">写代码的搭档 &nbsp; <b>Codex + Claude Code</b></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="03 / 一个人就是一支队伍" data-title="互动「数一数」" data-minutes="2" data-notes="三年前这是一个 8–10 人的团队，现在一个人加 AI 能做完。 现场互动：先请大家喊一个数字，再点“翻一张角色牌”一张张翻，计数器跟着跳；翻完最后一下，所有牌都变成“我 + AI”。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">03 / 一个人就是一支队伍</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 12</span></div><h2>数一数 <em>／</em> 做网站要几种角色？</h2></header>
+    <div class="body"><div class="role-layout"><div class="role-grid"><div class="role-card" data-role-name="产品经理"><small>01</small><b>？</b></div><div class="role-card" data-role-name="UI 设计"><small>02</small><b>？</b></div><div class="role-card" data-role-name="交互设计"><small>03</small><b>？</b></div><div class="role-card" data-role-name="前端"><small>04</small><b>？</b></div><div class="role-card" data-role-name="后端"><small>05</small><b>？</b></div><div class="role-card" data-role-name="数据库"><small>06</small><b>？</b></div><div class="role-card" data-role-name="运维部署"><small>07</small><b>？</b></div><div class="role-card" data-role-name="域名备案"><small>08</small><b>？</b></div><div class="role-card" data-role-name="支付对接"><small>09</small><b>？</b></div><div class="role-card" data-role-name="内容采集"><small>10</small><b>？</b></div><div class="role-card" data-role-name="测试"><small>11</small><b>？</b></div></div><div class="tally"><span class="micro">已经翻开的角色</span><strong id="role-count">0</strong><button type="button" class="action" id="next-role">翻一张角色牌 →</button></div></div></div><div class="page-foot">先猜个数，再一张张翻。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="03 / 一个人就是一支队伍" data-title="上线那些事" data-minutes="2.5" data-notes="这些以前要找好几个人、跑好几个平台。现在是我问 AI，AI 一步步带我配。不懂没关系，关键是敢动手、会问。 六张卡都能点开。重点点“手机验证码”和“数据库和存储”，其余一句带过。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">03 / 一个人就是一支队伍</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 13</span></div><h2>上线那些事</h2></header>
+    <div class="body"><div class="launch-grid"><button type="button" class="launch-card" data-full="在阿里云买下 hely.fun，把 DNS 指向 Vercel。"><small>01 / 上线</small><strong>域名</strong><span>把地址指到网站</span><i>↗</i></button><button type="button" class="launch-card" data-full="把网站放到 Vercel，大家打开域名就能用。"><small>02 / 上线</small><strong>网站</strong><span>让别人也能打开</span><i>↗</i></button><button type="button" class="launch-card" data-full="账号数据放 Supabase。后来把图片存储迁到 Cloudflare R2。"><small>03 / 上线</small><strong>数据库和存储</strong><span>账号和图片放哪里</span><i>↗</i></button><button type="button" class="launch-card" data-full="Supabase 的短信没法直接用阿里云。我自己写了 6 位验证码，用阿里云发短信，60 秒后可重发。"><small>04 / 上线</small><strong>手机验证码</strong><span>让手机能收到码</span><i>↗</i></button><button type="button" class="launch-card" data-full="用支付宝充值，积分到账。用户生成图片时再扣积分。"><small>05 / 上线</small><strong>支付宝充值</strong><span>把付款换成积分</span><i>↗</i></button><button type="button" class="launch-card" data-full="加上 Google 登录，和手机号账号打通。"><small>06 / 上线</small><strong>Google 登录</strong><span>让海外用户也能进</span><i>↗</i></button></div></div><div class="page-foot">点开一张卡，看看我是怎么配的。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="03 / 一个人就是一支队伍" data-title="每个模型只管一块" data-minutes="1.5" data-notes="贵的模型只用在刀刃上。能用程序解决的，就不用 AI。而且这些都不是最先进的模型——几个月前的模型，已经够搭一个完整产品了。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">03 / 一个人就是一支队伍</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 14</span></div><h2>每个模型，只管一块</h2></header>
+    <div class="body"><div class="model-layout"><div class="model-quote">贵的模型<br>只用在<em>刀刃上。</em></div><table class="model-table"><thead><tr><th>谁来干</th><th>干什么活</th></tr></thead><tbody><tr><th>DeepSeek</th><td>听懂需求、找案例、自动填表</td></tr><tr><th>gpt-image-2</th><td>画图、改图</td></tr><tr><th>视觉模型</th><td>想怎么改，检查改完的图</td></tr><tr><th>GPT-4.1</th><td>从图反推提示词</td></tr><tr><th>BiRefNet</th><td>在本地抠图，保留原像素</td></tr><tr><th>纯程序</th><td>放大、改色</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="03 / 一个人就是一支队伍" data-title="数字墙" data-minutes="0.5" data-notes="一句话：&quot;这就是一个人加 AI 半年的量。&quot;">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">03 / 一个人就是一支队伍</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 15</span></div><h2>一个人 + AI，半年的量</h2></header>
+    <div class="body"><div class="bigstats"><div style="--i:0"><b>377</b><span>次提交</span></div><div style="--i:1"><b>65</b><span>个有提交的日子</span></div><div style="--i:2"><b>4.8</b><span>万行网站代码</span></div><div style="--i:3"><b>7.8</b><span>万行全部代码与文档</span></div><div style="--i:4"><b>1689</b><span>个案例</span></div><div style="--i:5"><b>8</b><span>个 Skill</span></div></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="04 / UI 和交互里的心思" data-title="设计原则" data-minutes="1.5" data-notes="我对 AI 说的第一句设计要求是&quot;苹果式的不废话&quot;。先定原则，后面每个细节都拿它来对照。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">04 / UI 和交互里的心思</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 16</span></div><h2>极简、克制、自信</h2></header>
+    <div class="body"><div class="duo principles"><div><div class="lined"><div><b>每页一件事</b><span>进来就知道要做什么。</span></div><div><b>图片放前面</b><span>先看图，卡片上不堆提示词。</span></div><div><b>最多三步</b><span>选、填、生成。</span></div><div><b>手机好点</b><span>手指能点的地方，至少 44px。</span></div><div><b>颜色少用</b><span>黑白灰打底，只留一个苹果蓝。</span></div></div></div><figure class="screen"><img class="" src="img/shot_home.jpg" alt="首页 · 一句话，一个搜索框"><figcaption>首页 · 一句话，一个搜索框</figcaption></figure></div></div><div class="page-foot">反面参考 &nbsp; 信息挤满屏幕，还得复制粘贴提示词。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="04 / UI 和交互里的心思" data-title="现场演示路线" data-minutes="7" data-notes="讲前 10 分钟：主浏览器登录并准备好积分，另备无痕登录页，提前打开五联图，备好手机热点。 分类条我改了好几版。前两版都像&quot;页面里的一个模块&quot;，太重。最后学苹果灵动岛：一颗浮着的玻璃胶囊，不占地方，又一直在手边。 用户在看图的时候，我们就告诉他&quot;这张你也能做&quot;。抽屉从右边出来，不打断他继续逛。 登录是用户最容易跑掉的地方，所以能跳过的全部可以跳过，先让人进来。 点生成后，浮球留在底部，用户可以继续逛。充值时，讲清积分怎么用。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">04 / UI 和交互里的心思</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 17</span></div><h2>现场演示路线</h2></header>
+    <div class="body"><div class="demo-layout"><nav aria-label="八步现场演示"><a href="https://hely.fun/" target="_blank" rel="noopener" data-shot="home" data-caption="首页" class="demo-step selected"><small>01</small><b>首页 ↗</b><span>看 logo 动画、一句话和搜索框，进来就懂。</span></a><a href="https://hely.fun/?menu=plaza-open#cases" target="_blank" rel="noopener" data-shot="plaza" data-caption="场景广场 · 悬浮分类条" class="demo-step"><small>02</small><b>场景广场 ↗</b><span>往下滚，分类条像灵动岛一样浮着。</span></a><a href="https://hely.fun/?menu=plaza-open#cases" target="_blank" rel="noopener" data-shot="plaza" data-caption="广场截图 · 卡片提示示意" class="demo-step"><small>03</small><b>移到案例卡上 ↗</b><span>浮出一句提示，让人知道这张图也能做。</span></a><a href="https://hely.fun/?menu=plaza-open#cases" target="_blank" rel="noopener" data-shot="plaza" data-caption="广场截图 · 右侧表单示意" class="demo-step"><small>04</small><b>点「使用」 ↗</b><span>表单从右边滑出来，后面的图还在。</span></a><a href="https://hely.fun/" target="_blank" rel="noopener" data-shot="home" data-caption="首页截图 · 生成浮球示意" class="demo-step"><small>05</small><b>点生成 ↗</b><span>登录后操作。浮球在底部，等图时还能逛。</span></a><a href="https://hely.fun/login" target="_blank" rel="noopener" data-shot="login" data-caption="登录页 · 现场用已备好的无痕窗口" class="demo-step"><small>06</small><b>登录页 ↗</b><span>在无痕窗口看。能跳过的资料，让用户先跳过。</span></a><a href="https://hely.fun/" target="_blank" rel="noopener" data-shot="avatar" data-caption="头像选择器 · 本地录屏截帧" class="demo-step"><small>07</small><b>头像选择器 ↗</b><span>登录后操作。选一只小动物，就有了自己的头像。</span></a><a href="https://hely.fun/recharge" target="_blank" rel="noopener" data-shot="recharge" data-caption="充值页 · 积分套餐" class="demo-step"><small>08</small><b>充值页 ↗</b><span>充值换积分，生成前看清这次要扣多少。</span></a></nav><figure class="screen demo-screen"><div class="demo-image"><img class="" src="img/shot_home.jpg" alt="首页备用截图"><div id="demo-overlay" hidden></div></div><figcaption><b>备用画面</b><span id="demo-cap">首页</span></figcaption></figure></div></div><div class="page-foot">点步骤打开网站。断网时，回到课件看右边的备用画面。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="04 / UI 和交互里的心思" data-title="进度条的小心思" data-minutes="2" data-notes="生图接口根本不告诉你进度。但让用户干等 30 秒、什么都不显示，他会以为卡死了。所以进度是按时间算的一条曲线：前面走得快，越往后越慢，最多走到 96%，真正完成才跳到 100%。再加上&quot;已创作 N 秒&quot;，让人知道它在干活。浮球放在底部，用户可以继续逛别的，生成完再回来。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">04 / UI 和交互里的心思</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 18</span></div><h2>进度条的小心思</h2></header>
+    <div class="body"><div class="progress-lab"><article class="spin-demo"><span class="micro">一直转圈</span><i class="spinner"></i><p>还在跑吗？</p></article><article class="clock-demo"><span class="micro">按时间模拟 · 3 倍速</span><strong id="progress-text">已创作 0 秒 · 0%</strong><div class="meter"><i id="meter-fill"></i></div><div class="buttons"><button type="button" class="action" id="progress-start">开始</button><button type="button" class="quiet" id="progress-end">完成</button></div></article><figure class="chart"><figcaption>预估进度随时间变化</figcaption><svg id="curve" viewBox="0 0 380 225" role="img" aria-label="模拟曲线先快后慢，在 96% 等待完成。完成时跳到 100%。"><path class="axes" d="M44 20V188H358"/><path class="ceiling" d="M44 34H354"/><text x="3" y="38">96%</text><text x="24" y="191">0</text><text x="43" y="212">0 秒</text><text x="139" y="212">60 秒</text><text x="237" y="212">120 秒</text><text x="325" y="212">180 秒</text><path id="curve-line"/><path id="finish-line"/><circle id="curve-dot" r="5" cx="44" cy="188"/></svg></figure></div></div><div class="page-foot">前面快，后面慢。最多走到 96%，真正完成才跳到 100%。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="04 / UI 和交互里的心思" data-title="60 只小动物" data-minutes="2" data-notes="生图工具很容易做得冷冰冰。新用户进来不想填资料，就直接给他一只小动物当头像——不用上传、不用想，一进来就有一个可爱的&quot;自己&quot;。这是功能之外的东西，但用户会记住。 点“再看一遍”可以让小动物重新弹出来。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">04 / UI 和交互里的心思</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 19</span></div><h2>60 只小动物</h2></header>
+    <div class="body"><div class="zoo" id="zoo"><div style="--i:0;--col:0"><img class="" src="img/animals/a01.jpg" alt="动物头像 1"></div><div style="--i:1;--col:1"><img class="" src="img/animals/a02.jpg" alt="动物头像 2"></div><div style="--i:2;--col:2"><img class="" src="img/animals/a03.jpg" alt="动物头像 3"></div><div style="--i:3;--col:3"><img class="" src="img/animals/a04.jpg" alt="动物头像 4"></div><div style="--i:4;--col:4"><img class="" src="img/animals/a05.jpg" alt="动物头像 5"></div><div style="--i:5;--col:5"><img class="" src="img/animals/a06.jpg" alt="动物头像 6"></div><div style="--i:6;--col:6"><img class="" src="img/animals/a07.jpg" alt="动物头像 7"></div><div style="--i:7;--col:7"><img class="" src="img/animals/a08.jpg" alt="动物头像 8"></div><div style="--i:8;--col:8"><img class="" src="img/animals/a09.jpg" alt="动物头像 9"></div><div style="--i:9;--col:9"><img class="" src="img/animals/a10.jpg" alt="动物头像 10"></div><div style="--i:10;--col:10"><img class="" src="img/animals/a11.jpg" alt="动物头像 11"></div><div style="--i:11;--col:11"><img class="" src="img/animals/a12.jpg" alt="动物头像 12"></div><div style="--i:12;--col:0"><img class="" src="img/animals/a13.jpg" alt="动物头像 13"></div><div style="--i:13;--col:1"><img class="" src="img/animals/a14.jpg" alt="动物头像 14"></div><div style="--i:14;--col:2"><img class="" src="img/animals/a15.jpg" alt="动物头像 15"></div><div style="--i:15;--col:3"><img class="" src="img/animals/a16.jpg" alt="动物头像 16"></div><div style="--i:16;--col:4"><img class="" src="img/animals/a17.jpg" alt="动物头像 17"></div><div style="--i:17;--col:5"><img class="" src="img/animals/a18.jpg" alt="动物头像 18"></div><div style="--i:18;--col:6"><img class="" src="img/animals/a19.jpg" alt="动物头像 19"></div><div style="--i:19;--col:7"><img class="" src="img/animals/a20.jpg" alt="动物头像 20"></div><div style="--i:20;--col:8"><img class="" src="img/animals/a21.jpg" alt="动物头像 21"></div><div style="--i:21;--col:9"><img class="" src="img/animals/a22.jpg" alt="动物头像 22"></div><div style="--i:22;--col:10"><img class="" src="img/animals/a23.jpg" alt="动物头像 23"></div><div style="--i:23;--col:11"><img class="" src="img/animals/a24.jpg" alt="动物头像 24"></div><div style="--i:24;--col:0"><img class="" src="img/animals/a25.jpg" alt="动物头像 25"></div><div style="--i:25;--col:1"><img class="" src="img/animals/a26.jpg" alt="动物头像 26"></div><div style="--i:26;--col:2"><img class="" src="img/animals/a27.jpg" alt="动物头像 27"></div><div style="--i:27;--col:3"><img class="" src="img/animals/a28.jpg" alt="动物头像 28"></div><div style="--i:28;--col:4"><img class="" src="img/animals/a29.jpg" alt="动物头像 29"></div><div style="--i:29;--col:5"><img class="" src="img/animals/a30.jpg" alt="动物头像 30"></div><div style="--i:30;--col:6"><img class="" src="img/animals/a31.jpg" alt="动物头像 31"></div><div style="--i:31;--col:7"><img class="" src="img/animals/a32.jpg" alt="动物头像 32"></div><div style="--i:32;--col:8"><img class="" src="img/animals/a33.jpg" alt="动物头像 33"></div><div style="--i:33;--col:9"><img class="" src="img/animals/a34.jpg" alt="动物头像 34"></div><div style="--i:34;--col:10"><img class="" src="img/animals/a35.jpg" alt="动物头像 35"></div><div style="--i:35;--col:11"><img class="" src="img/animals/a36.jpg" alt="动物头像 36"></div><div style="--i:36;--col:0"><img class="" src="img/animals/a37.jpg" alt="动物头像 37"></div><div style="--i:37;--col:1"><img class="" src="img/animals/a38.jpg" alt="动物头像 38"></div><div style="--i:38;--col:2"><img class="" src="img/animals/a39.jpg" alt="动物头像 39"></div><div style="--i:39;--col:3"><img class="" src="img/animals/a40.jpg" alt="动物头像 40"></div><div style="--i:40;--col:4"><img class="" src="img/animals/a41.jpg" alt="动物头像 41"></div><div style="--i:41;--col:5"><img class="" src="img/animals/a42.jpg" alt="动物头像 42"></div><div style="--i:42;--col:6"><img class="" src="img/animals/a43.jpg" alt="动物头像 43"></div><div style="--i:43;--col:7"><img class="" src="img/animals/a44.jpg" alt="动物头像 44"></div><div style="--i:44;--col:8"><img class="" src="img/animals/a45.jpg" alt="动物头像 45"></div><div style="--i:45;--col:9"><img class="" src="img/animals/a46.jpg" alt="动物头像 46"></div><div style="--i:46;--col:10"><img class="" src="img/animals/a47.jpg" alt="动物头像 47"></div><div style="--i:47;--col:11"><img class="" src="img/animals/a48.jpg" alt="动物头像 48"></div><div style="--i:48;--col:0"><img class="" src="img/animals/a49.jpg" alt="动物头像 49"></div><div style="--i:49;--col:1"><img class="" src="img/animals/a50.jpg" alt="动物头像 50"></div><div style="--i:50;--col:2"><img class="" src="img/animals/a51.jpg" alt="动物头像 51"></div><div style="--i:51;--col:3"><img class="" src="img/animals/a52.jpg" alt="动物头像 52"></div><div style="--i:52;--col:4"><img class="" src="img/animals/a53.jpg" alt="动物头像 53"></div><div style="--i:53;--col:5"><img class="" src="img/animals/a54.jpg" alt="动物头像 54"></div><div style="--i:54;--col:6"><img class="" src="img/animals/a55.jpg" alt="动物头像 55"></div><div style="--i:55;--col:7"><img class="" src="img/animals/a56.jpg" alt="动物头像 56"></div><div style="--i:56;--col:8"><img class="" src="img/animals/a57.jpg" alt="动物头像 57"></div><div style="--i:57;--col:9"><img class="" src="img/animals/a58.jpg" alt="动物头像 58"></div><div style="--i:58;--col:10"><img class="" src="img/animals/a59.jpg" alt="动物头像 59"></div><div style="--i:59;--col:11"><img class="" src="img/animals/a60.jpg" alt="动物头像 60"></div></div></div><div class="page-foot"><strong>给用户一点情绪价值。</strong> <button type="button" class="quiet" id="zoo-replay">再看一遍 ↻</button></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="04 / UI 和交互里的心思" data-title="看不见的细节" data-minutes="1.5" data-notes="这些用户说不出来，但感觉得到。我把它们写成一份规范，以后 AI 做新功能都按这个来，全站手感就统一了。 四个小演示都能点，挑“按下按钮”和“弹出窗口”两个现场点给大家看。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">04 / UI 和交互里的心思</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 20</span></div><h2>看不见的细节</h2></header>
+    <div class="body"><div class="motion-grid"><button type="button" class="motion-card m1" aria-label="播放按下按钮对比"><small>点一下，比较两边 ↗</small><strong>按下按钮</strong><span class="motion-pair"><span class="sample lo"><i><b>使用</b></i><span>没有反馈</span></span><span class="sample hi"><i><b>使用</b></i><span>按下缩到 0.97</span></span></span></button><button type="button" class="motion-card m2" aria-label="播放弹出窗口对比"><small>点一下，比较两边 ↗</small><strong>弹出窗口</strong><span class="motion-pair"><span class="sample lo"><i><b><u></u><u></u></b></i><span>从零放大</span></span><span class="sample hi"><i><b><u></u><u></u></b></i><span>从 95% 淡入</span></span></span></button><button type="button" class="motion-card m3" aria-label="播放展开弹层对比"><small>点一下，比较两边 ↗</small><strong>展开弹层</strong><span class="motion-pair"><span class="sample lo"><i><b><u></u><u></u></b></i><span>从画面中间</span></span><span class="sample hi"><i><b><u></u><u></u></b></i><span>从按钮方向</span></span></span></button><button type="button" class="motion-card m4" aria-label="播放反馈时长对比"><small>点一下，比较两边 ↗</small><strong>反馈时长</strong><span class="motion-pair"><span class="sample lo"><i><b>使用</b></i><span>600ms</span></span><span class="sample hi"><i><b>使用</b></i><span>120ms</span></span></span></button></div></div><div class="page-foot">按压用 <b>120ms</b>，弹窗用 <b>260ms</b>。全站用同一套手感。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="05 / 最近：五联图" data-title="起点" data-minutes="1.5" data-notes="我以前做过本地生活服务商，知道商家每次上新、过节都要做这种图，找设计要花钱，自己又不会做。所以五联图的难点有两个：一是生成一整张连续的长图，二是自动切成五张。 我先收集了几百张餐饮参考图。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">05 / 最近：五联图</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 21</span></div><h2>起点 <em>／</em> 商家要一张能横着滑的图</h2></header>
+    <div class="body"><div class="origin"><blockquote><small>10 月 7 日 · 我对 Codex 说</small>“我要开发一个针对本地生活商家……最重要的是一个五联图，主要平台还是抖音以及大众点评……要生成一个五联图的长图，然后自动切割，把五张图返回给用户。”</blockquote><div><span class="micro">商家要的规格</span><h3>先做一张长图，<br>再自动切成五张。</h3><p>放到大众点评、抖音门店页，横着滑，画面连在一起。</p></div></div><figure class="strip divided"><img class="" src="img/five_v7_a.jpg" alt="一整幅餐饮门店长图"><div><i></i><i></i><i></i><i></i><i></i></div></figure></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="05 / 最近：五联图" data-title="互动「找错」" data-minutes="2" data-notes="AI 很会做&quot;好看的一张图&quot;，但它不懂这个场景。懂场景的是人。 现场互动：先只放长图，让大家从左往右找“哪里不能交给商家”，等两三个人说完再点“揭晓”。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">05 / 最近：五联图</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 22</span></div><h2>找错 <em>／</em> 这张图能交给商家吗？</h2></header>
+    <div class="body"><div class="error-board"><figure><img src="img/five_raw.jpg" alt="无标注五联图" id="fault-img"></figure><div class="fault-foot"><button type="button" class="action" id="reveal-fault">揭晓 →</button><p id="fault-question">沿着长图，从左往右看一遍。</p><ol id="fault-list" hidden><li>出现了旧店名</li><li>背景在这里断开</li><li>Logo 成了白方块</li></ol></div></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="05 / 最近：五联图" data-title="控制得越多，图越丑" data-minutes="2.5" data-notes="v6 是工程上最&quot;正确&quot;的版本：每一块都可控、可检查。但它丑，因为拼贴天生没有设计感，提示词里只有约束、没有审美。v7 反过来：好看交给模型和参考图，程序只管&quot;事实对不对&quot;。这和后面要讲的翻车是同一个教训：管得越多，越做不好。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">05 / 最近：五联图</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 23</span></div><h2>控制得越多，图越丑</h2></header>
+    <div class="body"><div class="versions"><div><article><b>v4</b><p><strong>五张分别画，再拼。</strong><span>拼出来有四条缝。</span></p></article><article><b>v5</b><p><strong>让模型只画中间横条。</strong><span>位置对不上，放弃。</span></p></article><article><b>v6</b><p><strong>铺背景、贴菜品、排字。</strong><span>缝没了，可是“太丑”。</span></p></article><article><b>v7</b><p><strong>让模型设计整张图。</strong><span>程序只查菜品、接缝和错字。</span></p></article></div><figure class="screen"><img class="" src="img/five_v6v7.jpg" alt="v6 拼贴与 v7 整图设计实物对比"><figcaption>新旧对比 · 上面是拼贴，下面是整张设计</figcaption></figure></div></div><div class="page-foot">好看交给模型和参考图，事实交给程序检查。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="05 / 最近：五联图" data-title="现场演示五联图" data-minutes="1" data-notes="11 月 4 日看到 X 上一位设计师分享的液态玻璃拆法，就让 AI 照着拆层去做。先让 AI 建一套间距和圆角规范（4px 的倍数），再上玻璃。中间来回改了好几轮：背景太抢、折射太弱、按钮不够透……最后做成三种界面让用户自己选，11 月 5 日上线。 点“打开五联图”切到浏览器，现场切换右上角三种界面；断网就点下面三个按钮看备用截图。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">05 / 最近：五联图</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 24</span></div><h2>现场演示五联图</h2></header>
+    <div class="body"><div class="theme-layout"><div><h3 class="bigline">同一套工具，<br>三种界面。</h3><a class="action" target="_blank" rel="noopener" href="https://hely.fun/five-panel">打开五联图 ↗</a><p class="micro">切换备用截图</p><div class="theme-tabs"><button type="button" class="theme-tab selected" data-src="five_orig">原版</button><button type="button" class="theme-tab" data-src="five">紫色玻璃</button><button type="button" class="theme-tab" data-src="five_gray">灰色玻璃</button></div></div><figure class="screen"><img id="theme-img" src="img/shot_five_orig.jpg" alt="五联图原版页面"><figcaption id="theme-caption">五联图 · 原版</figcaption></figure></div></div><div class="page-foot">玻璃分层做法参考 X 上 Kubai087 的分享。</div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="06 / 踩过的坑 + 收尾" data-title="两次翻车" data-minutes="3" data-notes="一个人做，所有坑都是自己的。但每个坑都会变成下一条规矩、下一个 Skill。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">06 / 踩过的坑 + 收尾</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 25</span></div><h2>两次翻车</h2></header>
+    <div class="body"><div class="accidents"><article><small>10 / 28</small><h3>存储和登录一起挂了</h3><p>页面说“验证码过期”，其实码是对的。Supabase 免费额度超限，数据库被锁了。</p><p><b>怎么救的</b>先恢复数据库连接，救回登录。再把 4036 个文件迁到 R2，前后约一周。</p><strong>提示说码过期，也要查查数据库。</strong></article><article><small>11 / 16</small><h3>普通订单也过不去了</h3><p>用户只想把图二的辣椒鱼头放进图一。每次出错都加一道检查，最后连正常请求也被拦住。</p><p><b>怎么救的</b>11 月 17 日，带图创作改回直接出图。</p><strong>失败要比交付难。</strong></article></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="06 / 踩过的坑 + 收尾" data-title="工具一直在换，方法不变" data-minutes="2" data-notes="从 5 月到现在，模型换了好几代，用的工具也换了好几个。但&quot;把经验变成知识，把知识变成 Skill，人只做审美判断&quot;这个方法没变。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">06 / 踩过的坑 + 收尾</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 26</span></div></header>
+    <div class="body"><div class="lastquote"><div class="rail"><span>想法</span><i>→</i><span>知识</span><i>→</i><span>Skill</span><i>→</i><span>产品</span><i>→</i><span>UI</span><i>→</i><span>迭代</span></div><h2>工具一直在换，<br><em>方法不变。</em></h2><p>把经验变成知识，把知识写成 Skill。人来判断好不好。</p></div></div>
+  </div>
+</section>
+
+<section class="slide " data-chapter="07 / 互动" data-title="每人 30 秒" data-minutes="10" data-notes="我先示范一遍，然后每人 30 秒。挑两三个想法，现场拆出第一步。没人开口时，用下面的问题起个头。 讲师先示范一遍：我想做 hely、我先把“做模板”写成 Skill、我卡在推广。然后点“开始”，每人 30 秒，“重置”换下一位。挑 2–3 个当场帮着拆。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">07 / 互动</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 27</span></div><h2>每人 30 秒</h2></header>
+    <div class="body"><div class="qa-grid"><div><div class="lined"><div><b>我想做什么</b><span>说一件你真想做的事。</span></div><div><b>我会先把什么变成 Skill</b><span>挑一个你反复做的动作。</span></div><div><b>我卡在哪一步</b><span>域名、部署、支付，还是设计？</span></div></div></div><div class="timer-box"><span class="micro">轮到你说</span><strong id="timer">00:30</strong><div class="buttons"><button type="button" class="action" id="timer-start">开始</button><button type="button" class="quiet" id="timer-reset">重置</button></div></div></div></div><div class="page-foot">备用问题 &nbsp; 一个人怎么做设计？ &nbsp; 不懂代码怎么部署？ &nbsp; Skill 怎么写？</div>
+  </div>
+</section>
+
+<section class="slide endpage" data-chapter="07 / 互动" data-title="谢谢" data-minutes="" data-notes="谢谢大家。欢迎打开 hely.fun 试一试，也可以扫微信，继续聊你的想法。">
+  <div class="frame"><header class="s-head"><div class="folio"><span class="kicker">07 / 互动</span><span class="leaf">HELY.FUN &nbsp; / &nbsp; 28</span></div></header>
+    <div class="body"><div class="ending"><div><h2>THANKS</h2><h3>谢谢大家。</h3><a href="https://hely.fun/" target="_blank" rel="noopener">hely.fun ↗</a></div><figure><img class="" src="img/wechat.jpg" alt="黎健堂的微信二维码"><figcaption>扫码加微信 · 黎健堂</figcaption></figure></div></div><div class="page-foot">TRAE Friends · OPC Talk &nbsp; / &nbsp; 2026.11</div>
+  </div>
+</section>
+</main>
+
+<footer class="bottombar">
+  <div class="counter"><b id="current-number">01</b><span>/</span><span id="total-number">00</span><span class="total-time" id="total-time"></span></div>
+  <div class="progress"><span id="progress-fill"></span></div>
+  <span class="nav-hint hint-desktop">方向键 / 空格翻页 · F 全屏</span>
+  <span class="nav-hint hint-touch">轻扫或点箭头</span>
+  <div class="nav-btns">
+    <button id="prev-button" type="button" aria-label="上一页">←</button>
+    <button id="next-button" type="button" aria-label="下一页">→</button>
+  </div>
+</footer>
+
+<aside class="panel" id="notes-panel" hidden aria-label="讲师备注">
+  <div class="panel-head"><span>讲师备注 · N</span><button id="close-notes" type="button" aria-label="关闭">×</button></div>
+  <div class="panel-body" id="notes-content"></div>
+</aside>
+<aside class="panel" id="menu-panel" hidden aria-label="课程目录">
+  <div class="panel-head"><span>课程目录 · M</span><button id="close-menu" type="button" aria-label="关闭">×</button></div>
+  <ul class="menu-list" id="menu-list"></ul>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="course.js"></script>
+<script src="details.js"></script>
+<script src="talk.js"></script>
+</body>
+</html>

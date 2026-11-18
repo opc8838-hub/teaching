@@ -29,6 +29,8 @@ jobs:
           cp index.html _site/
           cp -r deepseek _site/
           cp -r zhujiang _site/
+          cp -r trae-opc _site/
+          rm -rf _site/trae-opc/_check
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
