@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一个想法，一个人，1689 个案例 · TRAE Friends OPC Talk</title>
+<meta name="description" content="黎健堂分享一个人和 AI 搭建生图网站 hely.fun 的经历。">
+<meta name="theme-color" content="#f5f4ef">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="course.css">
+<link rel="stylesheet" href="course-v2.css">
+<link rel="stylesheet" href="course-v3.css">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="talk.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#slide-1"><b>hely.fun</b><span>TRAE Friends · OPC Talk</span></a>
+  <div class="top-context"><span id="chapter-name">开场</span><i></i><span id="slide-title"></span></div>
+  <div class="top-actions">
+    <button class="btn" id="notes-button" type="button">备注 N</button>
+    <button class="btn" id="menu-button" type="button">目录 M</button>
+  </div>
+</header>
+
+<main class="deck" id="deck">
+
+
+<section class="slide" data-chapter="00 / 开场" data-title="我是谁" data-minutes="1.5" data-notes="不要念履历。重点讲一句话：我不是算法工程师，我是用 AI 把东西做出来、交给付钱的人的那种人。然后指下面四个产品：这些都是我一个人加 AI 做出来、真在线上跑的东西——今天主要讲第一个 hely.fun。讲课的事底部一行带过，不展开。">
+  <div class="frame">
+    <header class="s-head">
+      <span class="kicker">00 / 先认识一下</span>
+    </header>
+    <div class="body">
+      <div class="me-grid">
+        <figure class="photo me-photo"><img src="img/me.jpg" alt="黎健堂"></figure>
+        <div>
+          <h2 class="me-name">黎健堂<span>大家可以叫我 黎生</span></h2>
+          <div class="me-roles">
+            <span class="tag blue">碳基社区 · 智能体板块负责人</span>
+            <span class="tag">广州德宝里科技服务有限公司 负责人</span>
+            <span class="tag">前阿里本地生活 东莞城市经理</span>
+            <span class="tag yel">黑客松 Agent 赛道冠军</span>
+          </div>
+          <p class="me-line">我不是算法工程师。<br>我是一个<span class="hl">用 AI 把东西做出来、交给付钱的人</span>的人。</p>
+          <div class="stats" style="--n:4">
+            <div class="stat blue"><div class="n"><span class="count" data-to="1689">0</span><small>个</small></div><p>hely.fun 入库的 AI 设计案例</p></div>
+            <div class="stat"><div class="n"><span class="count" data-to="895">0</span><small>次</small></div><p>hely.fun + CellMotion 两个产品的提交</p></div>
+            <div class="stat"><div class="n"><span class="count" data-to="24">0</span><small>个</small></div><p>GitHub 公开仓库，产品、组件、工具</p></div>
+            <div class="stat blue"><div class="n"><span class="count" data-to="124">0</span><small>★</small></div><p>开源项目收到的 GitHub 星标</p></div>
+          </div>
+          <div class="me-prods">
+            <a href="https://hely.fun" target="_blank" rel="noopener"><img src="img/prod_hely.jpg" alt=""><b>hely.fun</b><span>AI 生图站 · 已上线收费</span></a>
+            <a href="https://cellmotion.cn" target="_blank" rel="noopener"><img src="img/prod_cellmotion.jpg" alt=""><b>cellmotion.cn</b><span>可编辑动效站 · 514 次提交</span></a>
+            <a href="https://www.carbounity.com" target="_blank" rel="noopener"><img src="img/prod_carbounity.jpg" alt=""><b>carbounity.com</b><span>碳基社区官网 · 重构上线</span></a>
+            <a href="https://github.com/opc8838-hub/cover-flow-showcase" target="_blank" rel="noopener"><img src="img/prod_coverflow.jpg" alt=""><b>Glass Cover Flow</b><span>开源 React 组件 · 79 ★</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote"><b>也在讲课</b>碳基社区 AI Agent 第一课 · DeepSeek 家长实操课 · AI 通识与实操 5 讲 · 珠江职业技术学院讲座 &nbsp;|&nbsp; github.com/opc8838-hub</p>
+  </div>
+</section>
+
+<section class="slide v2-chapter" data-chapter="01 / 起点" data-title="章节：起点" data-minutes="0.5" data-notes="章节页，停两秒再讲。这一章只回答一个问题：为什么要做 hely。">
+  <div class="frame"><div class="v2c">
+    <div class="v2c-num">01</div>
+    <div class="v2c-main">
+      <span class="v2c-tag">起点</span>
+      <h2>提示词，<em>是反人类的</em></h2>
+      <p class="v2c-q">这一章回答：一个开餐馆的老板，为什么做不出一张好图？</p>
+    </div>
+    <ol class="v2c-route"><li class="on">起点</li><li>第一天</li><li>知识</li><li>Skill</li><li>一个人</li><li>体验</li><li>迭代</li><li>摔跤</li></ol>
+  </div></div>
+</section>
+
+<section class="slide" data-chapter="01 / 起点" data-title="一条真实的提示词" data-minutes="2" data-notes="这页不用念提示词，让它自己滚。先指左边这张图：很漂亮对吧？再指中间：这是做出这张图的真实提示词，案例库第 1646 号，3170 个字符、339 个英文单词，还是 JSON 格式。最后指右边：老板只会说一句话。hely 要做的，就是把中间这一坨藏起来，只留右下角这 5 个格子。">
+  <div class="frame">
+    <header class="s-head"><div class="folio"><span class="kicker">01 / 起点 · 一条真实的提示词</span><span class="leaf">HELY.FUN / 案例 #1646</span></div>
+      <h2>一张菜品图，背后是 <em>3170 个字符</em></h2>
+      <p class="lead">这是 hely 案例库里<b>真实的一条提示词</b>。老板想要这张图，就得先学会写它。</p>
+    </header>
+    <div class="body"><div class="pr-grid">
+      <figure class="pr-shot"><img src="img/case_dish.jpg" alt="案例 1646 效果图"><figcaption>效果图 · 案例 #1646</figcaption></figure>
+      <div class="pr-code" data-autoscroll>
+        <div class="pr-bar"><i></i><i></i><i></i><span>prompt_raw.json</span><b><span class="pr-count" data-to="3170">0</span> 字符 · 339 词</b></div>
+        <div class="pr-view"><pre>{
+  &quot;global_settings&quot;: {
+    &quot;resolution&quot;: &quot;8K ultra high definition&quot;,
+    &quot;aspect_ratio&quot;: &quot;3:4&quot;,
+    &quot;camera_style&quot;: &quot;studio food photography with cinematic lighting&quot;,
+    &quot;depth_of_field&quot;: &quot;shallow depth of field, sharp subject, soft background&quot;,
+    &quot;lighting&quot;: &quot;soft directional key light, subtle rim light, controlled highlights&quot;,
+    &quot;style&quot;: &quot;hyper-realistic food illustration with editorial infographic overlays&quot;,
+    &quot;composition_rules&quot;: [
+      &quot;no zoom&quot;,
+      &quot;no crop&quot;,
+      &quot;center-weighted vertical composition&quot;,
+      &quot;floating elements frozen in motion&quot;
+    ],
+    &quot;text_design&quot;: {
+      &quot;ingredient_name_color&quot;: &quot;metallic gold&quot;,
+      &quot;ingredient_description_color&quot;: &quot;pure white&quot;,
+      &quot;font_style&quot;: &quot;elegant serif for titles, clean sans-serif for descriptions&quot;,
+      &quot;indicator_lines&quot;: &quot;long, thin, smooth golden lines with rounded corners&quot;
+    }
+  },
+
+  &quot;module_1_image_1_style&quot;: {
+    &quot;scene_description&quot;: &quot;A vertical stack of assorted cake slices floating above a white ceramic plate against a soft pink gradient background.&quot;,
+    &quot;background&quot;: {
+      &quot;color&quot;: &quot;soft pastel pink&quot;,
+      &quot;texture&quot;: &quot;smooth gradient&quot;,
+      &quot;lighting&quot;: &quot;even, studio-lit, no harsh shadows&quot;
+    },
+    &quot;main_subjects&quot;: [
+      &quot;multiple layered sponge cake slices&quot;,
+      &quot;white whipped cream layers&quot;,
+      &quot;raspberry cream layer&quot;,
+      &quot;chocolate cream topping&quot;
+    ],
+    &quot;visible_ingredients&quot;: [
+      &quot;vanilla sponge cake&quot;,
+      &quot;whipped cream&quot;,
+      &quot;raspberries&quot;,
+      &quot;blueberries&quot;,
+      &quot;strawberries&quot;,
+      &quot;macarons (vanilla and chocolate)&quot;,
+      &quot;chocolate bar pieces&quot;,
+      &quot;mint leaves&quot;,
+      &quot;small nut fragments&quot;
+    ],
+    &quot;motion_elements&quot;: [
+      &quot;floating fruits&quot;,
+      &quot;floating macarons&quot;,
+      &quot;crumbs suspended in air&quot;
+    ],
+    &quot;text_labels&quot;: [
+      &quot;Vanilla Cake – soft, fluffy sponge cake layered with white cream filling&quot;,
+      &quot;Macaron – creamy filling between almond meringue shells&quot;,
+      &quot;Raspberries – juicy, fresh raspberries&quot;,
+      &quot;Chocolate Bar – chunks of smooth milk chocolate&quot;,
+      &quot;Raspberry Cream – soft sponge cake layered with creamy, fruity raspberry cream&quot;
+    ]
+  },
+
+  &quot;module_2_image_2_style&quot;: {
+    &quot;scene_description&quot;: &quot;Rolled Syrian dessert presented vertically with syrup pouring from above, placed in a warm, rustic kitchen environment.&quot;,
+    &quot;background&quot;: {
+      &quot;environment&quot;: &quot;traditional kitchen&quot;,
+      &quot;elements&quot;: [
+        &quot;warm lantern light&quot;,
+        &quot;wooden surfaces&quot;,
+        &quot;brass and copper utensils&quot;
+      ],
+      &quot;lighting&quot;: &quot;warm ambient lighting with soft highlights&quot;
+    },
+    &quot;main_subjects&quot;: [
+      &quot;rolled white dessert dough&quot;,
+      &quot;cream filling spilling out&quot;,
+      &quot;golden syrup stream&quot;
+    ],
+    &quot;visible_ingredients&quot;: [
+      &quot;white cheese dough&quot;,
+      &quot;cream filling&quot;,
+      &quot;pistachios&quot;,
+      &quot;sugar syrup&quot;
+    ],
+    &quot;motion_elements&quot;: [
+      &quot;syrup dripping vertically&quot;,
+      &quot;pistachio crumbs falling&quot;
+    ],
+    &quot;text_labels&quot;: [
+      &quot;White Cheese Dough – soft outer layer made from cheese and semolina&quot;,
+      &quot;Cream Filling – creamy filling inside the roll&quot;,
+      &quot;Pistachios – crushed pistachios sprinkled over and inside the rolls&quot;
+    ]
+  }</pre></div>
+      </div>
+      <div class="pr-side">
+        <div class="pr-boss"><span class="micro">老板会怎么说？</span><blockquote>“帮我做张中秋海报，<br>放我们家<mark>招牌菜</mark>。”</blockquote></div>
+        <div class="pr-form"><span class="micro">在 hely 里，同一张图只要填</span><div class="pr-five"><b>5</b><span>个格子</span></div><ul><li><span>菜品或技巧主题</span><em>必填</em></li><li><span>标题文字</span><em>选填</em></li><li><span>关键信息</span><em>选填</em></li><li><span>发布平台</span><em>选填</em></li><li><span>补充要求</span><em>选填</em></li></ul></div>
+      </div>
+    </div></div>
+    <div class="page-foot v2-src"><span>出处</span>hely.fun 案例库第 1646 号「商业广告 / 产品展示复用」：原始提示词 prompt_raw 原文与真实表单 input_schema。</div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="02 / 第一天" data-title="5 月 21 日 00:49" data-minutes="2" data-notes="翻到这页，提交记录会一行行打出来，不用等它打完就可以讲。三个点：第一，凌晨 0 点 49 分建的空项目，1 点 13 分就有了一个完整的前端——24 分钟。第二，这一天黄色标出来的 4 行都是写文档，不是写代码：需求文档、Agent 产品形态的哲思、技术平权和生意规模推演。第三，所以我第一天最重要的产出不是网站，是想清楚这件事以后会变成什么样。">
+  <div class="frame">
+    <header class="s-head"><div class="folio"><span class="kicker">02 / 第一天 · 真实的提交记录</span><span class="leaf">GIT LOG · 2026-05-21</span></div>
+      <h2>5 月 21 日，<em>凌晨 0:49</em> 开工</h2>
+      <p class="lead">第一天的提交记录原文。<span class="hl">黄色的 4 行是写文档</span>，不是写代码。</p>
+    </header>
+    <div class="body"><div class="d1-grid">
+      <div class="term"><div class="pr-bar"><i></i><i></i><i></i><span>~/hely.fun — git log --reverse</span></div>
+        <ol class="term-log"><li class="code" style="--k:0"><time>00:49</time><span>Initial commit from Create Next App</span></li><li class="code" style="--k:1"><time>01:13</time><span>feat: 完整的生图 AI 前端应用 —— 瀑布流案例库、动态表单、自由创作、登录页、24 个案例</span></li><li class="doc" style="--k:2"><time>08:32</time><span>docs: 更新 README 并添加产品需求文档</span></li><li class="code" style="--k:3"><time>09:08</time><span>polish: 前端 UI 打磨 —— 苹果极简风格</span></li><li class="doc" style="--k:4"><time>10:57</time><span>docs: 添加 Agent 产品形态哲思文档</span></li><li class="doc" style="--k:5"><time>12:54</time><span>docs: 深挖 Agent 产品形态哲思 —— 护城河、Agent-First、平台经济</span></li><li class="code" style="--k:6"><time>13:19</time><span>feat: 案例采纳页加入「轻度补救」流程</span></li><li class="doc" style="--k:7"><time>14:14</time><span>docs: 新增技术平权、生意规模推演、API 化三阶段</span></li></ol></div>
+      <div class="d1-stats">
+        <div><b>24</b><span>分钟</span><p>从空项目到一个完整前端</p></div>
+        <div><b>4</b><span>份文档</span><p>需求、哲思、护城河、生意推演</p></div>
+        <div class="ink"><b>10</b><span>次提交</span><p>第一天，一个人</p></div>
+      </div>
+    </div></div>
+    <div class="page-foot v2-src"><span>出处</span>hely.fun 仓库 git log，2026 年 5 月 21 日全部提交（北京时间）。</div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="05 / 一个人" data-title="半年的热力图" data-minutes="2" data-notes="这是我半年每天的提交，一格一天，颜色越深那天提交越多。不用解释格子，直接指几个点：5 月 21 日开工，5 月 25 日上线那天提交了 23 次；7 月最密，一个月 133 次；9 月几乎是空的，整个月只有 1 次；10 月 7 日五联图开工，又密起来；10 月 28 日那天网站挂了，后面会讲。一句话：这就是一个人加 AI 的真实节奏，不是每天都在冲。">
+  <div class="frame">
+    <header class="s-head"><div class="folio"><span class="kicker">05 / 一个人就是一支队伍 · 真实提交</span><span class="leaf">2026.05 — 2026.11</span></div>
+      <h2>半年，<em>381 次提交</em>，67 天</h2>
+      <p class="lead">一格是一天，颜色越深，那天改得越多。<b>不是每天都在冲。</b></p>
+    </header>
+    <div class="body"><div class="hm-wrap">
+      <div class="hm-pins" style="--w:28"><div class="pin l" style="--c:0;--w:28"><b>开工</b><small>10 次</small></div><div class="pin l" style="--c:1;--w:28"><b>上线那天</b><small>23 次</small></div><div class="pin l" style="--c:6;--w:28"><b>上线冲刺</b><small>18 次</small></div><div class="pin w" style="--c:15;--w:28"><b>9 月只有这 1 次</b></div><div class="pin l" style="--c:20;--w:28"><b>五联图开工</b></div><div class="pin r" style="--c:23;--w:28"><b>网站挂了</b></div></div>
+      <div class="hm" style="--w:28"><i class="l0" style="grid-column:1;grid-row:1" data-d="2026-05-18" title="5/18 · 0 次"></i><i class="l0" style="grid-column:1;grid-row:2" data-d="2026-05-19" title="5/19 · 0 次"></i><i class="l0" style="grid-column:1;grid-row:3" data-d="2026-05-20" title="5/20 · 0 次"></i><i class="l3" style="grid-column:1;grid-row:4" data-d="2026-05-21" title="5/21 · 10 次"></i><i class="l2" style="grid-column:1;grid-row:5" data-d="2026-05-22" title="5/22 · 3 次"></i><i class="l1" style="grid-column:1;grid-row:6" data-d="2026-05-23" title="5/23 · 2 次"></i><i class="l0" style="grid-column:1;grid-row:7" data-d="2026-05-24" title="5/24 · 0 次"></i><i class="l4" style="grid-column:2;grid-row:1" data-d="2026-05-25" title="5/25 · 23 次"></i><i class="l4" style="grid-column:2;grid-row:2" data-d="2026-05-26" title="5/26 · 20 次"></i><i class="l2" style="grid-column:2;grid-row:3" data-d="2026-05-27" title="5/27 · 5 次"></i><i class="l1" style="grid-column:2;grid-row:4" data-d="2026-05-28" title="5/28 · 1 次"></i><i class="l0" style="grid-column:2;grid-row:5" data-d="2026-05-29" title="5/29 · 0 次"></i><i class="l0" style="grid-column:2;grid-row:6" data-d="2026-05-30" title="5/30 · 0 次"></i><i class="l0" style="grid-column:2;grid-row:7" data-d="2026-05-31" title="5/31 · 0 次"></i><i class="l1" style="grid-column:3;grid-row:1" data-d="2026-06-01" title="6/1 · 2 次"></i><i class="l4" style="grid-column:3;grid-row:2" data-d="2026-06-02" title="6/2 · 13 次"></i><i class="l1" style="grid-column:3;grid-row:3" data-d="2026-06-03" title="6/3 · 2 次"></i><i class="l1" style="grid-column:3;grid-row:4" data-d="2026-06-04" title="6/4 · 2 次"></i><i class="l1" style="grid-column:3;grid-row:5" data-d="2026-06-05" title="6/5 · 1 次"></i><i class="l1" style="grid-column:3;grid-row:6" data-d="2026-06-06" title="6/6 · 2 次"></i><i class="l0" style="grid-column:3;grid-row:7" data-d="2026-06-07" title="6/7 · 0 次"></i><i class="l2" style="grid-column:4;grid-row:1" data-d="2026-06-08" title="6/8 · 3 次"></i><i class="l1" style="grid-column:4;grid-row:2" data-d="2026-06-09" title="6/9 · 2 次"></i><i class="l0" style="grid-column:4;grid-row:3" data-d="2026-06-10" title="6/10 · 0 次"></i><i class="l2" style="grid-column:4;grid-row:4" data-d="2026-06-11" title="6/11 · 3 次"></i><i class="l4" style="grid-column:4;grid-row:5" data-d="2026-06-12" title="6/12 · 23 次"></i><i class="l0" style="grid-column:4;grid-row:6" data-d="2026-06-13" title="6/13 · 0 次"></i><i class="l0" style="grid-column:4;grid-row:7" data-d="2026-06-14" title="6/14 · 0 次"></i><i class="l1" style="grid-column:5;grid-row:1" data-d="2026-06-15" title="6/15 · 1 次"></i><i class="l0" style="grid-column:5;grid-row:2" data-d="2026-06-16" title="6/16 · 0 次"></i><i class="l0" style="grid-column:5;grid-row:3" data-d="2026-06-17" title="6/17 · 0 次"></i><i class="l0" style="grid-column:5;grid-row:4" data-d="2026-06-18" title="6/18 · 0 次"></i><i class="l0" style="grid-column:5;grid-row:5" data-d="2026-06-19" title="6/19 · 0 次"></i><i class="l0" style="grid-column:5;grid-row:6" data-d="2026-06-20" title="6/20 · 0 次"></i><i class="l0" style="grid-column:5;grid-row:7" data-d="2026-06-21" title="6/21 · 0 次"></i><i class="l3" style="grid-column:6;grid-row:1" data-d="2026-06-22" title="6/22 · 10 次"></i><i class="l4" style="grid-column:6;grid-row:2" data-d="2026-06-23" title="6/23 · 22 次"></i><i class="l0" style="grid-column:6;grid-row:3" data-d="2026-06-24" title="6/24 · 0 次"></i><i class="l3" style="grid-column:6;grid-row:4" data-d="2026-06-25" title="6/25 · 6 次"></i><i class="l1" style="grid-column:6;grid-row:5" data-d="2026-06-26" title="6/26 · 2 次"></i><i class="l1" style="grid-column:6;grid-row:6" data-d="2026-06-27" title="6/27 · 1 次"></i><i class="l0" style="grid-column:6;grid-row:7" data-d="2026-06-28" title="6/28 · 0 次"></i><i class="l1" style="grid-column:7;grid-row:1" data-d="2026-06-29" title="6/29 · 2 次"></i><i class="l2" style="grid-column:7;grid-row:2" data-d="2026-06-30" title="6/30 · 5 次"></i><i class="l3" style="grid-column:7;grid-row:3" data-d="2026-07-01" title="7/1 · 10 次"></i><i class="l4" style="grid-column:7;grid-row:4" data-d="2026-07-02" title="7/2 · 18 次"></i><i class="l4" style="grid-column:7;grid-row:5" data-d="2026-07-03" title="7/3 · 14 次"></i><i class="l3" style="grid-column:7;grid-row:6" data-d="2026-07-04" title="7/4 · 6 次"></i><i class="l2" style="grid-column:7;grid-row:7" data-d="2026-07-05" title="7/5 · 4 次"></i><i class="l2" style="grid-column:8;grid-row:1" data-d="2026-07-06" title="7/6 · 5 次"></i><i class="l0" style="grid-column:8;grid-row:2" data-d="2026-07-07" title="7/7 · 0 次"></i><i class="l0" style="grid-column:8;grid-row:3" data-d="2026-07-08" title="7/8 · 0 次"></i><i class="l0" style="grid-column:8;grid-row:4" data-d="2026-07-09" title="7/9 · 0 次"></i><i class="l3" style="grid-column:8;grid-row:5" data-d="2026-07-10" title="7/10 · 10 次"></i><i class="l2" style="grid-column:8;grid-row:6" data-d="2026-07-11" title="7/11 · 4 次"></i><i class="l0" style="grid-column:8;grid-row:7" data-d="2026-07-12" title="7/12 · 0 次"></i><i class="l0" style="grid-column:9;grid-row:1" data-d="2026-07-13" title="7/13 · 0 次"></i><i class="l3" style="grid-column:9;grid-row:2" data-d="2026-07-14" title="7/14 · 10 次"></i><i class="l3" style="grid-column:9;grid-row:3" data-d="2026-07-15" title="7/15 · 8 次"></i><i class="l0" style="grid-column:9;grid-row:4" data-d="2026-07-16" title="7/16 · 0 次"></i><i class="l3" style="grid-column:9;grid-row:5" data-d="2026-07-17" title="7/17 · 7 次"></i><i class="l1" style="grid-column:9;grid-row:6" data-d="2026-07-18" title="7/18 · 2 次"></i><i class="l2" style="grid-column:9;grid-row:7" data-d="2026-07-19" title="7/19 · 4 次"></i><i class="l1" style="grid-column:10;grid-row:1" data-d="2026-07-20" title="7/20 · 2 次"></i><i class="l2" style="grid-column:10;grid-row:2" data-d="2026-07-21" title="7/21 · 3 次"></i><i class="l1" style="grid-column:10;grid-row:3" data-d="2026-07-22" title="7/22 · 2 次"></i><i class="l2" style="grid-column:10;grid-row:4" data-d="2026-07-23" title="7/23 · 4 次"></i><i class="l0" style="grid-column:10;grid-row:5" data-d="2026-07-24" title="7/24 · 0 次"></i><i class="l0" style="grid-column:10;grid-row:6" data-d="2026-07-25" title="7/25 · 0 次"></i><i class="l1" style="grid-column:10;grid-row:7" data-d="2026-07-26" title="7/26 · 2 次"></i><i class="l2" style="grid-column:11;grid-row:1" data-d="2026-07-27" title="7/27 · 5 次"></i><i class="l0" style="grid-column:11;grid-row:2" data-d="2026-07-28" title="7/28 · 0 次"></i><i class="l3" style="grid-column:11;grid-row:3" data-d="2026-07-29" title="7/29 · 9 次"></i><i class="l2" style="grid-column:11;grid-row:4" data-d="2026-07-30" title="7/30 · 4 次"></i><i class="l0" style="grid-column:11;grid-row:5" data-d="2026-07-31" title="7/31 · 0 次"></i><i class="l0" style="grid-column:11;grid-row:6" data-d="2026-08-01" title="8/1 · 0 次"></i><i class="l2" style="grid-column:11;grid-row:7" data-d="2026-08-02" title="8/2 · 4 次"></i><i class="l1" style="grid-column:12;grid-row:1" data-d="2026-08-03" title="8/3 · 1 次"></i><i class="l2" style="grid-column:12;grid-row:2" data-d="2026-08-04" title="8/4 · 5 次"></i><i class="l0" style="grid-column:12;grid-row:3" data-d="2026-08-05" title="8/5 · 0 次"></i><i class="l0" style="grid-column:12;grid-row:4" data-d="2026-08-06" title="8/6 · 0 次"></i><i class="l0" style="grid-column:12;grid-row:5" data-d="2026-08-07" title="8/7 · 0 次"></i><i class="l3" style="grid-column:12;grid-row:6" data-d="2026-08-08" title="8/8 · 8 次"></i><i class="l1" style="grid-column:12;grid-row:7" data-d="2026-08-09" title="8/9 · 2 次"></i><i class="l1" style="grid-column:13;grid-row:1" data-d="2026-08-10" title="8/10 · 2 次"></i><i class="l0" style="grid-column:13;grid-row:2" data-d="2026-08-11" title="8/11 · 0 次"></i><i class="l0" style="grid-column:13;grid-row:3" data-d="2026-08-12" title="8/12 · 0 次"></i><i class="l0" style="grid-column:13;grid-row:4" data-d="2026-08-13" title="8/13 · 0 次"></i><i class="l0" style="grid-column:13;grid-row:5" data-d="2026-08-14" title="8/14 · 0 次"></i><i class="l0" style="grid-column:13;grid-row:6" data-d="2026-08-15" title="8/15 · 0 次"></i><i class="l0" style="grid-column:13;grid-row:7" data-d="2026-08-16" title="8/16 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:1" data-d="2026-08-17" title="8/17 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:2" data-d="2026-08-18" title="8/18 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:3" data-d="2026-08-19" title="8/19 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:4" data-d="2026-08-20" title="8/20 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:5" data-d="2026-08-21" title="8/21 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:6" data-d="2026-08-22" title="8/22 · 0 次"></i><i class="l0" style="grid-column:14;grid-row:7" data-d="2026-08-23" title="8/23 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:1" data-d="2026-08-24" title="8/24 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:2" data-d="2026-08-25" title="8/25 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:3" data-d="2026-08-26" title="8/26 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:4" data-d="2026-08-27" title="8/27 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:5" data-d="2026-08-28" title="8/28 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:6" data-d="2026-08-29" title="8/29 · 0 次"></i><i class="l0" style="grid-column:15;grid-row:7" data-d="2026-08-30" title="8/30 · 0 次"></i><i class="l0" style="grid-column:16;grid-row:1" data-d="2026-08-31" title="8/31 · 0 次"></i><i class="l1" style="grid-column:16;grid-row:2" data-d="2026-09-01" title="9/1 · 1 次"></i><i class="l0" style="grid-column:16;grid-row:3" data-d="2026-09-02" title="9/2 · 0 次"></i><i class="l0" style="grid-column:16;grid-row:4" data-d="2026-09-03" title="9/3 · 0 次"></i><i class="l0" style="grid-column:16;grid-row:5" data-d="2026-09-04" title="9/4 · 0 次"></i><i class="l0" style="grid-column:16;grid-row:6" data-d="2026-09-05" title="9/5 · 0 次"></i><i class="l0" style="grid-column:16;grid-row:7" data-d="2026-09-06" title="9/6 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:1" data-d="2026-09-07" title="9/7 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:2" data-d="2026-09-08" title="9/8 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:3" data-d="2026-09-09" title="9/9 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:4" data-d="2026-09-10" title="9/10 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:5" data-d="2026-09-11" title="9/11 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:6" data-d="2026-09-12" title="9/12 · 0 次"></i><i class="l0" style="grid-column:17;grid-row:7" data-d="2026-09-13" title="9/13 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:1" data-d="2026-09-14" title="9/14 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:2" data-d="2026-09-15" title="9/15 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:3" data-d="2026-09-16" title="9/16 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:4" data-d="2026-09-17" title="9/17 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:5" data-d="2026-09-18" title="9/18 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:6" data-d="2026-09-19" title="9/19 · 0 次"></i><i class="l0" style="grid-column:18;grid-row:7" data-d="2026-09-20" title="9/20 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:1" data-d="2026-09-21" title="9/21 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:2" data-d="2026-09-22" title="9/22 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:3" data-d="2026-09-23" title="9/23 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:4" data-d="2026-09-24" title="9/24 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:5" data-d="2026-09-25" title="9/25 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:6" data-d="2026-09-26" title="9/26 · 0 次"></i><i class="l0" style="grid-column:19;grid-row:7" data-d="2026-09-27" title="9/27 · 0 次"></i><i class="l0" style="grid-column:20;grid-row:1" data-d="2026-09-28" title="9/28 · 0 次"></i><i class="l0" style="grid-column:20;grid-row:2" data-d="2026-09-29" title="9/29 · 0 次"></i><i class="l0" style="grid-column:20;grid-row:3" data-d="2026-09-30" title="9/30 · 0 次"></i><i class="l0" style="grid-column:20;grid-row:4" data-d="2026-10-01" title="10/1 · 0 次"></i><i class="l1" style="grid-column:20;grid-row:5" data-d="2026-10-02" title="10/2 · 1 次"></i><i class="l0" style="grid-column:20;grid-row:6" data-d="2026-10-03" title="10/3 · 0 次"></i><i class="l0" style="grid-column:20;grid-row:7" data-d="2026-10-04" title="10/4 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:1" data-d="2026-10-05" title="10/5 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:2" data-d="2026-10-06" title="10/6 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:3" data-d="2026-10-07" title="10/7 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:4" data-d="2026-10-08" title="10/8 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:5" data-d="2026-10-09" title="10/9 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:6" data-d="2026-10-10" title="10/10 · 0 次"></i><i class="l0" style="grid-column:21;grid-row:7" data-d="2026-10-11" title="10/11 · 0 次"></i><i class="l3" style="grid-column:22;grid-row:1" data-d="2026-10-12" title="10/12 · 9 次"></i><i class="l3" style="grid-column:22;grid-row:2" data-d="2026-10-13" title="10/13 · 10 次"></i><i class="l0" style="grid-column:22;grid-row:3" data-d="2026-10-14" title="10/14 · 0 次"></i><i class="l1" style="grid-column:22;grid-row:4" data-d="2026-10-15" title="10/15 · 2 次"></i><i class="l1" style="grid-column:22;grid-row:5" data-d="2026-10-16" title="10/16 · 1 次"></i><i class="l1" style="grid-column:22;grid-row:6" data-d="2026-10-17" title="10/17 · 2 次"></i><i class="l0" style="grid-column:22;grid-row:7" data-d="2026-10-18" title="10/18 · 0 次"></i><i class="l0" style="grid-column:23;grid-row:1" data-d="2026-10-19" title="10/19 · 0 次"></i><i class="l0" style="grid-column:23;grid-row:2" data-d="2026-10-20" title="10/20 · 0 次"></i><i class="l0" style="grid-column:23;grid-row:3" data-d="2026-10-21" title="10/21 · 0 次"></i><i class="l2" style="grid-column:23;grid-row:4" data-d="2026-10-22" title="10/22 · 4 次"></i><i class="l1" style="grid-column:23;grid-row:5" data-d="2026-10-23" title="10/23 · 2 次"></i><i class="l1" style="grid-column:23;grid-row:6" data-d="2026-10-24" title="10/24 · 1 次"></i><i class="l0" style="grid-column:23;grid-row:7" data-d="2026-10-25" title="10/25 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:1" data-d="2026-10-26" title="10/26 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:2" data-d="2026-10-27" title="10/27 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:3" data-d="2026-10-28" title="10/28 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:4" data-d="2026-10-29" title="10/29 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:5" data-d="2026-10-30" title="10/30 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:6" data-d="2026-10-31" title="10/31 · 0 次"></i><i class="l0" style="grid-column:24;grid-row:7" data-d="2026-11-01" title="11/1 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:1" data-d="2026-11-02" title="11/2 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:2" data-d="2026-11-03" title="11/3 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:3" data-d="2026-11-04" title="11/4 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:4" data-d="2026-11-05" title="11/5 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:5" data-d="2026-11-06" title="11/6 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:6" data-d="2026-11-07" title="11/7 · 0 次"></i><i class="l0" style="grid-column:25;grid-row:7" data-d="2026-11-08" title="11/8 · 0 次"></i><i class="l0" style="grid-column:26;grid-row:1" data-d="2026-11-09" title="11/9 · 0 次"></i><i class="l0" style="grid-column:26;grid-row:2" data-d="2026-11-10" title="11/10 · 0 次"></i><i class="l0" style="grid-column:26;grid-row:3" data-d="2026-11-11" title="11/11 · 0 次"></i><i class="l0" style="grid-column:26;grid-row:4" data-d="2026-11-12" title="11/12 · 0 次"></i><i class="l0" style="grid-column:26;grid-row:5" data-d="2026-11-13" title="11/13 · 0 次"></i><i class="l2" style="grid-column:26;grid-row:6" data-d="2026-11-14" title="11/14 · 4 次"></i><i class="l4" style="grid-column:26;grid-row:7" data-d="2026-11-15" title="11/15 · 11 次"></i><i class="l3" style="grid-column:27;grid-row:1" data-d="2026-11-16" title="11/16 · 8 次"></i><i class="l1" style="grid-column:27;grid-row:2" data-d="2026-11-17" title="11/17 · 2 次"></i><i class="l1" style="grid-column:27;grid-row:3" data-d="2026-11-18" title="11/18 · 2 次"></i><i class="f" style="grid-column:27;grid-row:4" data-d="2026-11-19" title=""></i><i class="f" style="grid-column:27;grid-row:5" data-d="2026-11-20" title=""></i><i class="f" style="grid-column:27;grid-row:6" data-d="2026-11-21" title=""></i><i class="f" style="grid-column:27;grid-row:7" data-d="2026-11-22" title=""></i></div>
+      <div class="hm-months" style="--w:28"><span style="grid-column:1">5 月</span><span style="grid-column:3">6 月</span><span style="grid-column:8">7 月</span><span style="grid-column:12">8 月</span><span style="grid-column:17">9 月</span><span style="grid-column:21">10 月</span><span style="grid-column:25">11 月</span></div>
+      <div class="hm-foot">
+        <div class="hm-legend"><span>少</span><i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>多</span></div>
+        <div class="hm-months-total"><span><b>64</b>5 月</span><span><b>102</b>6 月</span><span><b>133</b>7 月</span><span><b>22</b>8 月</span><span><b>1</b>9 月</span><span><b>32</b>10 月</span><span><b>27</b>11 月</span></div>
+      </div>
+    </div></div>
+    <div class="page-foot v2-src"><span>出处</span>hely.fun 仓库 git log 按天统计，截至 2026 年 11 月 18 日。</div>
+  </div>
+</section>
+
+<section class="slide" data-chapter="08 / 摔跤" data-title="10 月 28 日" data-minutes="3" data-notes="这是那天我和 Codex 的真实对话，一条条点出来，边点边讲。重点讲三处：第一条，页面说验证码过期，其实验证码是对的——报错信息会骗人；中间那条“泰国的 Visa 一直拒绝”，开个存储服务卡在信用卡上；“给我中英，我看不懂”——我英文不好，工单都是 AI 帮我写的。最后是第二天重置了数据库密码，直连原数据库把登录救了回来。右边三条是我从这一天带走的。">
+  <div class="frame">
+    <header class="s-head"><div class="folio"><span class="kicker">08 / 摔过的跤 · 真实对话回放</span><span class="leaf">CODEX · 2026-10-28</span></div>
+      <h2>10 月 28 日，<em>网站登不上了</em></h2>
+      <p class="lead">那天我和 Codex 的<b>真实对话</b>（节选）。点一下，出一条。</p>
+    </header>
+    <div class="body"><div class="ch-grid2">
+      <div class="chat" data-chat><div class="pr-bar"><i></i><i></i><i></i><span>Codex · hely.fun</span></div>
+        <ol class="chat-log"><li class="me" style="--k:0"><time>08:49</time><p>目前 cloudflare 我还没弄好，我刚试了登录，一直提示验证码过期了，目前感觉网站不正常</p></li><li class="ai" style="--k:1"><time>08:50</time><p>查清了：Supabase 因存储超额限制了项目服务。你的验证码其实校验通过了，是后面查账号返回 500，前端误显示成“验证码过期”。</p></li><li class="me" style="--k:2"><time>09:09</time><p>能不能先清理 Supabase 里面之前的一些用户存储，释放点？我注册 Cloudflare 填银行卡还需要时间</p></li><li class="me" style="--k:3"><time>09:50</time><p>等等，我填了泰国的 Visa 一直拒绝</p></li><li class="me" style="--k:4"><time>09:57</time><p>成功了，赶紧安全全部迁移</p></li><li class="me" style="--k:5"><time>10:50</time><p>不行吗，啥情况，快速解决</p></li><li class="ai" style="--k:6"><time>10:50</time><p>原因确认了：R2 正常，Supabase 因存储超额锁住了源文件。文件下载和数据库接口都返回 402，所以现在无法复制，手机登录也会失败。</p></li><li class="me" style="--k:7"><time>11:19</time><p>给我中英，我看不懂</p></li><li class="me" style="--k:8"><time>11:33</time><p>收到邮件了，你帮我写怎么回，就说非常严重，我的网站连登录都登不上</p></li><li class="me" style="--k:9"><time>次日 13:34</time><p>（数据库密码）不记得</p></li><li class="me" style="--k:10"><time>13:45</time><p>好了。</p></li><li class="ai" style="--k:11"><time>13:45</time><p>密码有效，原数据库直连成功，找到恢复办法了。</p></li></ol>
+        <div class="chat-ctl"><button class="action" type="button" data-chat-next>下一条 →</button><button class="quiet" type="button" data-chat-all>全部显示</button><span class="chat-n"></span></div>
+      </div>
+      <div class="ch-lessons">
+        <div><b>报错会骗人</b><p>页面说“验证码过期”，真正的原因是数据库被锁。</p></div>
+        <div><b>免费额度是定时炸弹</b><p>用量起来的那天，就是它炸的那天。登录和存储放在一个篮子里，一起挂。</p></div>
+        <div class="ink"><b>不会，就截图问</b><p>开 Cloudflare、写英文工单、找数据库密码，每一步都是截图问 AI“对吗”。</p></div>
+      </div>
+    </div></div>
+    <div class="page-foot v2-src"><span>出处</span>2026 年 10 月 28–29 日 hely 项目 Codex 聊天记录原文节选（北京时间），已去掉密钥和项目编号。</div>
+  </div>
+</section>
+</main>
+
+<footer class="bottombar">
+  <div class="counter"><b id="current-number">01</b><span>/</span><span id="total-number">00</span><span class="total-time" id="total-time"></span></div>
+  <div class="progress"><span id="progress-fill"></span></div>
+  <span class="nav-hint hint-desktop">方向键 / 空格翻页 · F 全屏</span>
+  <span class="nav-hint hint-touch">轻扫或点箭头</span>
+  <div class="nav-btns">
+    <button id="prev-button" type="button" aria-label="上一页">←</button>
+    <button id="next-button" type="button" aria-label="下一页">→</button>
+  </div>
+</footer>
+
+<aside class="panel" id="notes-panel" hidden aria-label="讲师备注">
+  <div class="panel-head"><span>讲师备注 · N</span><button id="close-notes" type="button" aria-label="关闭">×</button></div>
+  <div class="panel-body" id="notes-content"></div>
+</aside>
+<aside class="panel" id="menu-panel" hidden aria-label="课程目录">
+  <div class="panel-head"><span>课程目录 · M</span><button id="close-menu" type="button" aria-label="关闭">×</button></div>
+  <ul class="menu-list" id="menu-list"></ul>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="course.js"></script>
+<script src="details.js"></script>
+<script src="v2.js"></script>
+</body>
+</html>
