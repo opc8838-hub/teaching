@@ -1,0 +1,29 @@
+
+</main>
+
+<footer class="bottombar">
+  <div class="counter"><b id="current-number">01</b><span>/</span><span id="total-number">00</span><span class="total-time" id="total-time"></span></div>
+  <div class="progress"><span id="progress-fill"></span></div>
+  <span class="nav-hint hint-desktop">方向键 / 空格翻页 · F 全屏</span>
+  <span class="nav-hint hint-touch">轻扫或点箭头</span>
+  <div class="nav-btns">
+    <button id="prev-button" type="button" aria-label="上一页">←</button>
+    <button id="next-button" type="button" aria-label="下一页">→</button>
+  </div>
+</footer>
+
+<aside class="panel" id="notes-panel" hidden aria-label="讲师备注">
+  <div class="panel-head"><span>讲师备注 · N</span><button id="close-notes" type="button" aria-label="关闭">×</button></div>
+  <div class="panel-body" id="notes-content"></div>
+</aside>
+<aside class="panel" id="menu-panel" hidden aria-label="课程目录">
+  <div class="panel-head"><span>课程目录 · M</span><button id="close-menu" type="button" aria-label="关闭">×</button></div>
+  <ul class="menu-list" id="menu-list"></ul>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="course.js"></script>
+<script src="details.js"></script>
+<script src="talk.js"></script>
+</body>
+</html>
